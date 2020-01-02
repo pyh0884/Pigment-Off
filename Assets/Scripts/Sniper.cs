@@ -5,15 +5,21 @@ using UnityEngine;
 public class Sniper : MonoBehaviour
 {
     public GameObject EmitPoint;
+    Vector3 dir;
     private LineRenderer laser;
+    private RaycastHit2D hit;
     void Start()
     {
         laser = GetComponent<LineRenderer>();
     }
-
-    // Update is called once per frame
     void Update()
     {
+        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(EmitPoint.transform.position);
         laser.SetPosition(0, EmitPoint.transform.position);
+        hit = Physics2D.Raycast(EmitPoint.transform.position, new Vector2(dir.x, dir.y), 100);
+        if (hit.collider!=null)
+        {
+            laser.SetPosition(1, hit.point);
+        }
     }
 }
