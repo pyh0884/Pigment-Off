@@ -16,10 +16,11 @@ public class Sniper : MonoBehaviour
     {
         dir = Input.mousePosition - Camera.main.WorldToScreenPoint(EmitPoint.transform.position);
         laser.SetPosition(0, EmitPoint.transform.position);
-        hit = Physics2D.Raycast(EmitPoint.transform.position, new Vector2(dir.x, dir.y), 100);
-        if (hit.collider!=null)
-        {
+        hit = Physics2D.Raycast(EmitPoint.transform.position, new Vector2(dir.x, dir.y), Mathf.Infinity);
+        //if (hit.collider!=null)
+        //{
             laser.SetPosition(1, hit.point);
-        }
+            //Debug.DrawLine(EmitPoint.transform.position,hit.point);
+        //}
     }
 }

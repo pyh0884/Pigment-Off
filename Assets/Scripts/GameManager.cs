@@ -83,7 +83,6 @@ public class GameManager : MonoBehaviour
     //}
     private void Update()
     {
-        Cursor.visible = false;
         int sceneNum = SceneManager.GetActiveScene().buildIndex;
         //if (player == null && sceneNum != 0 && sceneNum != 1 && sceneNum != 2 && sceneNum != 7 && sceneNum != 10 && sceneNum != 13 && sceneNum != 15 && sceneNum != 16 && sceneNum != 17)
         //{
