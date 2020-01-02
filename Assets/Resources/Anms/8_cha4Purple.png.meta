@@ -1,0 +1,1291 @@
+fileFormatVersion: 2
+guid: ce4dfec5dbc6340719a31c87b2242543
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1695832731000295871
+    second: 8_cha4Purple_0
+  - first:
+      213: -2474550672391996802
+    second: 8_cha4Purple_1
+  - first:
+      213: -90149854264345746
+    second: 8_cha4Purple_2
+  - first:
+      213: 625044900610223187
+    second: 8_cha4Purple_3
+  - first:
+      213: 2396921768635601683
+    second: 8_cha4Purple_4
+  - first:
+      213: 2644466122487220901
+    second: 8_cha4Purple_5
+  - first:
+      213: -2441116519717257569
+    second: 8_cha4Purple_6
+  - first:
+      213: -5996035627651539305
+    second: 8_cha4Purple_7
+  - first:
+      213: 3302314466452876957
+    second: 8_cha4Purple_8
+  - first:
+      213: -7123030327548481940
+    second: 8_cha4Purple_9
+  - first:
+      213: 2538404878560669391
+    second: 8_cha4Purple_10
+  - first:
+      213: 7366324227297984097
+    second: 8_cha4Purple_11
+  - first:
+      213: -5797172346200766365
+    second: 8_cha4Purple_12
+  - first:
+      213: -1969440896123840761
+    second: 8_cha4Purple_13
+  - first:
+      213: -2347202953791948961
+    second: 8_cha4Purple_14
+  - first:
+      213: -4025957090833015421
+    second: 8_cha4Purple_15
+  - first:
+      213: -3527139412080669408
+    second: 8_cha4Purple_16
+  - first:
+      213: 4796075672715803072
+    second: 8_cha4Purple_17
+  - first:
+      213: -6980321692262994779
+    second: 8_cha4Purple_18
+  - first:
+      213: 4769079411301558253
+    second: 8_cha4Purple_19
+  - first:
+      213: 3331949254391565013
+    second: 8_cha4Purple_20
+  - first:
+      213: 8679763413169415484
+    second: 8_cha4Purple_21
+  - first:
+      213: -6443361911982648056
+    second: 8_cha4Purple_22
+  - first:
+      213: -5224082647938316865
+    second: 8_cha4Purple_23
+  - first:
+      213: 3965618156451062966
+    second: 8_cha4Purple_24
+  - first:
+      213: 3892895520835836356
+    second: 8_cha4Purple_25
+  - first:
+      213: -4202461945589721006
+    second: 8_cha4Purple_26
+  - first:
+      213: 7448850263292656181
+    second: 8_cha4Purple_27
+  - first:
+      213: 7713016815799877564
+    second: 8_cha4Purple_28
+  - first:
+      213: 4557871119735014312
+    second: 8_cha4Purple_29
+  - first:
+      213: -912438652152950125
+    second: 8_cha4Purple_30
+  - first:
+      213: -6233203948586122929
+    second: 8_cha4Purple_31
+  - first:
+      213: -6298148445209200618
+    second: 8_cha4Purple_32
+  - first:
+      213: 1918666502688160172
+    second: 8_cha4Purple_33
+  - first:
+      213: -3260543408159627908
+    second: 8_cha4Purple_34
+  - first:
+      213: 5694442928155815012
+    second: 8_cha4Purple_35
+  - first:
+      213: 7575774346234192577
+    second: 8_cha4Purple_36
+  - first:
+      213: 1436322312228491986
+    second: 8_cha4Purple_37
+  - first:
+      213: -7647078686660554289
+    second: 8_cha4Purple_38
+  - first:
+      213: 8694991883633043615
+    second: 8_cha4Purple_39
+  - first:
+      213: 1349766559991376017
+    second: 8_cha4Purple_40
+  - first:
+      213: 3671044743117589743
+    second: 8_cha4Purple_41
+  - first:
+      213: 7737172515676377915
+    second: 8_cha4Purple_42
+  - first:
+      213: 874862203709761988
+    second: 8_cha4Purple_43
+  - first:
+      213: -6700805661149089517
+    second: 8_cha4Purple_44
+  - first:
+      213: -7502571718454311703
+    second: 8_cha4Purple_45
+  - first:
+      213: 2587780350771220385
+    second: 8_cha4Purple_46
+  - first:
+      213: 1550765977758387564
+    second: 8_cha4Purple_47
+  - first:
+      213: -5374685152153017401
+    second: 8_cha4Purple_48
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 8_cha4Purple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8100
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51d81289166d39468bd7c45fe5e905e
+      internalID: 1695832731000295871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_1
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 8100
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d68998b2a2c0eb4ba5228ef557ef0a4
+      internalID: -2474550672391996802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_2
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 8100
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b363eabc0989644dbe83f45d5ce1660
+      internalID: -90149854264345746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_3
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 8100
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a5adfadd4ac7ac49a832974bd0e6ba9
+      internalID: 625044900610223187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_4
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 8100
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459ece3101ebf5a409c26ce0435031cf
+      internalID: 2396921768635601683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7200
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff811b2374659c14b972e464521ed3ad
+      internalID: 2644466122487220901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_6
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 7200
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284ee460b32fc514496eca4ac0b68bcd
+      internalID: -2441116519717257569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_7
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 7200
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 424943ead7d6e5d48a72f0cecbb5bcf6
+      internalID: -5996035627651539305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_8
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 7200
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc80c7c3682cee44ba3d2a1931bda7b
+      internalID: 3302314466452876957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_9
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 7200
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ae3602df3e3d14c818e537b64ec115
+      internalID: -7123030327548481940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6300
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf33e6228e77ba448f8aeb57a057e52
+      internalID: 2538404878560669391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_11
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 6300
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d50d8c5e8b4a64a9d7b32a3958c7ba
+      internalID: 7366324227297984097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_12
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 6300
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805e51fe3c01b914d9cc76c673150d4d
+      internalID: -5797172346200766365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_13
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 6300
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a233c54835b5d50418ac74da0d152535
+      internalID: -1969440896123840761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_14
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 6300
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5bad50fa9235454692b4ae37496596a
+      internalID: -2347202953791948961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5400
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a4e58c0a4e32d4691ead7a97877abb
+      internalID: -4025957090833015421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_16
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 5400
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21b9558dcc77f148873face036a3242
+      internalID: -3527139412080669408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_17
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 5400
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16570e047357a8488ab19ed27f0e9f8
+      internalID: 4796075672715803072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_18
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 5400
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ce03df13ba5974282b83d8c2c8a02f
+      internalID: -6980321692262994779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_19
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 5400
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ed697266cb965449b2879f02c195fa
+      internalID: 4769079411301558253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71b5ae4a5bfaa8448dd002660b45ef0
+      internalID: 3331949254391565013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_21
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 4500
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585b63bbaf86d8f4782c5946181df209
+      internalID: 8679763413169415484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_22
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 4500
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c817662d3190c364d9bed4d4d96a17f1
+      internalID: -6443361911982648056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_23
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 4500
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7047e87ccd6a7ac408a879b669c0fae4
+      internalID: -5224082647938316865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_24
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 4500
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e33d12513c8ff4cabca0f85c8ffb91
+      internalID: 3965618156451062966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b0adab2f09b854da3131124e470908
+      internalID: 3892895520835836356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_26
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 3600
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e728b2c972150a489cf857c69b7b6f9
+      internalID: -4202461945589721006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_27
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 3600
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4c89690fa31e24f8706c3218b24a17
+      internalID: 7448850263292656181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_28
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 3600
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815cd583a4f869244832193ec9bc7c04
+      internalID: 7713016815799877564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_29
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 3600
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053555ad5a4a3994da7b82f20892e2f5
+      internalID: 4557871119735014312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2700
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422c47d616e44534cb415da6bfb42b53
+      internalID: -912438652152950125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_31
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 2700
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d55c4cc6e9325a419aa882301fc1f4a
+      internalID: -6233203948586122929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_32
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 2700
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d97e18ee81b53647ba9cbdca871f2ea
+      internalID: -6298148445209200618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_33
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 2700
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0acd6caf12dff474b8b5b690396b6697
+      internalID: 1918666502688160172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_34
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 2700
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b84ec2ec4a1e944832a9d2ea7cb404
+      internalID: -3260543408159627908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1800
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5526127f8ed229445ab5dcaf887cb697
+      internalID: 5694442928155815012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_36
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 1800
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f72070a3f50e8e45b410568398a1f07
+      internalID: 7575774346234192577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_37
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 1800
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c4387b5999a6c4baf05447bcdf214b
+      internalID: 1436322312228491986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_38
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 1800
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91335f67a080f94cb7dd9e71a38285b
+      internalID: -7647078686660554289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_39
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 1800
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a643638f1a1fc04cb54807f7286d171
+      internalID: 8694991883633043615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 900
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5dd0e9e8a2a9e4a8057313b2b8c3ba
+      internalID: 1349766559991376017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_41
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 900
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5537a4a317105f4f863b0eb405ed5ce
+      internalID: 3671044743117589743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_42
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 900
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9779d096a1447eb43b9133fa554d4bb7
+      internalID: 7737172515676377915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_43
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 900
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c454e8ab375dee74baf75db00f71bd9a
+      internalID: 874862203709761988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_44
+      rect:
+        serializedVersion: 2
+        x: 4336
+        y: 900
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee22f823dde5a041bb2d6e273992d48
+      internalID: -6700805661149089517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac21306249d2ff44960b1eff022846a
+      internalID: -7502571718454311703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_46
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 0
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8022beb909fe3ca4b987e1c47fa0d23c
+      internalID: 2587780350771220385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_47
+      rect:
+        serializedVersion: 2
+        x: 2168
+        y: 0
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1f73ba15647564ab87e37d418531b4
+      internalID: 1550765977758387564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 8_cha4Purple_48
+      rect:
+        serializedVersion: 2
+        x: 3252
+        y: 0
+        width: 1084
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a5581b86a86824bb277efbce07ae09
+      internalID: -5374685152153017401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
