@@ -9,7 +9,7 @@ public class HealthBar : MonoBehaviour
     public float Hp = 100;
     public float HpMax = 100;
     public int IncreaseHp;
-    //private Animator anim;
+    private Animator anim;
     public GameManager gm;
     public bool cheat;
     public float TargetHp = 100;
@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
         //Hp = gm.HP;
         //HpMax = gm.MAXHP;
         currentHealth();
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     public void Damage(int damageCount)
@@ -77,10 +77,12 @@ public class HealthBar : MonoBehaviour
     IEnumerator Die()
     {
         GetComponent<PlayerMovement>().controllable = false;
+        GetComponentInChildren<Attack>().CanAttack = false;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         Time.timeScale = 1;
-        //anim.SetTrigger("Die");
-        yield return new WaitForSeconds(1.5f);
+        anim.SetTrigger("Die");
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
         //gm.Respawn();
     }
     private void Update()

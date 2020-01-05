@@ -8,16 +8,20 @@ public class Attack : MonoBehaviour
     public GameObject EmitPos;
     public GameObject Bullet;
     public float CdTime;
-    private float cdTime = 0;
+    private float cdTime = 10;
     public Vector3 rotation;
-
     public Slider slider;
     public float Mp = 100;
     public float MpMax = 100;
     public float TargetMp = 100;
     public float lerpSpeed = 5;
     public float MpIncreaseSpeed = 5;
+    public bool MpBoost = false;
+    public bool MpSlow = false;
     public int MpCost = 10;
+    public bool CanAttack = true;
+    public GameObject main;
+    private Animator anim;
     public void KeLe()
     {
         StartCoroutine("Kele");
@@ -30,7 +34,15 @@ public class Attack : MonoBehaviour
     }
     void Start()
     {
+        cdTime = 10;
+        anim = main.GetComponent<Animator>();
+    }
+    public void Shoot()
+    {
+        Instantiate(Bullet, EmitPos.transform.position, Quaternion.identity);
         cdTime = 0;
+        TargetMp = Mp - MpCost;
+        TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
     }
     void Update()
     {
@@ -38,16 +50,23 @@ public class Attack : MonoBehaviour
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        if (Input.GetKey(KeyCode.Mouse0) && cdTime > CdTime && Mp >= MpCost) 
+        if (Input.GetKey(KeyCode.Mouse0) && cdTime > CdTime && Mp >= MpCost && CanAttack)  
         {
-            Instantiate(Bullet, EmitPos.transform.position,Quaternion.identity);
-            cdTime = 0;
-            TargetMp = Mp - MpCost;
-            TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
+            anim.SetTrigger("Attack");
         }
         if (Mp < MpMax)
         {
-            TargetMp += MpIncreaseSpeed * Time.deltaTime;
+            if (!MpBoost && !MpSlow)
+                TargetMp += MpIncreaseSpeed * Time.deltaTime;
+            else if (MpBoost)
+            {
+                TargetMp += MpIncreaseSpeed * 2 * Time.deltaTime;
+
+            }
+            else if (MpSlow)
+            {
+                TargetMp += MpIncreaseSpeed / 2 * Time.deltaTime;
+            }
         }
         if (TargetMp < Mp)
         {
