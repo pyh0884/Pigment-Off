@@ -77,9 +77,11 @@ GameObject:
   - component: {fileID: 2868081175143987429}
   - component: {fileID: 2868081175143987430}
   - component: {fileID: 2868081175143987427}
-  m_Layer: 10
+  - component: {fileID: 7196978858766690508}
+  - component: {fileID: 4157269445751420185}
+  m_Layer: 11
   m_Name: 03
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,6 +200,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &7196978858766690508
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868081175143987431}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.9201851, y: -0.79644203}
+  m_Size: {x: 2.7285767, y: 5.95253}
+  m_Direction: 0
+--- !u!114 &4157269445751420185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868081175143987431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33615faec45bb7a4c8fe94e203e9b9c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 50
+  TargetHp: 50
+  lerpSpeed: 5
+  HpMax: 50
 --- !u!1 &2868081175223476927
 GameObject:
   m_ObjectHideFlags: 0

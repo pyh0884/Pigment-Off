@@ -42,7 +42,6 @@ public class HealthBar : MonoBehaviour
         {
             if (!cheat)
             {
-                StartCoroutine("timeStop");
                 TargetHp -= damageCount;
                 //anim.SetTrigger("Hit");
             }
