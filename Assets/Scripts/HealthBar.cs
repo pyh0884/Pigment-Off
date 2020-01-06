@@ -24,6 +24,7 @@ public class HealthBar : MonoBehaviour
         //HpMax = gm.MAXHP;
         currentHealth();
         anim = GetComponent<Animator>();
+        GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();
     }
 
     public void Damage(int damageCount)
@@ -54,7 +55,6 @@ public class HealthBar : MonoBehaviour
     {
         HpMax += IncreaseHp;
         TargetHp += IncreaseHp + 20;
-        gm.HpCapacity = HpMax;
     }
 
     void currentHealth()
@@ -89,9 +89,5 @@ public class HealthBar : MonoBehaviour
     {
         //HpMax = gm.MAXHP;
         currentHealth();
-        if (Input.GetKeyDown(KeyCode.F11))
-        {
-            StartCoroutine("Die");
-        }
     }
 }

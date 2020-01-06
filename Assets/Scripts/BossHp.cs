@@ -45,7 +45,7 @@ public class BossHp : MonoBehaviour
     IEnumerator Die()
     {
         anim.SetTrigger("Die");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         if (isBoss)
         {
             float MinimumX = minimumX / maxmumX;

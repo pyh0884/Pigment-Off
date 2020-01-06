@@ -43,8 +43,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc252dc599813a44e9e9ce03dabf1a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHp: 150
-  HpCapacity: 150
-  CurrentDMG: 0
-  CritPos: 0
-  HorizontalSpeed: 0
+  BossTimer: 20
+  trans:
+  - {x: -17, y: -15, z: 0}
+  - {x: 1.89, y: 13.34, z: 0}
+  - {x: -32.15719, y: -1.6, z: 0}
+  - {x: -1, y: -3.9, z: 0}
+  - {x: 20.81, y: -9.68, z: 0}
+  Players:
+  - {fileID: 6843857157437626438, guid: de1faa1961eb75b48a265f029a32f4a8, type: 3}
+  - {fileID: 7953165986177069763, guid: 92ecb7b802a1300469d6521a90821c7b, type: 3}
+  - {fileID: 3708942789516745020, guid: 59a1d0bda058a8743aacfc78c45b05c2, type: 3}
+  - {fileID: 8989558679632061264, guid: c0afc54cc1379eb4592295c6e181c0fb, type: 3}
+  - {fileID: 9121099832402386578, guid: 57e5186b5ac74934ca32a912a872cad1, type: 3}
+  - {fileID: 6616568895496673577, guid: 29f71c57e01627447a2dc41b2db3fa27, type: 3}
+  playernum: 1
+  Bosss:
+  - {fileID: 162720268902439668, guid: d29b603cf9cc0a64cb8713c6dedc24bb, type: 3}
+  - {fileID: 6061966946156729012, guid: cf7672bf7c1890946bd69f2d9c1ae6fd, type: 3}
+  - {fileID: 95553249910931335, guid: 70185332115088546bbbf867a5c90de4, type: 3}
+  BossType: 0
+  ItemTimer: 3
+  Items:
+  - {fileID: 2339799271147433834, guid: 88c9c30aaccf65744bdefd66e0aa06a7, type: 3}
+  - {fileID: 6448181017526972674, guid: cd59b21257676b449b65c680570f56ff, type: 3}

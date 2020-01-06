@@ -8,12 +8,14 @@ public class BossAi1 : MonoBehaviour
     private float timer;
     public GameObject bullet;
     public Transform EmitPoint;
+    public int BossNum = 0;
     void Update()
     {
         timer += Time.deltaTime;
         if (AttackGap <= timer)
         {
-            Instantiate(bullet,EmitPoint.position,Quaternion.identity);
+            var bullet1=Instantiate(bullet,EmitPoint.position,Quaternion.identity);
+            bullet1.GetComponent<BulletAI>().ColorType = BossNum;
             timer = 0;
         }
     }

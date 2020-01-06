@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public float CurrentHp;
-    public float HpCapacity;
-    public int CurrentDMG;
-    public float CritPos;
-    //public Vector3 spawnPos;
-    public float HorizontalSpeed;
     private GameObject player;
+    public float BossTimer=20;
+    private float bossTimer=0;
+    public Vector3[] trans;
+    public GameObject[] Players;
+    public int playernum=1;
+    public GameObject[] Bosss;
+    public int BossType;
+    public float ItemTimer = 3;
+    private float itemTimer;
+    public GameObject[] Items;
     private void Awake()
     {
 
@@ -30,69 +33,75 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-    public float HP
-    {
-        get
-        {
-            return CurrentHp;
-        }
-    }
-    public float CRIT
-    {
-        get
-        {
-            return CritPos;
-        }
-    }
-
-    public float MAXHP
-    {
-        get
-        {
-            return HpCapacity;
-        }
-    }
-    public int DAMAGE
-    {
-        get
-        {
-            return CurrentDMG;
-        }
-    }
-    public void increaseATK(int ATK)
-    {
-        CurrentDMG += ATK;
-    }
-
-    public void increaseCrit(int CRIT)
-    {
-        CritPos += CRIT;
-    }
     void Start()
     {
-        CurrentHp = HpCapacity;
-        //HorizontalSpeed = 7.75f;
-        //HpCapacity = PlayerPrefs.GetInt("MAXHP", 150);
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-    //public void Respawn()
-    //{
-    //    int index = 17;
-    //    /*		if(SceneManager.GetActiveScene().buildIndex!=index)*/
-    //    SceneManager.LoadScene(index);
-    //    CurrentHp = HpCapacity;
-    //}
     private void Update()
     {
         int sceneNum = SceneManager.GetActiveScene().buildIndex;
-        //if (player == null && sceneNum != 0 && sceneNum != 1 && sceneNum != 2 && sceneNum != 7 && sceneNum != 10 && sceneNum != 13 && sceneNum != 15 && sceneNum != 16 && sceneNum != 17)
-        //{
-        //    player = Instantiate(playerPrefab, spawnPos, new Quaternion());
-        //}
-        //if (player)
-        //{
-        //    CurrentHp = player.GetComponent<HealthBar>().Hp;
-        //}
-        //HpCapacity = player.GetComponent<HealthBarControl>().HpMax;
+        if(sceneNum == 2)
+        { 
+        itemTimer += Time.deltaTime;
+        if (itemTimer >= ItemTimer)
+        {
+            itemTimer = 0;
+            if (Random.Range(0, 100) > 50)
+                Instantiate(Items[0], new Vector3(Random.Range(-30, 30), Random.Range(-15, 15), 0), Quaternion.identity);
+            else
+            {
+                Instantiate(Items[1], new Vector3(Random.Range(-30, 30), Random.Range(-15, 15), 0), Quaternion.identity);
+
+            }
+        }
+        bossTimer += Time.deltaTime;
+        if (bossTimer >= BossTimer)
+        {
+            bossTimer = 0;
+            switch (Mathf.FloorToInt(Random.Range(0, 2)))
+            {
+                case 0:
+                    Instantiate(Bosss[0], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+                    BossType = 0;
+                    break;
+                case 1:
+                    Instantiate(Bosss[1], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+                    BossType = 1;
+                    break;
+                case 2:
+                    Instantiate(Bosss[2], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+                    BossType = 2;
+                    break;
+                default:
+                    break;
+            }
+        } }
+        if (player == null&&sceneNum==2)
+        {
+            switch (playernum)
+            {
+                case 0:
+                    Instantiate(Players[0], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(Players[1], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(Players[2], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(Players[3], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(Players[4], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+                case 5:
+                    Instantiate(Players[5], new Vector3(0, 0, 0), Quaternion.identity);
+                    break;
+            }
+            player = GameObject.FindGameObjectWithTag("Player");
+
+        }
     }
 }
 

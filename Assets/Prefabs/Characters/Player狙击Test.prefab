@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 6269024371453969225}
   - component: {fileID: 5761248563260649363}
   m_Layer: 12
-  m_Name: "Player\u72D9\u51FB"
+  m_Name: "Player\u72D9\u51FBTest"
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1177,9 +1177,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 10
+  Slowed: 0
+  Boost: 0
   HitBackForce: 15
   HitBackTime: 0.2
   controllable: 1
+  CantWalk: 0
 --- !u!114 &5761248563260649363
 MonoBehaviour:
   m_ObjectHideFlags: 0

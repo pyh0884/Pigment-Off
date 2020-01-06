@@ -780,6 +780,7 @@ MonoBehaviour:
   AttackGap: 2
   bullet: {fileID: 3082881938200241482, guid: 0715dda37b1267b46a4c5228453bf006, type: 3}
   EmitPoint: {fileID: 162720268429651009}
+  BossNum: 0
 --- !u!70 &2018961092
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -84,15 +84,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
+  fromBoss: 0
   ShootSpeed: 15
   LastTime: 1
-  damage: 10
+  damage: 5
   ColorPool1: {fileID: 6130656674999146763, guid: ebce1c5c9344ca84394f808ab1dc653a,
     type: 3}
   ColorPool2: {fileID: 51496465737244923, guid: dc906568a8909544b92c181efcd5a21d,
     type: 3}
   ColorPool3: {fileID: 2208457182971135235, guid: 8a44f87a5dacf0c4f8598aae93352222,
     type: 3}
+  ColorType: 0
+  spr: {fileID: 1815555334705899162, guid: cf0e327b5d15ce74fa690c563a177487, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 4096

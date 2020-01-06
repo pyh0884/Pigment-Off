@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966944720917763}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: body2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945239266275}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: foot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945252854397}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945286444562}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: foot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945486637270}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: back2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945581128593}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: foot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945585377854}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: foot4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945614865284}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: cannon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966945926910316}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: head2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946032927985}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,9 +319,9 @@ GameObject:
   - component: {fileID: 712983157328661962}
   - component: {fileID: 1429654104608549939}
   - component: {fileID: 4695223000869034627}
-  m_Layer: 16
+  m_Layer: 12
   m_Name: Boss2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -489,6 +489,7 @@ MonoBehaviour:
   AttackGap: 2
   bullet: {fileID: 3082881938200241482, guid: 0715dda37b1267b46a4c5228453bf006, type: 3}
   EmitPoint: {fileID: 6061966945614865284}
+  BossNum: 1
 --- !u!70 &4695223000869034627
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946225872624}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: cannon1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946446614389}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +577,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946479212423}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +608,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946587088907}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -642,7 +643,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6061966946642223172}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: back1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

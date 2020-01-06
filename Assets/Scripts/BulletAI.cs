@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletAI : MonoBehaviour
 {
     public bool isEnemy;
+    public bool fromBoss;
     public float ShootSpeed;
     public float LastTime;
     private Rigidbody2D rb;
@@ -13,7 +14,8 @@ public class BulletAI : MonoBehaviour
     public GameObject ColorPool1;
     public GameObject ColorPool2;
     public GameObject ColorPool3;
-    private int ColorType;
+    public int ColorType;
+    public GameObject spr;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,7 +36,6 @@ public class BulletAI : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             rb.velocity = dir.normalized * ShootSpeed;
         }
-        ColorType = Mathf.FloorToInt(Random.Range(0, 3));
     }
     Collider2D nearest;
     Collider2D nearest2;
@@ -59,17 +60,20 @@ public class BulletAI : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<BossHp>().Damage(damage);
+            Instantiate(spr, transform.position, Quaternion.identity);
+            collision.GetComponent<EnemyHp>().Damage(damage);
             Destroy(gameObject);
         }
-        if (collision.tag == "Boss")
+        if (collision.tag == "Boss"&& !fromBoss)
         {
+            Instantiate(spr, transform.position, Quaternion.identity);
             collision.GetComponent<BossHp>().Damage(damage);
             collision.GetComponent<BossHp>().HitByPlayer = !isEnemy;
             Destroy(gameObject);
         }
         if (isEnemy && collision.tag == "Player")
         {
+            Instantiate(spr, transform.position, Quaternion.identity);
             collision.GetComponent<HealthBar>().Damage(damage);
             Destroy(gameObject);
         }
