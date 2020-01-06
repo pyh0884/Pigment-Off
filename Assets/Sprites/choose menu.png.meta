@@ -493,8 +493,8 @@ TextureImporter:
         serializedVersion: 2
         x: 395
         y: 1894
-        width: 1379
-        height: 1502
+        width: 1400
+        height: 1500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,10 +512,10 @@ TextureImporter:
       name: choose menu_16
       rect:
         serializedVersion: 2
-        x: 2298
-        y: 1894
-        width: 1312
-        height: 1490
+        x: 2232
+        y: 1872
+        width: 1400
+        height: 1500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -533,10 +533,10 @@ TextureImporter:
       name: choose menu_17
       rect:
         serializedVersion: 2
-        x: 4120
+        x: 3861
         y: 1894
-        width: 911
-        height: 1627
+        width: 1400
+        height: 1661
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,10 +554,10 @@ TextureImporter:
       name: choose menu_18
       rect:
         serializedVersion: 2
-        x: 590
-        y: 300
-        width: 838
-        height: 1311
+        x: 303
+        y: 278
+        width: 1400
+        height: 1500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -575,10 +575,10 @@ TextureImporter:
       name: choose menu_19
       rect:
         serializedVersion: 2
-        x: 2410
-        y: 229
-        width: 779
-        height: 1392
+        x: 2085
+        y: 223
+        width: 1400
+        height: 1500
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,10 +596,10 @@ TextureImporter:
       name: choose menu_20
       rect:
         serializedVersion: 2
-        x: 4109
-        y: 124
-        width: 1160
-        height: 1598
+        x: 3916
+        y: 107
+        width: 1400
+        height: 1622
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
