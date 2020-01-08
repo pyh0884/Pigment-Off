@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Attack : MonoBehaviour
 {
+    //Sniper
+    public GameObject EmitPoint;
+    private LineRenderer laser = null;
+    private RaycastHit2D hit;
+    public LayerMask BlockRay;
+    private Vector3 EndPoint;
+    //--------------------------------
     public GameObject gun;
-    public GameObject EmitPos;
     public GameObject Bullet;
     public float CdTime;
     private float cdTime = 10;
@@ -36,10 +42,15 @@ public class Attack : MonoBehaviour
     {
         cdTime = 10;
         anim = main.GetComponent<Animator>();
+        if (GetComponent<LineRenderer>())
+        {
+            laser = GetComponent<LineRenderer>();
+            laser.enabled = true;
+        }
     }
     public void Shoot()
     {
-        Instantiate(Bullet, EmitPos.transform.position, Quaternion.identity);
+        Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         cdTime = 0;
         TargetMp = Mp - MpCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
@@ -50,7 +61,29 @@ public class Attack : MonoBehaviour
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        if (Input.GetKey(KeyCode.Mouse0) && cdTime > CdTime && Mp >= MpCost && CanAttack)  
+        //Sniper
+        if (laser)
+        {
+            laser.SetPosition(0, EmitPoint.transform.position);
+            EndPoint = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - EmitPoint.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - EmitPoint.transform.position.y, 0);
+            hit = Physics2D.Raycast(EmitPoint.transform.position, EndPoint, Mathf.Infinity, BlockRay);
+            if (hit)
+                laser.SetPosition(1, hit.point);
+            else
+            {
+                laser.SetPosition(1, EmitPoint.transform.position + EndPoint.normalized * 50);
+            }
+        }
+        //--------------------------------------------------------
+        if (cdTime > CdTime)
+        {
+            laser.enabled = true;
+        }
+        else
+        {
+            laser.enabled = false;
+        }
+        if (Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
             anim.SetTrigger("Attack");
         }
@@ -77,6 +110,6 @@ public class Attack : MonoBehaviour
             Mp = Mathf.Lerp(Mp, TargetMp, Time.deltaTime * lerpSpeed);
         }
         slider.value = (float)(Mp / MpMax);
-
     }
+
 }

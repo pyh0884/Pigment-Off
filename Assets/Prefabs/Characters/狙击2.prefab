@@ -1346,10 +1346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484a34add44c46e4d89142aa4d4ca21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EmitPoint: {fileID: 1573157745471275799}
+  BlockRay:
+    serializedVersion: 2
+    m_Bits: 12288
   gun: {fileID: 5374280366598974842}
-  EmitPos: {fileID: 1573157745471275799}
   Bullet: {fileID: 32992067772103996, guid: 13aaaea662fe37b429ed20c85295f1d7, type: 3}
-  CdTime: 1.5
+  CdTime: 1
   rotation: {x: 0, y: 0, z: 0}
   slider: {fileID: 6046807951163667588}
   Mp: 100
