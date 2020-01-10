@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 10;
     public GameObject Bullet;
     public GameObject EmitPos;
-    public GameObject gun;
+    public GameObject GunSprite;
     int direction;
     void FindEnemy()
     {
@@ -90,7 +90,7 @@ public class EnemyAI : MonoBehaviour
         }
         Vector3 dir = nearest2.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        gun.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        GunSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
     }

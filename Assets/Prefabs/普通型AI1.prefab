@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 5337029279354796845}
   - component: {fileID: 5337029279354796846}
   - component: {fileID: 5337029279354796855}
-  m_Layer: 12
+  m_Layer: 11
   m_Name: "\u666E\u901A\u578BAI1"
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 20480
   timer1: 2
   AttackTimer: 0
   moveTimer: 2
@@ -841,7 +841,7 @@ MonoBehaviour:
   moveSpeed: 5
   Bullet: {fileID: 6376884418858697574, guid: 8302f592d03626845a34f4da1cbfd400, type: 3}
   EmitPos: {fileID: 5337029279859166887}
-  gun: {fileID: 5337029278723406234}
+  GunSprite: {fileID: 5337029278723406234}
 --- !u!114 &5337029279354796855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,7 +1030,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5337029279617680166

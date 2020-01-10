@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float hitBackTime = 0;
     public bool controllable = true;
     private Animator anim;
-    public bool CantWalk = false; //普通型1不会走路
+    public bool CantWalk = false;
     public void HitBack()
     {
         hitBackTime = 0;

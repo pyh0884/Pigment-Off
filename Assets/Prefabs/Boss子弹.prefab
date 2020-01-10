@@ -85,9 +85,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 1
   fromBoss: 1
-  ShootSpeed: 12
-  LastTime: 2
-  damage: 5
+  ShootSpeed: 10
+  Range: 25
+  damage: 25
+  CritPos: 0
+  CritDmgMultiplier: 150
   ColorPool1: {fileID: 7176178858895302, guid: a6da3b1cbea903441a7d278c5eb8bc11, type: 3}
   ColorPool2: {fileID: 8580138926006965594, guid: a0c566c8a94cb214a84da3b032401627,
     type: 3}
@@ -97,7 +99,7 @@ MonoBehaviour:
   spr: {fileID: 1815555334705899162, guid: cf0e327b5d15ce74fa690c563a177487, type: 3}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 4096
+    m_Bits: 6144
 --- !u!212 &5193644002696264607
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class BossColorPool : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.layer == 12)
         {
             //技能1：毒液
             if (Poison&&timer >= PoisonTimer)
@@ -39,7 +39,7 @@ public class BossColorPool : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.layer == 12)
         {
             collision.GetComponentInChildren<PlayerMovement>().Slowed = false;
             collision.GetComponentInChildren<Attack>().MpSlow = false;

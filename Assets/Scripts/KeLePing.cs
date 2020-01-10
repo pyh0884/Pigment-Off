@@ -11,7 +11,7 @@ public class KeLePing : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.gameObject.layer == 12)
         {
             collision.gameObject.GetComponentInChildren<Attack>().KeLe();
         }

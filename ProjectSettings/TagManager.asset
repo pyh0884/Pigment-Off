@@ -4,11 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Color
   - Enemy
   - PlayerAttack
   - EnemyAttack
   - Boss
+  - Normal1
+  - Normal2
+  - Sniper1
+  - Sniper2
+  - Cannon1
+  - Cannon2
   layers:
   - Default
   - TransparentFX
@@ -18,15 +23,15 @@ TagManager:
   - UI
   - 
   - 
-  - Color
+  - 
   - Bullet
   - Other
   - Enemy
-  - Character
+  - Player
   - Wall
-  - PPS
-  - Pool
-  - ExpBall
+  - Boss
+  - 
+  - 
   - 
   - 
   - 

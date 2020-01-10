@@ -85,9 +85,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEnemy: 0
   fromBoss: 0
-  ShootSpeed: 15
-  LastTime: 1
-  damage: 5
+  ShootSpeed: 35
+  Range: 12
+  damage: 10
+  CritPos: 0
+  CritDmgMultiplier: 150
   ColorPool1: {fileID: 3201984717076848711, guid: 755dd1c3e915ce04585e15f17df8abd7,
     type: 3}
   ColorPool2: {fileID: 3956798044949954053, guid: 91f155d0a25aa054981264b636335da8,

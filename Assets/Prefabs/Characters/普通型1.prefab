@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 6843857157437626439}
   m_Layer: 12
   m_Name: "\u666E\u901A\u578B1"
-  m_TagString: Player
+  m_TagString: Normal1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6843857157437626438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.8, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 7545698271223213247}
@@ -1638,11 +1638,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484a34add44c46e4d89142aa4d4ca21f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 7545698271223213246}
-  EmitPos: {fileID: 7545698271302346901}
+  isSniper: 0
+  BlockRay:
+    serializedVersion: 2
+    m_Bits: 0
+  isCannon: 0
+  CannonBlockRay:
+    serializedVersion: 2
+    m_Bits: 0
+  GunSprite: {fileID: 7545698271223213246}
+  EmitPoint: {fileID: 7545698271302346901}
   Bullet: {fileID: 579202383672559884, guid: d760b3c4bae1c4322865f717d29d84c3, type: 3}
   CdTime: 0.2
-  rotation: {x: 0, y: 0, z: 0}
   slider: {fileID: 7545698271747648068}
   Mp: 100
   MpMax: 100
