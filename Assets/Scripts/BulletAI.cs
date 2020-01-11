@@ -23,17 +23,12 @@ public class BulletAI : MonoBehaviour
     public GameObject ColorPool3;
     public int ColorType;
     public GameObject spr;
-    public void SetInitial(Vector3 direction)
-    {
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * ShootSpeed;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject,Range/ShootSpeed);
-        if (isEnemy)  
+        if (isEnemy)
         {
             FindEnemy();
             Vector3 dir = nearest2.transform.position - transform.position;

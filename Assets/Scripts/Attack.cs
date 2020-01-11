@@ -7,14 +7,18 @@ public class Attack : MonoBehaviour
     //Sniper
     [Header("狙击角色：")]
     public bool isSniper;
+    [Header("瞄准速度")]
+    public float AimingSpeed = 5;
     public LayerMask BlockRay;
     public LineRenderer laserLeft;
     public LineRenderer laserRight;
-    private RaycastHit2D hit;
+    private RaycastHit2D LeftHit;
+    private RaycastHit2D RightHit;
     private bool pressed = false;
     private Vector3 EndPoint;
     private Vector3 LeftPoint;
     private Vector3 RightPoint;
+    private Vector3 RandomDir;
     //--------------------------------
     //Cannon
     [Header("重炮角色：")]
@@ -64,16 +68,13 @@ public class Attack : MonoBehaviour
     {
         cdTime = 10;
         anim = main.GetComponent<Animator>();
-        if (isSniper)
-        {
-            laserLeft.enabled = true;
-            laserRight.enabled = true;
-        }
     }
     public void Shoot()
     {
-        var bul=Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-        bul.GetComponent<BulletAI>().SetInitial(dir);
+        var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
+        bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+
         cdTime = 0;
         TargetMp = Mp - MpCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
@@ -92,19 +93,33 @@ public class Attack : MonoBehaviour
             laserLeft.enabled = true;
             laserRight.enabled = true;
         }
-        hit = Physics2D.Raycast(EmitPoint.transform.position, EndPoint, Mathf.Infinity, BlockRay);
-        if (hit)
+        /*
+         * //如果狙击瞄准线不受掩体阻挡
+         * laserLeft.SetPosition(1, EmitPoint.transform.position + LeftPoint.normalized * 20);
+         * laserRight.SetPosition(1, EmitPoint.transform.position + RightPoint.normalized * 20);  
+         * LeftPoint = Vector3.Lerp(LeftPoint, EndPoint, AimingSpeed * Time.deltaTime);
+         * RightPoint = Vector3.Lerp(RightPoint, EndPoint, AimingSpeed * Time.deltaTime);        
+         */
+        LeftHit = Physics2D.Raycast(EmitPoint.transform.position, LeftPoint, 20, BlockRay);
+        RightHit = Physics2D.Raycast(EmitPoint.transform.position, RightPoint, 20, BlockRay);
+        if (LeftHit)
         {
-            // laser.SetPosition(1, hit.point);
-            laserLeft.SetPosition(1, hit.point);
-            laserRight.SetPosition(1, hit.point);
+            laserLeft.SetPosition(1, LeftHit.point);
         }
         else
         {
-            // laser.SetPosition(1, EmitPoint.transform.position + EndPoint.normalized * 50);
-            laserLeft.SetPosition(1, EmitPoint.transform.position + EndPoint.normalized * 50);
-            laserRight.SetPosition(1, EmitPoint.transform.position + EndPoint.normalized * 50);
+            laserLeft.SetPosition(1, EmitPoint.transform.position + LeftPoint.normalized * 20);
         }
+        if (RightHit)
+        {
+            laserRight.SetPosition(1, RightHit.point);
+        }
+        else
+        {
+            laserRight.SetPosition(1, EmitPoint.transform.position + RightPoint.normalized * 20);
+        }
+        LeftPoint = Vector3.Lerp(LeftPoint, EndPoint, AimingSpeed * Time.deltaTime);
+        RightPoint = Vector3.Lerp(RightPoint, EndPoint, AimingSpeed * Time.deltaTime);
     }
     void Update()
     {
@@ -123,18 +138,24 @@ public class Attack : MonoBehaviour
             anim.SetTrigger("Attack");
         }
         //狙击射击（松开左键时）
-        if (isSniper && Input.GetKeyUp(KeyCode.Mouse0))
+        if (isSniper && Input.GetKeyUp(KeyCode.Mouse0) && pressed)
         {
-            pressed = false;
-            anim.SetTrigger("Attack"); //不同的Animatioin,动画事件使用新Method
-            //var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            //bul.GetComponent<BulletAI>().SetInitial(dir);
             laserLeft.enabled = false;
             laserRight.enabled = false;
+            pressed = false;
+            anim.SetTrigger("Attack"); //不同的Animatioin,动画事件使用新Method
+            RandomDir = (EmitPoint.transform.position+LeftPoint+(RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude))-EmitPoint.transform.position;
+            Debug.Log(LeftPoint);
+            Debug.Log(RightPoint);
+            Debug.Log(RandomDir);
+            var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+            bul.GetComponent<Rigidbody2D>().velocity= new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
+            bul.transform.rotation= Quaternion.AngleAxis(Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg, Vector3.forward);
             cdTime = 0;
             TargetMp = Mp - MpCost;
             TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         }
+
         if (Mp < MpMax)
         {
             if (!MpBoost && !MpSlow)
