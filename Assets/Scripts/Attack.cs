@@ -9,12 +9,15 @@ public class Attack : MonoBehaviour
     public bool isSniper;
     [Header("瞄准速度")]
     public float AimingSpeed = 5;
+    [Header("瞄准时消耗颜料/帧")]
+    public float AimingCost = 0.2f;
     public LayerMask BlockRay;
     public LineRenderer laserLeft;
     public LineRenderer laserRight;
     private RaycastHit2D LeftHit;
     private RaycastHit2D RightHit;
     private bool pressed = false;
+    private bool StartAiming;
     private Vector3 EndPoint;
     private Vector3 LeftPoint;
     private Vector3 RightPoint;
@@ -82,11 +85,14 @@ public class Attack : MonoBehaviour
 
     public void SniperAiming()
     {
+        TargetMp -= AimingCost;
+        TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         laserLeft.SetPosition(0, EmitPoint.transform.position);
         laserRight.SetPosition(0, EmitPoint.transform.position);
         EndPoint = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - EmitPoint.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - EmitPoint.transform.position.y, 0);
         if (!pressed)
         {
+            TargetMp = Mp - MpCost;
             LeftPoint = new Vector3(-1 * EndPoint.y, EndPoint.x, 0);
             RightPoint = new Vector3(EndPoint.y, -1 * EndPoint.x, 0);
             pressed = true;
@@ -130,30 +136,30 @@ public class Attack : MonoBehaviour
         //Sniper
         if (isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
-            SniperAiming();
+            StartAiming = true;
         }
         //--------------------------------------------------------
         else if (Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime) 
         {
             anim.SetTrigger("Attack");
         }
-        //狙击射击（松开左键时）
-        if (isSniper && Input.GetKeyUp(KeyCode.Mouse0) && pressed)
+        if (StartAiming)
         {
+            SniperAiming();
+        }
+        //狙击射击（松开左键时）
+        if ((isSniper && Input.GetKeyUp(KeyCode.Mouse0) && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
+        {
+            StartAiming = false;
             laserLeft.enabled = false;
             laserRight.enabled = false;
             pressed = false;
             anim.SetTrigger("Attack"); //不同的Animatioin,动画事件使用新Method
             RandomDir = (EmitPoint.transform.position+LeftPoint+(RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude))-EmitPoint.transform.position;
-            Debug.Log(LeftPoint);
-            Debug.Log(RightPoint);
-            Debug.Log(RandomDir);
             var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             bul.GetComponent<Rigidbody2D>().velocity= new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
             bul.transform.rotation= Quaternion.AngleAxis(Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg, Vector3.forward);
             cdTime = 0;
-            TargetMp = Mp - MpCost;
-            TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         }
 
         if (Mp < MpMax)
