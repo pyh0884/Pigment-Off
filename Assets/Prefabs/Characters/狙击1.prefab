@@ -613,6 +613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSniper: 1
+  AimingSpeed: 5
+  AimingCost: 0.2
   BlockRay:
     serializedVersion: 2
     m_Bits: 12288
@@ -622,10 +624,12 @@ MonoBehaviour:
   CannonBlockRay:
     serializedVersion: 2
     m_Bits: 0
+  TrajectoryLine: {fileID: 0}
   GunSprite: {fileID: 2422297363925446953}
   EmitPoint: {fileID: 7258283274164476783}
   Bullet: {fileID: 9109574244942567357, guid: d4a89921080fdc146870cf114e7a8bba, type: 3}
   CdTime: 1
+  tempCD: 0
   slider: {fileID: 6274196475983852516}
   Mp: 100
   MpMax: 100

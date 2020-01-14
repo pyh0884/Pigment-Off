@@ -97,10 +97,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSniper: 0
+  AimingSpeed: 5
+  AimingCost: 0.2
   BlockRay:
     serializedVersion: 2
     m_Bits: 0
-  isCannon: 0
+  laserLeft: {fileID: 0}
+  laserRight: {fileID: 0}
+  isCannon: 1
   CannonBlockRay:
     serializedVersion: 2
     m_Bits: 0
@@ -115,7 +119,9 @@ MonoBehaviour:
   lerpSpeed: 5
   MpIncreaseSpeed: 5
   MpBoost: 0
+  MpBoostNum: 3
   MpSlow: 0
+  MpSlowNum: 3
   MpCost: 10
   CanAttack: 1
   main: {fileID: 6616568895496673577}

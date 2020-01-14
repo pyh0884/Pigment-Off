@@ -1639,17 +1639,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSniper: 0
+  AimingSpeed: 5
+  AimingCost: 0.2
   BlockRay:
     serializedVersion: 2
     m_Bits: 0
+  laserLeft: {fileID: 0}
+  laserRight: {fileID: 0}
   isCannon: 0
   CannonBlockRay:
     serializedVersion: 2
     m_Bits: 0
+  TrajectoryLine: {fileID: 0}
   GunSprite: {fileID: 7545698271223213246}
   EmitPoint: {fileID: 7545698271302346901}
   Bullet: {fileID: 579202383672559884, guid: d760b3c4bae1c4322865f717d29d84c3, type: 3}
   CdTime: 0.2
+  tempCD: 0
   slider: {fileID: 7545698271747648068}
   Mp: 100
   MpMax: 100
@@ -1657,7 +1663,9 @@ MonoBehaviour:
   lerpSpeed: 5
   MpIncreaseSpeed: 5
   MpBoost: 0
+  MpBoostNum: 3
   MpSlow: 0
+  MpSlowNum: 3
   MpCost: 10
   CanAttack: 1
   main: {fileID: 6843857157437626438}

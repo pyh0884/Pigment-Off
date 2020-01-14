@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
         hitBackTime = 0;
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         rb.velocity = new Vector2(dir.x, dir.y).normalized * HitBackForce * -1;
-            GetComponentInChildren<Attack>().Shoot();
+        GetComponentInChildren<Attack>().Shoot();
     }
     public void Paoxie()
     {

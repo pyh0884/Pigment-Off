@@ -10,7 +10,7 @@ public class ColorPool : MonoBehaviour
         if (collision.gameObject.layer == 12 && (collision.tag == "Normal1" || collision.tag == "Normal2")) 
         {
             collision.GetComponentInChildren<Attack>().MpBoost = true;
-            collision.GetComponentInChildren<Attack>().CdTime /= IncreaseShootingSpd;
+            collision.GetComponentInChildren<Attack>().CdTime = collision.GetComponentInChildren<Attack>().tempCD / IncreaseShootingSpd;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -18,7 +18,7 @@ public class ColorPool : MonoBehaviour
         if (collision.gameObject.layer == 12 && (collision.tag == "Normal1" || collision.tag == "Normal2"))
         {
             collision.GetComponentInChildren<Attack>().MpBoost = false;
-            collision.GetComponentInChildren<Attack>().CdTime *= IncreaseShootingSpd;
+            collision.GetComponentInChildren<Attack>().CdTime = collision.GetComponentInChildren<Attack>().tempCD;
         }
 
     }

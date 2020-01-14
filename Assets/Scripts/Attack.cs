@@ -27,16 +27,20 @@ public class Attack : MonoBehaviour
     [Header("重炮角色：")]
     public bool isCannon;
     public LayerMask CannonBlockRay;
+    public LineRenderer TrajectoryLine;
     //--------------------------------
     //Basic Attack Parameters
     [Header("基本参数：")]
     private Vector3 dir;
+    private float angle;
     public GameObject GunSprite;
     public GameObject EmitPoint;
     public GameObject Bullet;
     [Header("攻击间隔")]
     public float CdTime;
     private float cdTime = 10;
+    [HideInInspector]
+    public float tempCD;
     private Vector3 rotation;
     public Slider slider;
     public float Mp = 100;
@@ -70,13 +74,31 @@ public class Attack : MonoBehaviour
     void Start()
     {
         cdTime = 10;
+        tempCD = CdTime;
         anim = main.GetComponent<Animator>();
     }
     public void Shoot()
     {
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x-transform.position.x,2)+ Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y,2)) < 12) //Todo：增加射程变量
+        {
+            //Debug.Log(Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)));
+            bul.GetComponent<BulletAI>().Range= Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2));
+        }
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
-        bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
+        if (angle >= -90 && angle <= 90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else if (angle > 90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle + 180));
+        }
+        else if (angle < -90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle - 180));
+        }
+        //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
 
         cdTime = 0;
         TargetMp = Mp - MpCost;
@@ -131,7 +153,7 @@ public class Attack : MonoBehaviour
     {
         cdTime += Time.deltaTime;
         dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         GunSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         //Sniper
         if (isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
@@ -139,9 +161,13 @@ public class Attack : MonoBehaviour
             StartAiming = true;
         }
         //--------------------------------------------------------
-        else if (Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime) 
+        if (!isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
-            anim.SetTrigger("Attack");
+            anim.SetBool("Attack", true);
+        }
+        else
+        {
+            anim.SetBool("Attack", false);
         }
         if (StartAiming)
         {

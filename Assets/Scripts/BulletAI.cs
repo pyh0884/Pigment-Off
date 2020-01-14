@@ -22,7 +22,9 @@ public class BulletAI : MonoBehaviour
     public GameObject ColorPool2;
     public GameObject ColorPool3;
     public int ColorType;
-    public GameObject spr;
+    public GameObject spr; //弃用
+    public GameObject efx;
+    public GameObject shadow;
 
     void Start()
     {
@@ -55,12 +57,16 @@ public class BulletAI : MonoBehaviour
             }
         if (nearest == nearest2) { nearest2 = list[1]; }
     }
-
+    private void Update()
+    {
+        shadow.transform.localPosition += new Vector3(0,0.6f/(Range / ShootSpeed)*Time.deltaTime,0);
+        //shadow.transform.localPosition = new Vector3(1.098f, Mathf.Clamp(shadow.transform.localPosition.y, -1.5f, -0.5f));
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            Instantiate(spr, transform.position, Quaternion.identity);
+            //Instantiate(spr, transform.position, Quaternion.identity);
             if (Random.Range(0, 100) < CritPos)
             {
                 collision.GetComponent<EnemyHp>().Damage(damage * CritDmgMultiplier / 100);
@@ -73,7 +79,7 @@ public class BulletAI : MonoBehaviour
         }
         if (collision.tag == "Boss"&& !fromBoss)
         {
-            Instantiate(spr, transform.position, Quaternion.identity);
+            //Instantiate(spr, transform.position, Quaternion.identity);
             if (Random.Range(0, 100) < CritPos)
             {
                 collision.GetComponent<BossHp>().Damage(damage * CritDmgMultiplier / 100);
@@ -85,9 +91,9 @@ public class BulletAI : MonoBehaviour
             collision.GetComponent<BossHp>().HitByPlayer = !isEnemy;
             Destroy(gameObject);
         }
-        if (isEnemy && collision.gameObject.layer == 12)
+        if (isEnemy && collision.gameObject.layer == 12) //"Player"
         {
-            Instantiate(spr, transform.position, Quaternion.identity);
+            //Instantiate(spr, transform.position, Quaternion.identity);
             if (Random.Range(0, 100) < CritPos)
             {
                 collision.GetComponent<HealthBar>().Damage(damage * CritDmgMultiplier / 100);
@@ -96,6 +102,11 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.layer == 13) //"Environment"
+        {
+            //Instantiate(spr, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -115,6 +126,10 @@ public class BulletAI : MonoBehaviour
             default:
                 Instantiate(ColorPool1, gameObject.transform.position, Quaternion.identity);
                 break;
+        }
+        if (efx)
+        {
+            Instantiate(efx, gameObject.transform.position, Quaternion.identity);
         }
 
     }

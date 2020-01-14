@@ -98,6 +98,8 @@ MonoBehaviour:
     type: 3}
   ColorType: 0
   spr: {fileID: 1815555334705899162, guid: cf0e327b5d15ce74fa690c563a177487, type: 3}
+  efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
+  shadow: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
