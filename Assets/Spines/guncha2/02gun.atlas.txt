@@ -1,0 +1,48 @@
+
+02gun.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cannon
+  rotate: false
+  xy: 584, 584
+  size: 847, 408
+  orig: 847, 408
+  offset: 0, 0
+  index: -1
+effect1
+  rotate: true
+  xy: 1433, 489
+  size: 503, 578
+  orig: 503, 578
+  offset: 0, 0
+  index: -1
+effect2
+  rotate: true
+  xy: 584, 115
+  size: 467, 666
+  orig: 467, 666
+  offset: 0, 0
+  index: -1
+effect3
+  rotate: false
+  xy: 2, 2
+  size: 580, 990
+  orig: 580, 990
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: false
+  xy: 1580, 265
+  size: 194, 222
+  orig: 194, 222
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: false
+  xy: 1252, 197
+  size: 326, 290
+  orig: 326, 290
+  offset: 0, 0
+  index: -1

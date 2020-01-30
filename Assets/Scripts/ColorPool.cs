@@ -12,6 +12,15 @@ public class ColorPool : MonoBehaviour
             collision.GetComponentInChildren<Attack>().MpBoost = true;
             collision.GetComponentInChildren<Attack>().CdTime = collision.GetComponentInChildren<Attack>().tempCD / IncreaseShootingSpd;
         }
+        if (collision.gameObject.layer == 12 && (collision.tag == "Sniper1" || collision.tag == "Sniper2"))
+        {
+            collision.GetComponentInChildren<Attack>().MpBoost = true;
+            collision.GetComponent<PlayerMovement>().Boost = true;
+        }
+        if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2"))
+        {
+            collision.GetComponentInChildren<Attack>().MpBoost = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -19,6 +28,15 @@ public class ColorPool : MonoBehaviour
         {
             collision.GetComponentInChildren<Attack>().MpBoost = false;
             collision.GetComponentInChildren<Attack>().CdTime = collision.GetComponentInChildren<Attack>().tempCD;
+        }
+        if (collision.gameObject.layer == 12 && (collision.tag == "Sniper1" || collision.tag == "Sniper2"))
+        {
+            collision.GetComponentInChildren<Attack>().MpBoost = false;
+            collision.GetComponent<PlayerMovement>().Boost = false;
+        }
+        if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2"))
+        {
+            collision.GetComponentInChildren<Attack>().MpBoost = false;
         }
 
     }

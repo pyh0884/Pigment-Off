@@ -12,15 +12,32 @@ public class PlayerMovement : MonoBehaviour
     public float HitBackForce = 5;
     public float HitBackTime = 0.1f;
     private float hitBackTime = 0;
+    public float DashSpeed = 40;
+    public float DashTime = 0.1f;
+    public int DashCount = 0;
     public bool controllable = true;
     private Animator anim;
     public bool CantWalk = false;
+    private bool isSniper;
+    private bool isCannon;
     public void HitBack()
     {
         hitBackTime = 0;
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         rb.velocity = new Vector2(dir.x, dir.y).normalized * HitBackForce * -1;
-        GetComponentInChildren<Attack>().Shoot();
+    }
+    public void dash()
+    {
+        DashCount = 3;
+    }
+    IEnumerator Dash()
+    {
+        DashCount -= 1;
+        hitBackTime = 0;
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        rb.velocity = new Vector2(dir.x, dir.y).normalized * DashSpeed;
+        yield return new WaitForSeconds(DashTime);
+        rb.velocity = Vector2.zero;
     }
     public void Paoxie()
     {
@@ -35,15 +52,22 @@ public class PlayerMovement : MonoBehaviour
     //Top-down Shooting Movement
     void Start()
     {
+        MoveSpeed = MoveSpeed;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        isSniper = GetComponentInChildren<Attack>().isSniper;
+        isCannon = GetComponentInChildren<Attack>().isCannon;
     }
     void Update()
     {
         hitBackTime += Time.deltaTime;
-        if (hitBackTime > HitBackTime)
+        if (hitBackTime > HitBackTime) 
         {
             rb.velocity = Vector2.zero;
+        }
+        if (DashCount > 0 && isSniper && Input.GetKeyDown(KeyCode.Mouse1)) 
+        {
+            StartCoroutine("Dash");
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");

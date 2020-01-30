@@ -21,13 +21,14 @@ public class BulletAI : MonoBehaviour
     public GameObject ColorPool1;
     public GameObject ColorPool2;
     public GameObject ColorPool3;
-    public int ColorType;
+    private int ColorType;
     public GameObject spr; //弃用
     public GameObject efx;
     public GameObject shadow;
 
     void Start()
     {
+        ColorType = Mathf.FloorToInt(Random.Range(0, 2.9f));
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject,Range/ShootSpeed);
         if (isEnemy)

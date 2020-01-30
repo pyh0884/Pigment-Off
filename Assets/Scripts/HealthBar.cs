@@ -12,6 +12,7 @@ public class HealthBar : MonoBehaviour
     private Animator anim;
     public GameManager gm;
     public bool cheat;
+    public bool Shield;
     public float TargetHp = 100;
     public float lerpSpeed = 5;
     public float lerpSpeed2 = 5;
@@ -43,7 +44,10 @@ public class HealthBar : MonoBehaviour
         {
             if (!cheat)
             {
-                TargetHp -= damageCount;
+                if (!Shield)
+                    TargetHp -= damageCount;
+                else
+                    TargetHp -= damageCount * .6f;
                 //anim.SetTrigger("Hit");
             }
             TargetHp = Mathf.Clamp(TargetHp, 0, HpMax);

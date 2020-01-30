@@ -17,6 +17,13 @@ public class CannonBullet : MonoBehaviour
     private float screenX;
     private bool start = false;
     private float timer = 0;
+    private int ColorType;
+    public GameObject efx;
+    public GameObject shadow;
+    public Collider2D explosion;
+    public GameObject ColorPool1;
+    public GameObject ColorPool2;
+    public GameObject ColorPool3;
     #region same height
     public float height = 1;
     public float TotalTime = 1.2f;
@@ -25,12 +32,13 @@ public class CannonBullet : MonoBehaviour
     {
         start = true;
         targetPos = target;
-        velocityX = (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x) / TotalTime;
-        velocityY = (Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y) / TotalTime;
+        velocityX = (target.x - transform.position.x) / TotalTime;
+        velocityY = (target.y - transform.position.y) / TotalTime;
         velocityZ0 = height / TotalTime + 10 * TotalTime;
     }
     void Start()
     {
+        ColorType = Mathf.FloorToInt(Random.Range(0, 2.9f));
         screenX = transform.position.x;
         screenY = transform.position.y;
         screenZ = 0;
@@ -41,7 +49,7 @@ public class CannonBullet : MonoBehaviour
         if (timer > TotalTime)
         {
             Destroy(gameObject);
-            //Todo:Explsion
+            explosion.enabled = true;
         }
         if (start)
         {
@@ -52,7 +60,10 @@ public class CannonBullet : MonoBehaviour
             //transform.position = new Vector3(screenX, screenY, screenZ);
             transform.position = new Vector3((screenX - xOffSet), (screenY - screenZ - yOffSet),0);
         }
-
+    }
+    private void Update()
+    {
+        shadow.transform.localPosition += new Vector3(0, 0.6f / 1.2f * Time.deltaTime, 0);
     }
     #endregion
     //#region same velocity
@@ -77,7 +88,7 @@ public class CannonBullet : MonoBehaviour
     //    if (timer > time)
     //    {
     //        Destroy(gameObject);
-    //        //Todo:Explsion
+    //        explosion.SetActive(true);
     //    }
     //    if (start)
     //    {
@@ -88,7 +99,34 @@ public class CannonBullet : MonoBehaviour
     //        //transform.position = new Vector3(screenX, screenY, screenZ);
     //        transform.position = new Vector3((screenX - xOffSet), (screenY - screenZ - yOffSet), 0);
     //    }
-
+    //}
+    //private void Update()
+    //{
+    //    shadow.transform.localPosition += new Vector3(0, 0.6f / time * Time.deltaTime, 0);
     //}
     //#endregion
+    private void OnDestroy()
+    {
+        switch (ColorType)
+        {
+            case 0:
+                Instantiate(ColorPool1, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(ColorPool2, gameObject.transform.position, Quaternion.identity);
+                break;
+            case 2:
+                Instantiate(ColorPool3, gameObject.transform.position, Quaternion.identity);
+                break;
+            default:
+                Instantiate(ColorPool1, gameObject.transform.position, Quaternion.identity);
+                break;
+        }
+        if (efx)
+        {
+            Instantiate(efx, gameObject.transform.position, Quaternion.identity);
+        }
+
+    }
+
 }
