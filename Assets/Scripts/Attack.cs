@@ -44,8 +44,9 @@ public class Attack : MonoBehaviour
     [Header("基本参数：")]
     public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, hold, shoot;
-    private string currentAnimation;
-    private string currentName;
+    private string currentState;
+    public string currentAnimation;
+    public string previousState;
     private Vector3 dir;
     private float angle;
     public GameObject GunSprite;
@@ -116,38 +117,37 @@ public class Attack : MonoBehaviour
     }
     void Start()
     {
-        currentAnimation = "idle";
-        SetCharacterState(currentAnimation);
+        currentState = "idle";
+        SetCharacterState(currentState);
         cdTime = 10;
         tempCD = CdTime;
         //anim = main.GetComponent<Animator>();
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
-        if (animation.name.Equals(currentName))
+        if (animation.name.Equals(currentAnimation))
         {
             return;
         }
         skeletonAnimation.state.SetAnimation(0, animation, loop);
-        currentName = animation.name;
+        currentAnimation = animation.name;
     }
+
     public void SetCharacterState(string state)
-    {
-        if (state.Equals("shoot"))
+    {   if (state.Equals("hold"))
+        {
+            SetAnimation(hold, true, 1f);
+        }
+        else if (state.Equals("shoot"))
         {
             SetAnimation(shoot, false, 1f);
         }
-        else if (state.Equals("hold"))
-        {
-            Debug.Log("hold");
-            SetAnimation(hold, true, 1f);
-        }
         else if (state.Equals("idle"))
         {
-            Debug.Log("idle");
             SetAnimation(idle, true, 1f);
         }
-        currentAnimation = state;
+
+        currentState = state;
     }
 
     public void Shoot() //普通型攻击
@@ -178,10 +178,22 @@ public class Attack : MonoBehaviour
         TargetMp = Mp - MpCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
     }
-
+    IEnumerator waitFor4()
+    {
+        yield return new WaitForSeconds(0.4f);
+        SetCharacterState("idle");
+    }
+    IEnumerator waitFor5()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SetCharacterState("idle");
+    }
     public void SniperAiming()
     {
-        SetCharacterState("hold");
+        if (!currentState.Equals("shoot"))
+        {
+            SetCharacterState("hold");
+        }            
         TargetMp -= AimingCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         laserLeft.SetPosition(0, EmitPoint.transform.position);
@@ -248,6 +260,8 @@ public class Attack : MonoBehaviour
             bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg - 180));
         }
         cdTime = 0;
+        StartCoroutine("waitFor5");
+
     }
     private float VelocityZ = 1 / 1.2f + 10 * 1.2f;
     private float VelocityY;
@@ -307,6 +321,7 @@ public class Attack : MonoBehaviour
             minDamage = 10;
         }
         cdTime = 0;
+        StartCoroutine("waitFor4");
     }
     void RotateGun()
     {
@@ -332,16 +347,17 @@ public class Attack : MonoBehaviour
         {
             main.GetComponent<PlayerMovement>().HitBack();
             SniperShoot();
+            if (!previousState.Equals("shoot"))
+            {
+                previousState = currentState;
+            }
             SetCharacterState("shoot");
+
         }
         //狙击按下左键时瞄准
         if (isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
             StartAiming = true;
-            //if (!currentAnimation.Equals("shoot"))
-            //{
-            //    SetCharacterState("hold");
-            //}
         }
         if (StartAiming)
         {
@@ -349,7 +365,10 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            SetCharacterState("idle");
+            if (!currentState.Equals("shoot"))
+            {
+                SetCharacterState("idle");
+            }
         }
         if (isSniper && Input.GetKeyDown(KeyCode.Mouse1) && CanAttack && skillCd2 > SkillCd2)
         {
@@ -364,9 +383,16 @@ public class Attack : MonoBehaviour
         {
             CannonPressed = true;
             CannonAiming = true;
-            if (!currentAnimation.Equals("shoot"))
+            if (!currentState.Equals("shoot"))
             {
                 SetCharacterState("hold");
+            }
+        }
+        else
+        {
+            if (!currentState.Equals("shoot"))
+            {
+                SetCharacterState("idle");
             }
         }
         //Cannon松开左键发射
@@ -442,8 +468,11 @@ public class Attack : MonoBehaviour
         skillCd3 += Time.deltaTime;
         cdTime += Time.deltaTime;
         RotateGun();
+        if (isSniper)
         SniperUpdate();
+        if(!isSniper&&!isCannon)
         NormalUpdate();
+        if(isCannon)
         CannonUpdate();
         MpCalculate();
     }
