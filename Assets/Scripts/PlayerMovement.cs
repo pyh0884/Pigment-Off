@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Spine.Unity;
 public class PlayerMovement : MonoBehaviour
 {
+    public SkeletonAnimation skeletonAnimation;
+    public AnimationReferenceAsset idle, walk, attack, death;
+    private string currentAnimation;
+    private string currentName;
     public float MoveSpeed = 5f;
     public bool Slowed = false;
     public bool Boost = false;
@@ -16,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     public float DashTime = 0.1f;
     public int DashCount = 0;
     public bool controllable = true;
-    private Animator anim;
+    //private Animator anim;
     public bool CantWalk = false;
     private bool isSniper;
     private bool isCannon;
@@ -52,12 +56,33 @@ public class PlayerMovement : MonoBehaviour
     //Top-down Shooting Movement
     void Start()
     {
-        MoveSpeed = MoveSpeed;
-        anim = GetComponent<Animator>();
+        currentAnimation = "idle";
+        SetCharacterState(currentAnimation);
+        //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isSniper = GetComponentInChildren<Attack>().isSniper;
         isCannon = GetComponentInChildren<Attack>().isCannon;
     }
+    public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
+    {
+        if (animation.name.Equals(currentName))
+        {
+            return;
+        }
+        skeletonAnimation.state.SetAnimation(0, animation, loop);
+        currentName = animation.name;
+    }
+    public void SetCharacterState(string state)
+    {
+        if (state.Equals("idle"))
+        {
+            SetAnimation(idle, true, 1f);
+        }
+        else if (state.Equals("walk"))
+        {
+            SetAnimation(walk, true, 1f);
+        }
+    } 
     void Update()
     {
         hitBackTime += Time.deltaTime;
@@ -71,20 +96,23 @@ public class PlayerMovement : MonoBehaviour
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.x != 0||movement.y!=0&&!CantWalk)
+        if (movement.x != 0 || movement.y != 0 && !CantWalk)
         {
-            anim.SetBool("Walk",true);
+            //anim.SetBool("Walk",true);
+            SetCharacterState("walk");
         }
         else
-            anim.SetBool("Walk", false);
+        {
+            SetCharacterState("idle");
+        }
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         if (dir.x > 0)
         {
-            rb.transform.eulerAngles = new Vector3(0,0,0);
+            rb.transform.eulerAngles = new Vector3(0, -180, 0);
         }
         else
         {
-            rb.transform.eulerAngles = new Vector3(0,-180,0);
+            rb.transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
     void FixedUpdate()

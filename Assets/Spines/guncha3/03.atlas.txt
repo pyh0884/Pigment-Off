@@ -1,0 +1,48 @@
+
+03.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect1
+  rotate: true
+  xy: 769, 43
+  size: 230, 245
+  orig: 230, 245
+  offset: 0, 0
+  index: -1
+effect2
+  rotate: true
+  xy: 389, 2
+  size: 352, 378
+  orig: 352, 378
+  offset: 0, 0
+  index: -1
+effect3
+  rotate: false
+  xy: 2, 59
+  size: 385, 451
+  orig: 385, 451
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 389, 356
+  size: 509, 154
+  orig: 509, 154
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: false
+  xy: 900, 275
+  size: 118, 150
+  orig: 118, 150
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: true
+  xy: 900, 427
+  size: 83, 121
+  orig: 83, 121
+  offset: 0, 0
+  index: -1
