@@ -1,0 +1,55 @@
+
+02.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cannon
+  rotate: true
+  xy: 2, 248
+  size: 761, 335
+  orig: 761, 335
+  offset: 0, 0
+  index: -1
+effect1
+  rotate: false
+  xy: 808, 431
+  size: 486, 578
+  orig: 486, 578
+  offset: 0, 0
+  index: -1
+effect2
+  rotate: false
+  xy: 339, 343
+  size: 467, 666
+  orig: 467, 666
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 421, 63
+  size: 278, 526
+  orig: 278, 526
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: false
+  xy: 949, 27
+  size: 168, 402
+  orig: 168, 402
+  offset: 0, 0
+  index: -1
+shou1
+  rotate: true
+  xy: 2, 2
+  size: 244, 232
+  orig: 244, 232
+  offset: 0, 0
+  index: -1
+shou2
+  rotate: false
+  xy: 236, 30
+  size: 183, 216
+  orig: 183, 216
+  offset: 0, 0
+  index: -1

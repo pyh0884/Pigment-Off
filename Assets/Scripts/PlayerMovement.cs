@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public bool Boost = false;
     private Rigidbody2D rb;
     Vector2 movement;
+    public bool isAttacking = false;
+    public bool dead = false;
     public float HitBackForce = 5;
     public float HitBackTime = 0.1f;
     private float hitBackTime = 0;
@@ -20,8 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public float DashTime = 0.1f;
     public int DashCount = 0;
     public bool controllable = true;
-    //private Animator anim;
-    public bool CantWalk = false;
     private bool isSniper;
     private bool isCannon;
     public void HitBack()
@@ -58,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
     {
         currentAnimation = "idle";
         SetCharacterState(currentAnimation);
-        //anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isSniper = GetComponentInChildren<Attack>().isSniper;
         isCannon = GetComponentInChildren<Attack>().isCannon;
@@ -72,9 +71,29 @@ public class PlayerMovement : MonoBehaviour
         skeletonAnimation.state.SetAnimation(0, animation, loop);
         currentName = animation.name;
     }
-    public void SetCharacterState(string state)
+    IEnumerator AttackAnim() 
     {
-        if (state.Equals("idle"))
+        yield return new WaitForSeconds(0.8f);
+        isAttacking = false;
+    }
+    public void SetCharacterState(string state)
+    {   if (state.Equals("die"))
+        {
+            SetAnimation(death, false, 1f);
+        }
+        else if (state.Equals("attack"))
+        {
+            if (isCannon || isSniper)
+            {
+                SetAnimation(attack, false, 1f);
+                StartCoroutine("AttackAnim");
+            }
+            else 
+            {
+                SetAnimation(attack, true, 1f);
+            }
+        }
+        else if (state.Equals("idle"))
         {
             SetAnimation(idle, true, 1f);
         }
@@ -82,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SetAnimation(walk, true, 1f);
         }
+
     } 
     void Update()
     {
@@ -96,14 +116,27 @@ public class PlayerMovement : MonoBehaviour
         }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        if (movement.x != 0 || movement.y != 0 && !CantWalk)
+        if (dead)
         {
-            //anim.SetBool("Walk",true);
-            SetCharacterState("walk");
+            SetCharacterState("die");
         }
         else
         {
-            SetCharacterState("idle");
+            if (isAttacking)
+            {
+                SetCharacterState("attack");
+            }
+            else
+            {
+                if (movement.x != 0 || movement.y != 0)
+                {
+                    SetCharacterState("walk");
+                }
+                else
+                {
+                    SetCharacterState("idle");
+                }
+            }
         }
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         if (dir.x > 0)

@@ -1,0 +1,41 @@
+
+01c.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 2
+  rotate: true
+  xy: 782, 2
+  size: 190, 210
+  orig: 190, 210
+  offset: 0, 0
+  index: -1
+cannon
+  rotate: true
+  xy: 2, 123
+  size: 899, 518
+  orig: 899, 518
+  offset: 0, 0
+  index: -1
+effect1
+  rotate: false
+  xy: 522, 171
+  size: 258, 286
+  orig: 258, 286
+  offset: 0, 0
+  index: -1
+effect1 copy
+  rotate: false
+  xy: 522, 459
+  size: 415, 563
+  orig: 415, 563
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 782, 194
+  size: 263, 255
+  orig: 263, 255
+  offset: 0, 0
+  index: -1

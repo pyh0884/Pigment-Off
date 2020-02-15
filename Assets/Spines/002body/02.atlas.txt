@@ -1,0 +1,62 @@
+
+02.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hand1
+  rotate: false
+  xy: 2, 26
+  size: 278, 526
+  orig: 278, 526
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: false
+  xy: 419, 10
+  size: 168, 402
+  orig: 168, 402
+  offset: 0, 0
+  index: -1
+jacket
+  rotate: false
+  xy: 2, 554
+  size: 746, 461
+  orig: 746, 461
+  offset: 0, 0
+  index: -1
+jacket1
+  rotate: false
+  xy: 750, 582
+  size: 235, 433
+  orig: 235, 433
+  offset: 0, 0
+  index: -1
+leg1
+  rotate: true
+  xy: 750, 414
+  size: 166, 227
+  orig: 166, 227
+  offset: 0, 0
+  index: -1
+leg2
+  rotate: true
+  xy: 282, 456
+  size: 96, 201
+  orig: 96, 201
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 282, 2
+  size: 410, 135
+  orig: 410, 135
+  offset: 0, 0
+  index: -1
+shirt
+  rotate: true
+  xy: 589, 138
+  size: 274, 423
+  orig: 274, 423
+  offset: 0, 0
+  index: -1

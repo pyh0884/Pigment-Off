@@ -1,0 +1,55 @@
+
+04.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1
+  rotate: false
+  xy: 550, 50
+  size: 86, 199
+  orig: 86, 199
+  offset: 0, 0
+  index: -1
+arm2
+  rotate: false
+  xy: 638, 52
+  size: 76, 197
+  orig: 76, 197
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 358, 34
+  size: 190, 215
+  orig: 190, 215
+  offset: 0, 0
+  index: -1
+leg1
+  rotate: false
+  xy: 716, 58
+  size: 57, 94
+  orig: 57, 94
+  offset: 0, 0
+  index: -1
+leg2
+  rotate: false
+  xy: 716, 154
+  size: 68, 95
+  orig: 68, 95
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 2
+  size: 239, 50
+  orig: 239, 50
+  offset: 0, 0
+  index: -1
+wool
+  rotate: false
+  xy: 2, 54
+  size: 354, 195
+  orig: 354, 195
+  offset: 0, 0
+  index: -1

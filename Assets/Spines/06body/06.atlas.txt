@@ -1,0 +1,55 @@
+
+06.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1
+  rotate: true
+  xy: 280, 113
+  size: 93, 192
+  orig: 93, 192
+  offset: 0, 0
+  index: -1
+arm2
+  rotate: true
+  xy: 295, 4
+  size: 107, 173
+  orig: 107, 173
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 2, 133
+  size: 278, 276
+  orig: 278, 276
+  offset: 0, 0
+  index: -1
+leg1
+  rotate: true
+  xy: 177, 2
+  size: 109, 116
+  orig: 109, 116
+  offset: 0, 0
+  index: -1
+leg2
+  rotate: true
+  xy: 2, 3
+  size: 128, 173
+  orig: 128, 173
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 2, 413
+  size: 304, 74
+  orig: 304, 74
+  offset: 0, 0
+  index: -1
+swim ring
+  rotate: true
+  xy: 308, 208
+  size: 279, 138
+  orig: 279, 138
+  offset: 0, 0
+  index: -1

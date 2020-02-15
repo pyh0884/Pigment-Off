@@ -1,0 +1,41 @@
+
+04.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 361, 28
+  size: 190, 215
+  orig: 190, 215
+  offset: 0, 0
+  index: -1
+effect
+  rotate: false
+  xy: 2, 6
+  size: 151, 114
+  orig: 151, 114
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 2, 122
+  size: 357, 121
+  orig: 357, 121
+  offset: 0, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 155, 2
+  size: 59, 53
+  orig: 59, 53
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: true
+  xy: 155, 63
+  size: 57, 56
+  orig: 57, 56
+  offset: 0, 0
+  index: -1

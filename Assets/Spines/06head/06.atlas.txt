@@ -1,0 +1,55 @@
+
+06.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bubble
+  rotate: true
+  xy: 303, 156
+  size: 100, 87
+  orig: 100, 87
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: true
+  xy: 418, 128
+  size: 292, 134
+  orig: 292, 134
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 2, 129
+  size: 299, 127
+  orig: 299, 127
+  offset: 0, 0
+  index: -1
+eye3
+  rotate: false
+  xy: 2, 2
+  size: 294, 125
+  orig: 294, 125
+  offset: 0, 0
+  index: -1
+glass
+  rotate: false
+  xy: 2, 258
+  size: 414, 162
+  orig: 414, 162
+  offset: 0, 0
+  index: -1
+hair1
+  rotate: false
+  xy: 575, 411
+  size: 394, 540
+  orig: 394, 540
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 2, 422
+  size: 571, 529
+  orig: 571, 529
+  offset: 0, 0
+  index: -1

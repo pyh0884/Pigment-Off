@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour
     //Basic Attack Parameters
     [Header("基本参数：")]
     public SkeletonAnimation skeletonAnimation;
-    public AnimationReferenceAsset idle, hold, shoot;
+    public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
     public string currentAnimation;
     public string previousState;
@@ -78,7 +78,7 @@ public class Attack : MonoBehaviour
     public int MpCost = 10;
     public bool CanAttack = true;
     public GameObject main;
-    //private Animator anim;
+    public bool dead;
     #endregion
     public void KeLe()
     {
@@ -121,7 +121,6 @@ public class Attack : MonoBehaviour
         SetCharacterState(currentState);
         cdTime = 10;
         tempCD = CdTime;
-        //anim = main.GetComponent<Animator>();
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
@@ -134,9 +133,14 @@ public class Attack : MonoBehaviour
     }
 
     public void SetCharacterState(string state)
-    {   if (state.Equals("hold"))
+    {
+        if (state.Equals("die"))
         {
-            SetAnimation(hold, true, 1f);
+            SetAnimation(death, false, 1f);
+        }
+        else if (state.Equals("target"))
+        {
+            SetAnimation(target, true, 1f);
         }
         else if (state.Equals("shoot"))
         {
@@ -192,7 +196,7 @@ public class Attack : MonoBehaviour
     {
         if (!currentState.Equals("shoot"))
         {
-            SetCharacterState("hold");
+            SetCharacterState("target");
         }            
         TargetMp -= AimingCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
@@ -242,7 +246,6 @@ public class Attack : MonoBehaviour
         laserLeft.enabled = false;
         laserRight.enabled = false;
         pressed = false;
-        //anim.SetTrigger("Attack"); //不同的Animatioin,动画事件使用新Method
         RandomDir = (EmitPoint.transform.position + LeftPoint + (RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude)) - EmitPoint.transform.position;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
@@ -345,6 +348,7 @@ public class Attack : MonoBehaviour
         //狙击射击（松开左键时）
         if ((isSniper && Input.GetKeyUp(KeyCode.Mouse0) && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
         {
+            main.GetComponent<PlayerMovement>().isAttacking = true;
             main.GetComponent<PlayerMovement>().HitBack();
             SniperShoot();
             if (!previousState.Equals("shoot"))
@@ -352,7 +356,6 @@ public class Attack : MonoBehaviour
                 previousState = currentState;
             }
             SetCharacterState("shoot");
-
         }
         //狙击按下左键时瞄准
         if (isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
@@ -385,7 +388,8 @@ public class Attack : MonoBehaviour
             CannonAiming = true;
             if (!currentState.Equals("shoot"))
             {
-                SetCharacterState("hold");
+                SetCharacterState("target");
+                main.GetComponentInChildren<HeadControl>().isTarget = true;
             }
         }
         else
@@ -398,9 +402,11 @@ public class Attack : MonoBehaviour
         //Cannon松开左键发射
         if ((isCannon && Input.GetKeyUp(KeyCode.Mouse0) && CannonPressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
         {
+            main.GetComponent<PlayerMovement>().isAttacking = true;
             CannonShoot();
             main.GetComponent<PlayerMovement>().HitBack();
             SetCharacterState("shoot");
+            main.GetComponentInChildren<HeadControl>().isAttacking = true;
         }
         if (isCannon && Input.GetKeyDown(KeyCode.Mouse1) && CanAttack && skillCd3 > SkillCd3)
         {
@@ -414,16 +420,18 @@ public class Attack : MonoBehaviour
         //普通型射击（按下/按住左键）
         if (!isSniper && !isCannon && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
+            main.GetComponent<PlayerMovement>().isAttacking = true;
             main.GetComponent<PlayerMovement>().HitBack();
             Shoot();
         }
         if (Input.GetKeyUp(KeyCode.Mouse0) || Mp <= MpCost)
         {
             NormalShooting = false;
+            main.GetComponent<PlayerMovement>().isAttacking = false;
         }
         if (NormalShooting)
         { 
-            SetCharacterState("hold");
+            SetCharacterState("target");
         }
         else
         {
@@ -467,13 +475,20 @@ public class Attack : MonoBehaviour
         skillCd2 += Time.deltaTime;
         skillCd3 += Time.deltaTime;
         cdTime += Time.deltaTime;
-        RotateGun();
-        if (isSniper)
-        SniperUpdate();
-        if(!isSniper&&!isCannon)
-        NormalUpdate();
-        if(isCannon)
-        CannonUpdate();
+        if (dead)
+        {
+            SetCharacterState("die");
+        }
+        else
+        {
+            RotateGun();
+            if (isSniper)
+                SniperUpdate();
+            if (!isSniper && !isCannon)
+                NormalUpdate();
+            if (isCannon)
+                CannonUpdate();
+        }
         MpCalculate();
     }
     private void FixedUpdate()

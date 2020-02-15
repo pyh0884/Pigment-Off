@@ -9,7 +9,6 @@ public class HealthBar : MonoBehaviour
     public float Hp = 100;
     public float HpMax = 100;
     public int IncreaseHp;
-    private Animator anim;
     public GameManager gm;
     public bool cheat;
     public bool Shield;
@@ -24,7 +23,6 @@ public class HealthBar : MonoBehaviour
         //Hp = gm.HP;
         //HpMax = gm.MAXHP;
         currentHealth();
-        anim = GetComponent<Animator>();
         GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();
     }
 
@@ -32,7 +30,6 @@ public class HealthBar : MonoBehaviour
     {
         //伤害特效 
         //       FindObjectOfType<AudioManager>().Play("Player_Hit");
-        //       anim.SetTrigger("Hit");
         if (damageCount < 0)
         {
             TargetHp -= damageCount;
@@ -48,7 +45,6 @@ public class HealthBar : MonoBehaviour
                     TargetHp -= damageCount;
                 else
                     TargetHp -= damageCount * .6f;
-                //anim.SetTrigger("Hit");
             }
             TargetHp = Mathf.Clamp(TargetHp, 0, HpMax);
             //currentHealth();
@@ -81,10 +77,12 @@ public class HealthBar : MonoBehaviour
     IEnumerator Die()
     {
         GetComponent<PlayerMovement>().controllable = false;
+        GetComponent<PlayerMovement>().dead = true;
+        GetComponentInChildren<Attack>().dead = true;
         GetComponentInChildren<Attack>().CanAttack = false;
+        GetComponentInChildren<HeadControl>().dead = true;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         Time.timeScale = 1;
-        anim.SetTrigger("Die");
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
         //gm.Respawn();
@@ -93,5 +91,9 @@ public class HealthBar : MonoBehaviour
     {
         //HpMax = gm.MAXHP;
         currentHealth();
+        if (Input.GetKeyDown(KeyCode.F11)) 
+        {
+            StartCoroutine("Die");
+        }
     }
 }
