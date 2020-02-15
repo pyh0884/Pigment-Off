@@ -18,13 +18,6 @@ gun2
   orig: 238, 138
   offset: 0, 0
   index: -1
-hand1
-  rotate: true
-  xy: 84, 146
-  size: 70, 84
-  orig: 70, 84
-  offset: 0, 0
-  index: -1
 hand2
   rotate: true
   xy: 2, 147
@@ -34,7 +27,7 @@ hand2
   index: -1
 shadow
   rotate: false
-  xy: 170, 142
+  xy: 84, 142
   size: 304, 74
   orig: 304, 74
   offset: 0, 0

@@ -1,14 +1,28 @@
 
 01c.png
-size: 1024,512
+size: 2048,512
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 Layer 1
-  rotate: true
-  xy: 571, 92
+  rotate: false
+  xy: 571, 47
   size: 416, 95
   orig: 416, 95
+  offset: 0, 0
+  index: -1
+arm1
+  rotate: true
+  xy: 571, 144
+  size: 364, 656
+  orig: 364, 656
+  offset: 0, 0
+  index: -1
+arm2
+  rotate: false
+  xy: 1229, 158
+  size: 254, 350
+  orig: 254, 350
   offset: 0, 0
   index: -1
 body
@@ -20,14 +34,14 @@ body
   index: -1
 leg1
   rotate: false
-  xy: 668, 252
+  xy: 1485, 252
   size: 179, 256
   orig: 179, 256
   offset: 0, 0
   index: -1
 leg2
   rotate: true
-  xy: 668, 97
+  xy: 1229, 3
   size: 153, 248
   orig: 153, 248
   offset: 0, 0
