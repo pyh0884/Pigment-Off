@@ -26,7 +26,7 @@ public class HealthBar : MonoBehaviour
         GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();
     }
 
-    public void Damage(int damageCount)
+    public void Damage(float damageCount)
     {
         //伤害特效 
         //       FindObjectOfType<AudioManager>().Play("Player_Hit");

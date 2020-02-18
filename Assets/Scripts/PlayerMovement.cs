@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public bool controllable = true;
     private bool isSniper;
     private bool isCannon;
+    public float MoveTimer = 0;
     public void HitBack()
     {
         hitBackTime = 0;
@@ -131,10 +132,12 @@ public class PlayerMovement : MonoBehaviour
                 if (movement.x != 0 || movement.y != 0)
                 {
                     SetCharacterState("walk");
+                    MoveTimer = 0;
                 }
                 else
                 {
                     SetCharacterState("idle");
+                    MoveTimer += Time.deltaTime;
                 }
             }
         }

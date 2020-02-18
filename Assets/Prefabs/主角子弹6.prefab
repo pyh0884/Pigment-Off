@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 241552463248082298}
   - component: {fileID: 241552463248082299}
-  - component: {fileID: 1064523196905474034}
   - component: {fileID: 7025956072064883633}
   - component: {fileID: 1758482772342709474}
   m_Layer: 0
@@ -57,22 +56,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1064523196905474034
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241552463248082276}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.03, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!212 &7025956072064883633
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +94,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 400676501479820890, guid: d6910157b52bc8f439c37213d708819c, type: 3}
+  m_Sprite: {fileID: -5037440076464639941, guid: fda7a93249d8dff4aba4155be3f17574,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,7 +125,6 @@ MonoBehaviour:
   velocityX: 0
   velocityY: 0
   velocityZ0: 0
-  ColorType: 0
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
   shadow: {fileID: 8337409019359748573}
   explosion: {fileID: 8574145566462382649}
@@ -151,8 +134,8 @@ MonoBehaviour:
     type: 3}
   ColorPool3: {fileID: 908392867739719581, guid: 85e740c58aa1bd340832874d944b78fe,
     type: 3}
-  height: 0.75
-  TotalTime: 1.2
+  height: 0.6
+  TotalTime: 1
 --- !u!1 &3388591666853419539
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +175,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3388591666853419539}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -213,20 +196,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2e3e3c2a681fb4d8b7aeef1b6059aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEnemy: 0
-  fromBoss: 0
   ShootSpeed: 0
   Range: 30
-  damage: 10
+  damage: 20
   CritPos: 0
   CritDmgMultiplier: 150
-  ColorPool1: {fileID: 0}
-  ColorPool2: {fileID: 0}
-  ColorPool3: {fileID: 0}
-  ColorType: 0
-  spr: {fileID: 0}
-  efx: {fileID: 0}
-  shadow: {fileID: 0}
+  ExpRange: 1
+  main: {fileID: 241552463248082276}
 --- !u!1 &8337409019359748573
 GameObject:
   m_ObjectHideFlags: 0

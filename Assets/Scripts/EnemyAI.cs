@@ -6,81 +6,73 @@ public class EnemyAI : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
-    Collider2D nearest;
-    Collider2D nearest2;
+    //Collider2D nearest;
+    //Collider2D nearest2;
+    public Collider2D notMove;
     public LayerMask enemyLayer;
     public float timer1=2;
     public float AttackTimer;
-    public float moveTimer=2;
-    public float HitBackForce = 5;
-    public float HitBackTime = 0.1f;
-    private float hitBackTime = 0;
     private Vector2 movement;
     public float moveSpeed = 10;
-    public GameObject Bullet;
-    public GameObject EmitPos;
-    public GameObject GunSprite;
-    int direction;
-    void FindEnemy()
+    //public GameObject Bullet;
+    //public GameObject EmitPos;
+    //public GameObject GunSprite;
+    //void FindEnemy()
+    //{
+    //    Collider2D[] list = Physics2D.OverlapCircleAll(transform.position, 150, enemyLayer);
+    //    nearest = list[0];
+    //    nearest2 = list[0];
+    //    foreach (Collider2D col in list)
+    //    {
+    //        if (Vector2.Distance(new Vector2(col.transform.position.x, col.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)) <= Vector2.Distance(new Vector2(nearest.transform.position.x, nearest.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)))
+    //        {
+    //            nearest2 = nearest;
+    //            nearest = col;
+    //        }
+    //    }
+    //    if (nearest == nearest2) { nearest2 = list[1]; }
+    //}
+    void FindNonMove()
     {
-        Collider2D[] list = Physics2D.OverlapCircleAll(transform.position, 150, enemyLayer);
-        nearest = list[0];
-        nearest2 = list[0];
+        Collider2D[] list = Physics2D.OverlapCircleAll(transform.position, 100, enemyLayer);
+        notMove = list[0];
         foreach (Collider2D col in list)
         {
-            if (Vector2.Distance(new Vector2(col.transform.position.x, col.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)) <= Vector2.Distance(new Vector2(nearest.transform.position.x, nearest.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)))
+            if (col.gameObject.GetComponent<PlayerMovement>().MoveTimer + col.gameObject.GetComponentInChildren<Attack>().moveNum >= notMove.gameObject.GetComponent<PlayerMovement>().MoveTimer + notMove.gameObject.GetComponentInChildren<Attack>().moveNum) 
             {
-                nearest2 = nearest;
-                nearest = col;
+                notMove = col;
             }
         }
-        if (nearest == nearest2) { nearest2 = list[1]; }
     }
-
     void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        anim.SetBool("Walk", true); 
-        hitBackTime = 0;
-        FindEnemy();
+        rb = GetComponent<Rigidbody2D>();        
+        FindNonMove();
     }
-
-    void Update()
-    {
-        if (!nearest2) { FindEnemy(); }
-        hitBackTime += Time.deltaTime;
-        moveTimer += Time.deltaTime;
-        if (moveTimer >= 1.5f)
+    void Update() 
+    { 
+        if (!notMove) 
         {
-            if (Random.Range(0, 100) > 40)
-            {
-                direction = 1;
-            }
-            else
-            {
-                direction = -1;
-            }
-            movement = new Vector2((nearest2.transform.position - transform.position).x, (nearest2.transform.position - transform.position).y).normalized * direction;
-            moveTimer = 0;
+            FindNonMove();
         }
-        if (hitBackTime > HitBackTime)
+        movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
+        //切换目标
+        timer1 += Time.deltaTime; 
+        if (timer1 >= 7)
         {
-            rb.velocity = Vector2.zero;
-        }
-        timer1 += Time.deltaTime; //切换目标
-        AttackTimer += Time.deltaTime; //攻击间隔
-        if (timer1 >= 5)
-        {
-            FindEnemy();
+            FindNonMove();
             timer1 = 0;
-        }
-        if (AttackTimer >= 1.5f)
+        } 
+        //攻击间隔
+        AttackTimer += Time.deltaTime; 
+        if (AttackTimer >= 2.5f)
         {
             AttackTimer = 0;
-            Shoot();
+            Attack();
         }
-        if (nearest2.transform.position.x-transform.position.x<0)
+        //左右朝向
+        if (notMove.transform.position.x - transform.position.x > 0) 
         {
             rb.transform.eulerAngles = new Vector3(0, -180, 0);
         }
@@ -88,24 +80,15 @@ public class EnemyAI : MonoBehaviour
         {
             rb.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        Vector3 dir = nearest2.transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        GunSprite.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
     }
-    public void Shoot()
+    public void Attack()
     {
-        hitBackTime = 0;
-        Vector3 dir = nearest2.transform.position-transform.position;
-        rb.velocity = new Vector2(dir.x, dir.y).normalized * HitBackForce * -1;
         anim.SetTrigger("Attack");
-        Instantiate(Bullet, EmitPos.transform.position, Quaternion.identity);
     }
 
     void FixedUpdate()
     {
-        if (nearest2)
+        if (notMove != null && Vector2.Distance(notMove.transform.position, transform.position) > 6)
         {
             rb.position = (rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }

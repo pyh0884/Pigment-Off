@@ -10,20 +10,12 @@ public class EnemyHp : MonoBehaviour
     private bool dead = false;
     public void Damage(int damageCount)
     {
-        //if (damageCount > 0)
-        //{
-        //    ps.Play();
-        //}
         Hp -= damageCount;
-        Hp = Mathf.Clamp(Hp, 0, HpMax);
     }
-
     void Start()
     {
-        //gm = FindObjectOfType<GameManager>();
         Hp = HpMax;
         anim = GetComponent<Animator>();
-
     }
     IEnumerator Die()
     {
@@ -36,7 +28,6 @@ public class EnemyHp : MonoBehaviour
         Hp = Mathf.Clamp(Hp, 0, HpMax);
         if ((Hp <= 0) && dead == false)
         {
-            // TODO 帧动画事件淡出+destroy 
             // destroy the object or play the dead animation
             dead = true;
             StartCoroutine("Die");

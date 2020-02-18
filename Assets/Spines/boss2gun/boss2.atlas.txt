@@ -1,0 +1,34 @@
+
+boss2.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect1
+  rotate: false
+  xy: 619, 187
+  size: 571, 805
+  orig: 571, 805
+  offset: 0, 0
+  index: -1
+effect2
+  rotate: true
+  xy: 1192, 109
+  size: 282, 644
+  orig: 282, 644
+  offset: 0, 0
+  index: -1
+effect3
+  rotate: true
+  xy: 1192, 393
+  size: 599, 794
+  orig: 599, 794
+  offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 2, 2
+  size: 615, 990
+  orig: 615, 990
+  offset: 0, 0
+  index: -1

@@ -5,6 +5,16 @@ using UnityEngine;
 public class ColorPool : MonoBehaviour
 {
     public float IncreaseShootingSpd = 1.5f;
+    private float Timer = 0.5f;
+    public float HpRecoverSpeed = 5;
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 12 && Timer > 1) //Todo:区分自己的颜料 阵营参数
+        {
+            collision.GetComponent<HealthBar>().Damage(-HpRecoverSpeed);
+            Timer = 0;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 12 && (collision.tag == "Normal1" || collision.tag == "Normal2")) 
@@ -19,6 +29,7 @@ public class ColorPool : MonoBehaviour
         }
         if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2"))
         {
+            collision.GetComponentInChildren<Attack>().expRange = 2;
             collision.GetComponentInChildren<Attack>().MpBoost = true;
         }
     }
@@ -36,6 +47,7 @@ public class ColorPool : MonoBehaviour
         }
         if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2"))
         {
+            collision.GetComponentInChildren<Attack>().expRange = 1;
             collision.GetComponentInChildren<Attack>().MpBoost = false;
         }
 
@@ -44,5 +56,8 @@ public class ColorPool : MonoBehaviour
     {
         Destroy(gameObject, 6);
     }
-
+    private void Update()
+    {
+        Timer += Time.deltaTime;
+    }
 }

@@ -27,20 +27,14 @@ public class BossHp : MonoBehaviour
 
     public void Damage(int damageCount)
     {
-        //if (damageCount > 0)
-        //{
-        //    ps.Play();
-        //}
         Hp -= damageCount;
         Hp = Mathf.Clamp(Hp, 0, HpMax);            
     }
 
     void Start()
     {
-        //gm = FindObjectOfType<GameManager>();
         Hp = HpMax;
-        anim = GetComponent<Animator>();
-        
+        anim = GetComponent<Animator>();        
     }
     IEnumerator Die()
     {
@@ -98,20 +92,16 @@ public class BossHp : MonoBehaviour
                     }
                 }
             }
-        }
-        
+        }//爆出颜料        
         Destroy(gameObject);
     }
     private void Update()
     {
         Hp = Mathf.Clamp(Hp, 0, HpMax);
         if ((Hp <= 0) && dead == false)
-        {
-            // TODO 帧动画事件淡出+destroy 
-            // destroy the object or play the dead animation
+        {            
             dead = true;
             StartCoroutine("Die");
         }
     }
-
 }

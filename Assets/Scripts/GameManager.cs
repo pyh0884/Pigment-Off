@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float ItemTimer = 3;
     private float itemTimer;
     public GameObject[] Items;
+    //Todo：阵营参数
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "__Main Menu")

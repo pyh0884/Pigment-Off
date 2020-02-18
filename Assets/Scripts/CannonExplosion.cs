@@ -16,10 +16,16 @@ public class CannonExplosion : MonoBehaviour
     public float CritPos = 0;
     [Header("暴击伤害百分比")]
     public int CritDmgMultiplier = 150;
+    public float ExpRange = 1;
+    public GameObject main;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, Range / ShootSpeed);
+        //Destroy(gameObject, Range / ShootSpeed);
+    }
+    private void Update()
+    {
+        GetComponent<CircleCollider2D>().radius = ExpRange;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,7 +40,7 @@ public class CannonExplosion : MonoBehaviour
             {
                 collision.GetComponent<EnemyHp>().Damage(damage);
             }
-            Destroy(gameObject);
+            Destroy(main);
         }
         if (collision.tag == "Boss")
         {
@@ -48,12 +54,7 @@ public class CannonExplosion : MonoBehaviour
                 collision.GetComponent<BossHp>().Damage(damage);
             }
             collision.GetComponent<BossHp>().HitByPlayer = true;
-            Destroy(gameObject);
-        }
-        if (collision.gameObject.layer == 13) //"Environment"
-        {
-            //Instantiate(spr, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(main);
         }
     }
 

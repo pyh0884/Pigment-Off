@@ -1,0 +1,27 @@
+
+05.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+effect2
+  rotate: false
+  xy: 2, 2
+  size: 413, 440
+  orig: 413, 440
+  offset: 0, 0
+  index: -1
+gun2
+  rotate: false
+  xy: 417, 212
+  size: 340, 230
+  orig: 340, 230
+  offset: 0, 0
+  index: -1
+hand2
+  rotate: false
+  xy: 417, 22
+  size: 183, 188
+  orig: 183, 188
+  offset: 0, 0
+  index: -1

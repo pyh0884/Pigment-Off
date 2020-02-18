@@ -1,0 +1,111 @@
+
+boss2.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1
+  rotate: false
+  xy: 1776, 611
+  size: 239, 303
+  orig: 239, 303
+  offset: 0, 0
+  index: -1
+body
+  rotate: true
+  xy: 1268, 227
+  size: 656, 354
+  orig: 656, 354
+  offset: 0, 0
+  index: -1
+body2
+  rotate: false
+  xy: 1211, 2
+  size: 250, 223
+  orig: 250, 223
+  offset: 0, 0
+  index: -1
+ear1
+  rotate: true
+  xy: 1521, 916
+  size: 541, 386
+  orig: 541, 386
+  offset: 0, 0
+  index: -1
+ear2
+  rotate: true
+  xy: 1521, 1459
+  size: 559, 522
+  orig: 559, 522
+  offset: 0, 0
+  index: -1
+face1
+  rotate: false
+  xy: 781, 50
+  size: 280, 253
+  orig: 280, 253
+  offset: 0, 0
+  index: -1
+face2
+  rotate: false
+  xy: 499, 34
+  size: 280, 269
+  orig: 280, 269
+  offset: 0, 0
+  index: -1
+face3
+  rotate: false
+  xy: 1624, 213
+  size: 272, 282
+  orig: 272, 282
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 679, 305
+  size: 587, 578
+  orig: 587, 578
+  offset: 0, 0
+  index: -1
+leg
+  rotate: false
+  xy: 1624, 497
+  size: 150, 417
+  orig: 150, 417
+  offset: 0, 0
+  index: -1
+motobike
+  rotate: false
+  xy: 2, 885
+  size: 1517, 1133
+  orig: 1517, 1133
+  offset: 0, 0
+  index: -1
+neck
+  rotate: false
+  xy: 2, 28
+  size: 495, 295
+  orig: 495, 295
+  offset: 0, 0
+  index: -1
+scarf1
+  rotate: true
+  xy: 1063, 95
+  size: 208, 146
+  orig: 208, 146
+  offset: 0, 0
+  index: -1
+scarf2
+  rotate: false
+  xy: 1463, 48
+  size: 183, 163
+  orig: 183, 163
+  offset: 0, 0
+  index: -1
+tail
+  rotate: false
+  xy: 2, 325
+  size: 675, 558
+  orig: 675, 558
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,48 @@
+
+05.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ear
+  rotate: true
+  xy: 683, 489
+  size: 444, 131
+  orig: 444, 131
+  offset: 0, 0
+  index: -1
+eye1
+  rotate: true
+  xy: 816, 629
+  size: 304, 64
+  orig: 304, 64
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 2, 2
+  size: 294, 60
+  orig: 294, 60
+  offset: 0, 0
+  index: -1
+hair1
+  rotate: false
+  xy: 452, 53
+  size: 327, 236
+  orig: 327, 236
+  offset: 0, 0
+  index: -1
+hair2
+  rotate: true
+  xy: 2, 64
+  size: 225, 448
+  orig: 225, 448
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 2, 291
+  size: 679, 642
+  orig: 679, 642
+  offset: 0, 0
+  index: -1

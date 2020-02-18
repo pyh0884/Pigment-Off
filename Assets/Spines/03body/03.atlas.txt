@@ -1,0 +1,41 @@
+
+03.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 12
+  rotate: false
+  xy: 380, 42
+  size: 269, 194
+  orig: 269, 194
+  offset: 0, 0
+  index: -1
+Layer 13
+  rotate: false
+  xy: 380, 2
+  size: 191, 38
+  orig: 191, 38
+  offset: 0, 0
+  index: -1
+cloak
+  rotate: false
+  xy: 2, 4
+  size: 376, 232
+  orig: 376, 232
+  offset: 0, 0
+  index: -1
+leg1
+  rotate: false
+  xy: 651, 56
+  size: 103, 180
+  orig: 103, 180
+  offset: 0, 0
+  index: -1
+leg2
+  rotate: false
+  xy: 756, 67
+  size: 77, 169
+  orig: 77, 169
+  offset: 0, 0
+  index: -1

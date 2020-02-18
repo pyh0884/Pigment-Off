@@ -39,18 +39,23 @@ public class Attack : MonoBehaviour
     public bool BoostCannon;
     public float SkillCd3 = 20;
     private float skillCd3 = 20;
+    public float expRange = 1;
     //--------------------------------
     //Basic Attack Parameters
     [Header("基本参数：")]
     public SkeletonAnimation skeletonAnimation;
+    public SkeletonAnimation skeletonAnimation2;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
     public string currentAnimation;
     public string previousState;
     private Vector3 dir;
+    private Vector3 dir2;
     private float angle;
+    private float angle2;
     public GameObject GunSprite;
     public GameObject EmitPoint;
+    public GameObject EmitPoint2;
     public GameObject Bullet;
     [Header("攻击间隔")]
     public float CdTime;
@@ -76,9 +81,12 @@ public class Attack : MonoBehaviour
     public float MpSlowNum = 3;
     [Header("每发子弹颜料消耗")]
     public int MpCost = 10;
-    public bool CanAttack = true;
+    public bool CanAttack = true; 
     public GameObject main;
     public bool dead;
+    private float AttackTimer;
+    private float SkillTimer;
+    public int moveNum;
     #endregion
     public void KeLe()
     {
@@ -92,6 +100,7 @@ public class Attack : MonoBehaviour
     }
     IEnumerator SkillBoost1()
     {
+        SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         CdTime /= 2;
         yield return new WaitForSeconds(8);
@@ -100,6 +109,7 @@ public class Attack : MonoBehaviour
     }
     IEnumerator SkillBoost2()
     {
+        SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         main.GetComponent<PlayerMovement>().dash();
         yield return new WaitForSeconds(8);
@@ -107,6 +117,7 @@ public class Attack : MonoBehaviour
     }
     IEnumerator SkillBoost3()
     {
+        SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         main.GetComponent<HealthBar>().Shield = true;
         CannonSkill = true;
@@ -129,6 +140,10 @@ public class Attack : MonoBehaviour
             return;
         }
         skeletonAnimation.state.SetAnimation(0, animation, loop);
+        if (skeletonAnimation2) 
+        {
+        skeletonAnimation2.state.SetAnimation(0, animation, loop);
+        }
         currentAnimation = animation.name;
     }
 
@@ -156,14 +171,18 @@ public class Attack : MonoBehaviour
 
     public void Shoot() //普通型攻击
     {
+        AttackTimer = 0;
         NormalShooting = true;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)) < 12) //Todo：增加射程变量
+        var bul2 = Instantiate(Bullet, EmitPoint2.transform.position, Quaternion.identity);
+        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)) < 12) 
         {
             //Debug.Log(Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)));
             bul.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2));
+            bul2.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2));
         }
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
+        bul2.GetComponent<Rigidbody2D>().velocity = new Vector2(dir2.x, dir2.y).normalized * bul2.GetComponent<BulletAI>().ShootSpeed;
         if (angle >= -90 && angle <= 90)
         {
             bul.transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -175,6 +194,18 @@ public class Attack : MonoBehaviour
         else if (angle < -90)
         {
             bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle - 180));
+        }
+        if (angle2 >= -90 && angle2 <= 90)
+        {
+            bul2.transform.rotation = Quaternion.Euler(0, 0, angle2);
+        }
+        else if (angle2 > 90)
+        {
+            bul2.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle2 + 180));
+        }
+        else if (angle2 < -90)
+        {
+            bul2.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle2 - 180));
         }
         //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
 
@@ -242,6 +273,7 @@ public class Attack : MonoBehaviour
     }
     public void SniperShoot()
     {
+        AttackTimer = 0;
         StartAiming = false;
         laserLeft.enabled = false;
         laserRight.enabled = false;
@@ -272,6 +304,13 @@ public class Attack : MonoBehaviour
     private bool CannonSkill;
     public void CannonTrajectory()
     {
+        if (!pressed)
+        {
+            TargetMp = Mp - MpCost;
+            pressed = true;
+        }
+        TargetMp -= AimingCost;
+        TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         TrajectoryLine.enabled = true;
         TrajectoryLine.SetPosition(0, EmitPoint.transform.position);
         VelocityX = (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - EmitPoint.transform.position.x) / 1.2f;
@@ -294,6 +333,8 @@ public class Attack : MonoBehaviour
     }
     public void CannonShoot()
     {
+        AttackTimer = 0;
+        pressed = false;
         CannonPressed = false;
         CannonAiming = false;
         TrajectoryLine.enabled = false;
@@ -302,6 +343,7 @@ public class Attack : MonoBehaviour
             var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
+            bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             if (BoostCannon)
             {
                 bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
@@ -316,6 +358,8 @@ public class Attack : MonoBehaviour
             bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 1, Camera.main.ScreenToWorldPoint(Input.mousePosition).y));
             bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul2.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
+            bul1.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
+            bul2.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             if (BoostCannon)
             {
                 bul1.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
@@ -341,6 +385,27 @@ public class Attack : MonoBehaviour
             //GunSprite.transform.rotation = Quaternion.Euler(0, 0, angle);
             GunSprite.transform.rotation = Quaternion.Euler(0, 180, -angle);
 
+        }
+    }
+    public GameObject gun1;
+    public GameObject gun2;
+    void RotateGun1()
+    {
+        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gun1.transform.position);
+        dir2 = Input.mousePosition - Camera.main.WorldToScreenPoint(gun2.transform.position);
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        angle2 = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
+        if (dir.x < 0)
+        {
+            //GunSprite.transform.rotation = Quaternion.Euler(180, 0, -angle);
+            gun1.transform.rotation = Quaternion.Euler(180, 180, angle);
+            gun2.transform.rotation = Quaternion.Euler(180, 180, angle2);
+        }
+        else
+        {
+            //GunSprite.transform.rotation = Quaternion.Euler(0, 0, angle);
+            gun1.transform.rotation = Quaternion.Euler(0, 180, -angle);
+            gun2.transform.rotation = Quaternion.Euler(0, 180, -angle2);
         }
     }
     void SniperUpdate()
@@ -475,13 +540,43 @@ public class Attack : MonoBehaviour
         skillCd2 += Time.deltaTime;
         skillCd3 += Time.deltaTime;
         cdTime += Time.deltaTime;
+        AttackTimer += Time.deltaTime;
+        SkillTimer += Time.deltaTime;
+        if (AttackTimer > 3)
+        {
+            if (SkillTimer > 5)
+            {
+                moveNum = 6;
+            }
+            else
+            {
+                moveNum = 1;
+            }
+        }
+        else 
+        {
+            if (SkillTimer > 5)
+            {
+                moveNum = 5;
+            }
+            else
+            {
+                moveNum = 0;
+            }
+        }
         if (dead)
         {
             SetCharacterState("die");
         }
         else
-        {
-            RotateGun();
+        {if (isSniper || isCannon)
+            {
+                RotateGun();
+            }
+            else 
+            {
+                RotateGun1();
+            }
             if (isSniper)
                 SniperUpdate();
             if (!isSniper && !isCannon)

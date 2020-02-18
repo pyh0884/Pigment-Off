@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1513429462571605536}
   - component: {fileID: 1513429462571605537}
-  - component: {fileID: 1774154961035451560}
   - component: {fileID: 8636733578150412523}
   - component: {fileID: 4379505902712210050}
   m_Layer: 0
@@ -138,22 +137,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &1774154961035451560
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1513429462571605566}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 1.03, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!212 &8636733578150412523
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -232,8 +215,8 @@ MonoBehaviour:
     type: 3}
   ColorPool3: {fileID: 908392867739719581, guid: 85e740c58aa1bd340832874d944b78fe,
     type: 3}
-  height: 0.75
-  TotalTime: 1.2
+  height: 0.6
+  TotalTime: 1
 --- !u!1 &7127314671250509321
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +279,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootSpeed: 0
   Range: 30
-  damage: 10
+  damage: 20
   CritPos: 0
   CritDmgMultiplier: 150
+  ExpRange: 1
+  main: {fileID: 1513429462571605566}
