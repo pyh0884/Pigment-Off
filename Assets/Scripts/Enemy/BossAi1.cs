@@ -14,7 +14,7 @@ public class BossAi1 : MonoBehaviour
         timer += Time.deltaTime;
         if (AttackGap <= timer)
         {
-            var bullet1=Instantiate(bullet,EmitPoint.position,Quaternion.identity);
+            //var bullet1=Instantiate(bullet,EmitPoint.position,Quaternion.identity);
             //bullet1.GetComponent<BulletAI>().ColorType = BossNum;
             timer = 0;
         }
