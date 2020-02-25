@@ -76,8 +76,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 277222997
+  m_SortingLayer: 1
   m_SortingOrder: 0
 --- !u!114 &5873586412946840354
 MonoBehaviour:
@@ -139,13 +139,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3154836332738346290}
-  m_LocalRotation: {x: 0, y: -0, z: 0.99074787, w: -0.13571563}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2044961, w: 0.97886735}
   m_LocalPosition: {x: -6.2, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2794935597797385369}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 195.6}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.6}
 --- !u!114 &7118801007788518786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,9 +174,9 @@ GameObject:
   - component: {fileID: 6202786214686396480}
   - component: {fileID: 2055928439639304502}
   - component: {fileID: 1368521463357839694}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ Transform:
   m_GameObject: {fileID: 5462626327508400459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2164111134454706856}
   - {fileID: 5317840459932977285}
@@ -211,9 +211,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackGap: 2
-  bullet: {fileID: 0}
-  EmitPoint: {fileID: 0}
-  BossNum: 0
+  notMove: {fileID: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 4096
+  Emit1: {fileID: 3154836332738346290}
+  danmu1: {fileID: 7118801007788518786}
+  Emit2: {fileID: 6441848992313294312}
+  danmu2: {fileID: 1909256560393421979}
+  timer1: 2
+  AttackTimer: 1
+  moveSpeed: 5
+  isAttacking: 0
+  skeletonAnimation: {fileID: 5873586412946840354}
+  idle: {fileID: 11400000, guid: 47339043f0320014b93451d1df6c4bfd, type: 2}
+  walk: {fileID: 11400000, guid: 5433a21b58d31854c8588f7026887750, type: 2}
+  shoot: {fileID: 11400000, guid: f99e6414ea6c75a479b9bfc081ca5ed0, type: 2}
+  death: {fileID: 11400000, guid: d956bbc6e45e3ac4a94bf6ac0875929f, type: 2}
+  currentAnimation: 
+  previousState: 
+  isMoving: 0
 --- !u!114 &6202786214686396480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33615faec45bb7a4c8fe94e203e9b9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss1: 1
   Hp: 400
   HpMax: 400
   HitByPlayer: 1
@@ -239,6 +257,10 @@ MonoBehaviour:
   maxmumX: 7
   minimumY: 3
   maxmumY: 10
+  main: {fileID: 2739741452309487290}
+  main2: {fileID: 0}
+  disappear: {fileID: 2535006517560300846, guid: d4b690995fb2c9a4997f51f232d3085d,
+    type: 3}
 --- !u!70 &2055928439639304502
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -275,7 +297,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6441848992313294312
 GameObject:
   m_ObjectHideFlags: 0

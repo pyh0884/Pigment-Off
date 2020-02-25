@@ -73,7 +73,10 @@ public class HealthBar : MonoBehaviour
         }
         slider.value = (float)(Hp / HpMax);
     }
-
+    public void die() 
+    {
+        StartCoroutine("Die");
+    }
     IEnumerator Die()
     {
         GetComponent<PlayerMovement>().controllable = false;
@@ -91,9 +94,9 @@ public class HealthBar : MonoBehaviour
     {
         //HpMax = gm.MAXHP;
         currentHealth();
-        if (Input.GetKeyDown(KeyCode.F11)) 
-        {
-            StartCoroutine("Die");
-        }
+        //if (Input.GetKeyDown(KeyCode.F11)) 
+        //{
+        //    StartCoroutine("Die");
+        //}
     }
 }

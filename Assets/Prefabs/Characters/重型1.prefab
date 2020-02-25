@@ -416,7 +416,7 @@ Transform:
   m_GameObject: {fileID: 3664156525590825054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 2061018111372029636}
   - {fileID: 8773258536938094842}
@@ -512,6 +512,7 @@ MonoBehaviour:
   DashTime: 0.1
   DashCount: 0
   controllable: 1
+  MoveTimer: 0
 --- !u!1 &3664156526322782167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,6 +1665,7 @@ MonoBehaviour:
   CanAttack: 1
   main: {fileID: 3664156525590825054}
   dead: 0
+  moveNum: 0
   gun1: {fileID: 0}
   gun2: {fileID: 0}
 --- !u!1 &7806855753134205820

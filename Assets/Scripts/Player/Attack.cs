@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Spine.Unity;
+using Rewired;
 public class Attack : MonoBehaviour
 {
     #region Parameters
@@ -87,6 +88,8 @@ public class Attack : MonoBehaviour
     private float AttackTimer;
     private float SkillTimer;
     public int moveNum;
+    public int playerID = 0;
+    [SerializeField] private Player player;
     #endregion
     public void KeLe()
     {
@@ -109,6 +112,7 @@ public class Attack : MonoBehaviour
     }
     IEnumerator SkillBoost2()
     {
+        Debug.Log("Skill");
         SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         main.GetComponent<PlayerMovement>().dash();
@@ -128,6 +132,7 @@ public class Attack : MonoBehaviour
     }
     void Start()
     {
+        player = ReInput.players.GetPlayer(playerID);
         currentState = "idle";
         SetCharacterState(currentState);
         cdTime = 10;
@@ -411,7 +416,7 @@ public class Attack : MonoBehaviour
     void SniperUpdate()
     {
         //狙击射击（松开左键时）
-        if ((isSniper && Input.GetKeyUp(KeyCode.Mouse0) && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
+        if ((isSniper && player.GetButtonUp("Fire")  && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
         {
             main.GetComponent<PlayerMovement>().isAttacking = true;
             main.GetComponent<PlayerMovement>().HitBack();
@@ -423,7 +428,7 @@ public class Attack : MonoBehaviour
             SetCharacterState("shoot");
         }
         //狙击按下左键时瞄准
-        if (isSniper && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
+        if (isSniper && player.GetButton("Fire")/*|| player.GetAxis("MouseFire") > 0)*/ && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
             StartAiming = true;
         }
@@ -438,8 +443,9 @@ public class Attack : MonoBehaviour
                 SetCharacterState("idle");
             }
         }
-        if (isSniper && Input.GetKeyDown(KeyCode.Mouse1) && CanAttack && skillCd2 > SkillCd2)
+        if (isSniper && player.GetButtonDown("Skill") && CanAttack && skillCd2 > SkillCd2)
         {
+            Debug.Log("Sill");
             skillCd2 = 0;
             StartCoroutine("SkillBoost2");
         }
@@ -447,7 +453,7 @@ public class Attack : MonoBehaviour
     void CannonUpdate()
     {
         //Cannon按下左键蓄力
-        if (isCannon && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
+        if (isCannon && player.GetButton("Fire") && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
             CannonPressed = true;
             CannonAiming = true;
@@ -465,7 +471,7 @@ public class Attack : MonoBehaviour
             }
         }
         //Cannon松开左键发射
-        if ((isCannon && Input.GetKeyUp(KeyCode.Mouse0) && CannonPressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
+        if ((isCannon && player.GetButtonUp("Fire") && CannonPressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
         {
             main.GetComponent<PlayerMovement>().isAttacking = true;
             CannonShoot();
@@ -473,7 +479,7 @@ public class Attack : MonoBehaviour
             SetCharacterState("shoot");
             main.GetComponentInChildren<HeadControl>().isAttacking = true;
         }
-        if (isCannon && Input.GetKeyDown(KeyCode.Mouse1) && CanAttack && skillCd3 > SkillCd3)
+        if (isCannon && player.GetButtonDown("Skill") && CanAttack && skillCd3 > SkillCd3)
         {
             skillCd3 = 0;
             StartCoroutine("SkillBoost3");
@@ -483,13 +489,13 @@ public class Attack : MonoBehaviour
     void NormalUpdate()
     {
         //普通型射击（按下/按住左键）
-        if (!isSniper && !isCannon && Input.GetKey(KeyCode.Mouse0) && Mp >= MpCost && CanAttack && cdTime > CdTime)
+        if (!isSniper && !isCannon && player.GetButton("Fire") && Mp >= MpCost && CanAttack && cdTime > CdTime)
         {
             main.GetComponent<PlayerMovement>().isAttacking = true;
             main.GetComponent<PlayerMovement>().HitBack();
             Shoot();
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0) || Mp <= MpCost)
+        if (player.GetButtonUp("Fire") || Mp <= MpCost)
         {
             NormalShooting = false;
             main.GetComponent<PlayerMovement>().isAttacking = false;
@@ -502,7 +508,7 @@ public class Attack : MonoBehaviour
         {
             SetCharacterState("idle");
         }
-        if (!isSniper && !isCannon && Input.GetKeyDown(KeyCode.Mouse1) && CanAttack && skillCd1 > SkillCd1)
+        if (!isSniper && !isCannon && player.GetButtonDown("Skill") && CanAttack && skillCd1 > SkillCd1)
         {
             skillCd1 = 0;
             StartCoroutine("SkillBoost1");

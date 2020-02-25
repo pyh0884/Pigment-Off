@@ -8,10 +8,6 @@ public class Danmuku : MonoBehaviour
     public float AttackGap;
     private float z;
     public float DanmuGap;
-    private void Start()
-    {
-        Shoot();
-    }
     public void Shoot()
     {
         z = transform.eulerAngles.z;

@@ -254,7 +254,7 @@ Transform:
   m_GameObject: {fileID: 1020814522478603898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 7295029137156149708}
   - {fileID: 5075095657370258147}
@@ -334,6 +334,7 @@ MonoBehaviour:
   DashTime: 0.1
   DashCount: 0
   controllable: 1
+  MoveTimer: 0
 --- !u!70 &4145863648296823140
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1839,6 +1840,7 @@ MonoBehaviour:
   CanAttack: 1
   main: {fileID: 1020814522478603898}
   dead: 0
+  moveNum: 0
   gun1: {fileID: 0}
   gun2: {fileID: 0}
 --- !u!1 &9132790089670041470

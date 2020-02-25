@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Rewired;
 public class PlayerMovement : MonoBehaviour
 {
     public SkeletonAnimation skeletonAnimation;
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isSniper;
     private bool isCannon;
     public float MoveTimer = 0;
+    public int playerID = 0;
+    [SerializeField] private Player player;
     public void HitBack()
     {
         hitBackTime = 0;
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Dash()
     {
+        Debug.Log(111);
         DashCount -= 1;
         hitBackTime = 0;
         Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
@@ -57,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     //Top-down Shooting Movement
     void Start()
     {
+        player = ReInput.players.GetPlayer(playerID);
         currentAnimation = "idle";
         SetCharacterState(currentAnimation);
         rb = GetComponent<Rigidbody2D>();
@@ -106,17 +111,21 @@ public class PlayerMovement : MonoBehaviour
     } 
     void Update()
     {
+        if (player.GetButtonDown("KillPlayer")) 
+        {
+            GetComponent<HealthBar>().die();
+        }
         hitBackTime += Time.deltaTime;
         if (hitBackTime > HitBackTime) 
         {
             rb.velocity = Vector2.zero;
         }
-        if (DashCount > 0 && isSniper && Input.GetKeyDown(KeyCode.Mouse1)) 
+        if (DashCount > 0 && isSniper && player.GetButtonDown("Skill")) 
         {
             StartCoroutine("Dash");
         }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = player.GetAxisRaw("MoveHorizontal");
+        movement.y = player.GetAxisRaw("MoveVertical");
         if (dead)
         {
             SetCharacterState("die");

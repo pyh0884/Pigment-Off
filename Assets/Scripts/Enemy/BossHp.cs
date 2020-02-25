@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BossHp : MonoBehaviour
 {
+    public bool boss1 = true;
     public float Hp;
     public float HpMax;
     //private Animator anim;
@@ -22,24 +23,55 @@ public class BossHp : MonoBehaviour
     public float minimumY = 3;
     public float maxmumY = 10;
     private int ColorType;
+    public BossAi1 main;
+    public BossAi2 main2;
+    public GameObject disappear;
     //public ParticleSystem ps;
     //private GameManager gm;
 
     public void Damage(int damageCount)
     {
+        if (boss1)
+        main.SetCharacterState("die");
+    else
+        main2.SetCharacterState("die");
         Hp -= damageCount;
-        Hp = Mathf.Clamp(Hp, 0, HpMax);            
+        Hp = Mathf.Clamp(Hp, 0, HpMax);
+        StartCoroutine("back2Idle");
     }
+    IEnumerator back2Idle() 
+    {
+        yield return new WaitForSeconds(0.85f);
+        if (boss1)
+        {
+            if (main.isAttacking)
+                main.SetCharacterState("shoot");
+            else
+                main.SetCharacterState("idle");
+        }
+        else 
+        {
+            if (main2.isAttacking)
+                main2.SetCharacterState("shoot");
+            else
+                main2.SetCharacterState("idle");
 
+        }
+    }
     void Start()
     {
         Hp = HpMax;
-        //anim = GetComponent<Animator>();        
+        //anim = GetComponent<Animator>();
     }
     IEnumerator Die()
     {
+        if (boss1)
+            main.SetCharacterState("die");
+        else
+            main2.SetCharacterState("die");
         //anim.SetTrigger("Die");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.85f);
+        Instantiate(disappear,transform.position,Quaternion.identity);
         //if (isBoss)
         //{
         //    float MinimumX = minimumX / maxmumX;
