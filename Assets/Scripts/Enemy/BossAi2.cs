@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Cinemachine;
 
 public class BossAi2 : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class BossAi2 : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<CinemachineTargetGroup>().AddMember(gameObject.transform, 1, 0);
         currentState = "idle";
         SetCharacterState(currentState);
         rb = GetComponent<Rigidbody2D>();
@@ -77,39 +79,42 @@ public class BossAi2 : MonoBehaviour
     }
     void Update()
     {
-        
-        dir = notMove.transform.position - Gun.transform.position;
-        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Gun.transform.rotation = Quaternion.Euler(0, 0, angle);
         if (!notMove)
         {
             FindNonMove();
         }
-        movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
-        //切换目标
-        timer1 += Time.deltaTime;
-        if (timer1 >= 7)
+        else
         {
-            FindNonMove();
-            timer1 = 0;
-        }
-        //攻击间隔
-        AttackTimer += Time.deltaTime;
-        if (AttackTimer >= 4 && !isAttacking)
-        {
-            isAttacking = true;
-            StartCoroutine("attack1");
-        }
-        //左右朝向        
-        if (!isAttacking)
-        {
-            if (notMove.transform.position.x - transform.position.x > 0)
+            dir = notMove.transform.position - Gun.transform.position;
+            angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Gun.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
+            //切换目标
+            timer1 += Time.deltaTime;
+            if (timer1 >= 7)
             {
-                rb.transform.eulerAngles = new Vector3(0, -180, 0);
+                FindNonMove();
+                timer1 = 0;
             }
-            else
+            //攻击间隔
+            AttackTimer += Time.deltaTime;
+            if (AttackTimer >= 4 && !isAttacking)
             {
-                rb.transform.eulerAngles = new Vector3(0, 0, 0);
+                isAttacking = true;
+                StartCoroutine("attack1");
+            }
+            //左右朝向        
+            if (!isAttacking)
+            {
+                if (notMove.transform.position.x - transform.position.x > 0)
+                {
+                    rb.transform.eulerAngles = new Vector3(0, -180, 0);
+                }
+                else
+                {
+                    rb.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
             }
         }
     }
@@ -142,6 +147,10 @@ public class BossAi2 : MonoBehaviour
         {
             SetCharacterState("idle");
         }
+    }
+    private void OnDestroy()
+    {
+        FindObjectOfType<CinemachineTargetGroup>().RemoveMember(gameObject.transform);
     }
 
 }

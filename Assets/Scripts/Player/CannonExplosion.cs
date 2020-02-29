@@ -56,6 +56,18 @@ public class CannonExplosion : MonoBehaviour
             collision.GetComponent<BossHp>().HitByPlayer = true;
             Destroy(main);
         }
+        if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != gameObject.transform.parent.GetComponent<CannonBullet>().Camp)
+        {
+            if (Random.Range(0, 100) < CritPos)
+            {
+                collision.GetComponent<HealthBar>().Damage(damage * CritDmgMultiplier / 100);
+            }
+            else
+            {
+                collision.GetComponent<HealthBar>().Damage(damage);
+            }
+            Destroy(main);
+        }
     }
 
 }

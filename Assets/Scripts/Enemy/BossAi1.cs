@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Cinemachine;
 
 public class BossAi1 : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class BossAi1 : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<CinemachineTargetGroup>().AddMember(gameObject.transform, 1, 0);
         currentState = "idle";
         SetCharacterState(currentState);
         rb = GetComponent<Rigidbody2D>();
@@ -86,45 +88,48 @@ public class BossAi1 : MonoBehaviour
         {
             FindNonMove();
         }
-        dir = notMove.transform.position - Emit1.transform.position;
-        dir2 = notMove.transform.position - Emit2.transform.position;
-        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        angle2 = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
-        Emit1.transform.rotation = Quaternion.Euler(0, 0, angle);
-        Emit2.transform.rotation = Quaternion.Euler(0, 0, angle2);
-        if (Vector2.Distance(notMove.transform.position, transform.position) > 15)
+        else
         {
-            isMoving = true;
-        }
-        else 
-        {
-            isMoving = false;
-        }
-        movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
-        //切换目标
-        timer1 += Time.deltaTime;
-        if (timer1 >= 7)
-        {
-            FindNonMove();
-            timer1 = 0;
-        }
-        //攻击间隔
-        AttackTimer += Time.deltaTime;
-        if (AttackTimer >= 6 && !isAttacking)
-        {
-            isAttacking = true;
-            StartCoroutine("attack1");
-        }
-        //左右朝向
-        if (!isAttacking)
-        {
-            if (notMove.transform.position.x - transform.position.x > 0)
+            dir = notMove.transform.position - Emit1.transform.position;
+            dir2 = notMove.transform.position - Emit2.transform.position;
+            angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            angle2 = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
+            Emit1.transform.rotation = Quaternion.Euler(0, 0, angle);
+            Emit2.transform.rotation = Quaternion.Euler(0, 0, angle2);
+            if (Vector2.Distance(notMove.transform.position, transform.position) > 15)
             {
-                rb.transform.eulerAngles = new Vector3(0, -180, 0);
+                isMoving = true;
             }
             else
             {
-                rb.transform.eulerAngles = new Vector3(0, 0, 0);
+                isMoving = false;
+            }
+            movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
+            //切换目标
+            timer1 += Time.deltaTime;
+            if (timer1 >= 7)
+            {
+                FindNonMove();
+                timer1 = 0;
+            }
+            //攻击间隔
+            AttackTimer += Time.deltaTime;
+            if (AttackTimer >= 6 && !isAttacking)
+            {
+                isAttacking = true;
+                StartCoroutine("attack1");
+            }
+            //左右朝向
+            if (!isAttacking)
+            {
+                if (notMove.transform.position.x - transform.position.x > 0)
+                {
+                    rb.transform.eulerAngles = new Vector3(0, -180, 0);
+                }
+                else
+                {
+                    rb.transform.eulerAngles = new Vector3(0, 0, 0);
+                }
             }
         }
     }
@@ -155,4 +160,10 @@ public class BossAi1 : MonoBehaviour
             SetCharacterState("idle");
         }
     }
+    private void OnDestroy()
+    {
+        FindObjectOfType<CinemachineTargetGroup>().RemoveMember(gameObject.transform);
+        FindObjectOfType<GameManager>().insBoss2();
+    }
+
 }

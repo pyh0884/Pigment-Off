@@ -1,22 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Rewired;
 public class CursorController : MonoBehaviour
 {
-
-    private void OnEnable()
+    public int playerID = 0;
+    [SerializeField] private Player player;
+    Vector3 movement;
+    public int CursorSpeed = 600;
+    private void Start()
     {
-        Cursor.visible = false;
-
+        player = ReInput.players.GetPlayer(playerID);
     }
     private void Update()
     {
-        transform.position = Input.mousePosition;
+        movement.x = player.GetAxisRaw("CursorHorizontal");
+        movement.y = player.GetAxisRaw("CursorVertical");
     }
-
-    public void hide()
+    void FixedUpdate()
     {
-        gameObject.SetActive(false);
+        transform.position = transform.position + movement * CursorSpeed * Time.fixedDeltaTime;
     }
 }

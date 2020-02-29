@@ -15,6 +15,8 @@ public class HealthBar : MonoBehaviour
     public float TargetHp = 100;
     public float lerpSpeed = 5;
     public float lerpSpeed2 = 5;
+    public int playerNum = 0;
+    bool dead = false;
     void Awake()
     {
         Hp = HpMax;
@@ -23,7 +25,7 @@ public class HealthBar : MonoBehaviour
         //Hp = gm.HP;
         //HpMax = gm.MAXHP;
         currentHealth();
-        GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();
+        GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();        
     }
 
     public void Damage(float damageCount)
@@ -59,8 +61,9 @@ public class HealthBar : MonoBehaviour
 
     void currentHealth()
     {
-        if (TargetHp <= 0 || Hp <= 0)
+        if ((TargetHp <= 0 || Hp <= 0)&& !dead)
         {
+            dead = true;
             StartCoroutine("Die");
         }
         if (TargetHp < Hp)
@@ -79,6 +82,7 @@ public class HealthBar : MonoBehaviour
     }
     IEnumerator Die()
     {
+        Debug.Log("Die");
         GetComponent<PlayerMovement>().controllable = false;
         GetComponent<PlayerMovement>().dead = true;
         GetComponentInChildren<Attack>().dead = true;
@@ -86,12 +90,13 @@ public class HealthBar : MonoBehaviour
         GetComponentInChildren<HeadControl>().dead = true;
         GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         Time.timeScale = 1;
+        gm.Respawn(playerNum);
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
-        //gm.Respawn();
     }
     private void Update()
     {
+        playerNum = GetComponent<PlayerMovement>().playerID + 1;
         //HpMax = gm.MAXHP;
         currentHealth();
         //if (Input.GetKeyDown(KeyCode.F11)) 

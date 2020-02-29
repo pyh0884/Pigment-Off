@@ -11,12 +11,13 @@ public class HeadControl : MonoBehaviour
     public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, attack, death, target, walk;
     private string currentState;
-    public string currentAnimation;
-    public string previousState;
+    [HideInInspector] public string currentAnimation;
+    [HideInInspector] public string previousState;
     public bool dead;
     public bool isTarget;
     public bool isAttacking;
     public float AttackTime = 0.25f;
+    [HideInInspector] public Transform cursor;
     void Start()
     {
         currentState = "idle";
@@ -33,7 +34,8 @@ public class HeadControl : MonoBehaviour
     }
     public void RotateHead() 
     {
-        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        dir = cursor.position- Camera.main.WorldToScreenPoint(transform.position);
+        //dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (dir.x < 0)
         {

@@ -48,8 +48,8 @@ public class Attack : MonoBehaviour
     public SkeletonAnimation skeletonAnimation2;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
-    public string currentAnimation;
-    public string previousState;
+    [HideInInspector] public string currentAnimation;
+    [HideInInspector] public string previousState;
     private Vector3 dir;
     private Vector3 dir2;
     private float angle;
@@ -87,9 +87,11 @@ public class Attack : MonoBehaviour
     public bool dead;
     private float AttackTimer;
     private float SkillTimer;
-    public int moveNum;
+    [HideInInspector] public int moveNum;
     public int playerID = 0;
-    [SerializeField] private Player player;
+    private Player player;
+    [HideInInspector] public Transform cursor;
+    public int Camp = 0;
     #endregion
     public void KeLe()
     {
@@ -180,11 +182,13 @@ public class Attack : MonoBehaviour
         NormalShooting = true;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         var bul2 = Instantiate(Bullet, EmitPoint2.transform.position, Quaternion.identity);
-        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)) < 12) 
+        bul.GetComponent<BulletAI>().Camp = Camp;
+        bul2.GetComponent<BulletAI>().Camp = Camp;
+        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2)) < 12) 
         {
             //Debug.Log(Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)));
-            bul.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2));
-            bul2.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2));
+            bul.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2));
+            bul2.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2));
         }
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
         bul2.GetComponent<Rigidbody2D>().velocity = new Vector2(dir2.x, dir2.y).normalized * bul2.GetComponent<BulletAI>().ShootSpeed;
@@ -238,7 +242,7 @@ public class Attack : MonoBehaviour
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         laserLeft.SetPosition(0, EmitPoint.transform.position);
         laserRight.SetPosition(0, EmitPoint.transform.position);
-        EndPoint = new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - EmitPoint.transform.position.x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y - EmitPoint.transform.position.y, 0);
+        EndPoint = new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x - EmitPoint.transform.position.x, Camera.main.ScreenToWorldPoint(cursor.position).y - EmitPoint.transform.position.y, 0);
         if (!pressed)
         {
             TargetMp = Mp - MpCost;
@@ -285,6 +289,7 @@ public class Attack : MonoBehaviour
         pressed = false;
         RandomDir = (EmitPoint.transform.position + LeftPoint + (RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude)) - EmitPoint.transform.position;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+        bul.GetComponent<BulletAI>().Camp = Camp;
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
         //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg, Vector3.forward);
         if (Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg >= -90 && Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg <= 90)
@@ -318,11 +323,13 @@ public class Attack : MonoBehaviour
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         TrajectoryLine.enabled = true;
         TrajectoryLine.SetPosition(0, EmitPoint.transform.position);
-        VelocityX = (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - EmitPoint.transform.position.x) / 1.2f;
-        VelocityY = (Camera.main.ScreenToWorldPoint(Input.mousePosition).y - EmitPoint.transform.position.y) / 1.2f;
+        VelocityX = (Camera.main.ScreenToWorldPoint(cursor.position).x - EmitPoint.transform.position.x) / 1.2f;
+        VelocityY = (Camera.main.ScreenToWorldPoint(cursor.position).y - EmitPoint.transform.position.y) / 1.2f;
+        //VelocityX = (cursor.position.x - EmitPoint.transform.position.x) / 1.2f;
+        //VelocityY = (cursor.position.y - EmitPoint.transform.position.y) / 1.2f;
         VelocityZ = 1 / 1.2f + 10 * 1.2f;
         float i = 0.02f;
-        while (i < 1 && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - Camera.main.ScreenToWorldPoint(Input.mousePosition).x) > 0.2f || i < 0.65f))
+        while (i < 1 && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - Camera.main.ScreenToWorldPoint(cursor.position).x) > 0.2f || i < 0.65f))
         {
             TrajectoryLine.positionCount = Mathf.RoundToInt(i / 0.02f) + 1;
             TrajectoryLine.SetPosition(Mathf.RoundToInt(i / 0.02f), new Vector3(EmitPoint.transform.position.x + VelocityX * i * 1.75f, EmitPoint.transform.position.y + (VelocityY * i + VelocityZ * i) * 1.95f, 0));
@@ -346,7 +353,8 @@ public class Attack : MonoBehaviour
         if (!CannonSkill)
         {
             var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            bul.GetComponent<CannonBullet>().Camp = Camp;
+            bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(cursor.position));
             bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             if (BoostCannon)
@@ -359,8 +367,10 @@ public class Attack : MonoBehaviour
         {
             var bul1 = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             var bul2 = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - 1, Camera.main.ScreenToWorldPoint(Input.mousePosition).y));
-            bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x + 1, Camera.main.ScreenToWorldPoint(Input.mousePosition).y));
+            bul1.GetComponent<CannonBullet>().Camp = Camp;
+            bul2.GetComponent<CannonBullet>().Camp = Camp;
+            bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x - 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
+            bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x + 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
             bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul2.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul1.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
@@ -377,7 +387,7 @@ public class Attack : MonoBehaviour
     }
     void RotateGun()
     {
-        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        dir = cursor.position - Camera.main.WorldToScreenPoint(transform.position);
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (dir.x < 0)
         {
@@ -396,8 +406,8 @@ public class Attack : MonoBehaviour
     public GameObject gun2;
     void RotateGun1()
     {
-        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(gun1.transform.position);
-        dir2 = Input.mousePosition - Camera.main.WorldToScreenPoint(gun2.transform.position);
+        dir = cursor.position - Camera.main.WorldToScreenPoint(gun1.transform.position);
+        dir2 = cursor.position - Camera.main.WorldToScreenPoint(gun2.transform.position);
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         angle2 = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
         if (dir.x < 0)

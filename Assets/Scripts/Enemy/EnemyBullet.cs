@@ -61,13 +61,12 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 12) //"Player"
         {
-            //Instantiate(spr, transform.position, Quaternion.identity);
             collision.GetComponent<HealthBar>().Damage(damage);
             Destroy(gameObject);
         }
-        if (collision.gameObject.layer == 13) //"Environment"
+        if (collision.gameObject.layer == 13) //"Wall"
         {
-            //Instantiate(spr, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
         }
     }

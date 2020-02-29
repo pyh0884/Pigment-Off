@@ -510,6 +510,7 @@ MonoBehaviour:
   main: {fileID: 2866896752667550704}
   dead: 0
   moveNum: 0
+  playerID: 0
   gun1: {fileID: 2039171376039136788}
   gun2: {fileID: 1231230599561154682}
 --- !u!1 &2866896752667550704
@@ -622,6 +623,7 @@ MonoBehaviour:
   DashCount: 0
   controllable: 1
   MoveTimer: 0
+  playerID: 10
 --- !u!70 &651375625632856707
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

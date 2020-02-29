@@ -513,6 +513,7 @@ MonoBehaviour:
   DashCount: 0
   controllable: 1
   MoveTimer: 0
+  playerID: 10
 --- !u!1 &3664156526322782167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1667,7 @@ MonoBehaviour:
   main: {fileID: 3664156525590825054}
   dead: 0
   moveNum: 0
+  playerID: 0
   gun1: {fileID: 0}
   gun2: {fileID: 0}
 --- !u!1 &7806855753134205820
