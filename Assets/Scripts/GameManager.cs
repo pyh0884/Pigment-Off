@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Rewired;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,10 +32,15 @@ public class GameManager : MonoBehaviour
     public int playernum=1;//ChooseMenu
     public GameObject[] Bosss;
     public int BossType;
+    private Player Player1;
+    private Player Player2;
+    private Player Player3;
+    private Player Player4;
+    public GameObject pauseMenu;
+    public bool paused = false;
     //public float ItemTimer = 3;
     //private float itemTimer;
     //public GameObject[] Items;
-    //Todo：阵营参数
     #endregion    
     private void Awake()
     {
@@ -53,6 +59,13 @@ public class GameManager : MonoBehaviour
     }
     public void Initial()
     {
+        //Debug.Log("GameManagerInitialed");
+        Player1 = ReInput.players.GetPlayer(0);
+        Player2 = ReInput.players.GetPlayer(1);
+        if (player3 != 0) 
+        Player3 = ReInput.players.GetPlayer(2);
+        if (player4 != 0) 
+        Player4 = ReInput.players.GetPlayer(3);
         StartInsBoss = false;
         sceneNum = SceneManager.GetActiveScene().buildIndex;
 
@@ -238,10 +251,32 @@ public class GameManager : MonoBehaviour
         Instantiate(Bosss[1], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
     }
     #endregion
+    public void Pause() 
+    {
+        Debug.Log("Paused");
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+        paused = true;
+    }
+    public void UnPause() 
+    {
+        Debug.Log("Unpaused");
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        paused = false;
+    }
     private void Update()
     {       
         if (sceneNum == 2) //战斗场景
         {
+            if ((Player1.GetButtonDown("Menu")|| Player2.GetButtonDown("Menu")|| Player3.GetButtonDown("Menu")|| Player4.GetButtonDown("Menu")) && !paused) 
+            {
+                Pause();
+            }
+            else if ((Player1.GetButtonDown("Menu") || Player2.GetButtonDown("Menu") || Player3.GetButtonDown("Menu") || Player4.GetButtonDown("Menu")) && paused)
+            {
+                UnPause();
+            }
             if (StartInsBoss) 
             {
                 Instantiate(Bosss[0], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);

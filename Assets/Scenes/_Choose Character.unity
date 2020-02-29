@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 273600802}
   - component: {fileID: 273600801}
   m_Layer: 5
-  m_Name: Button
+  m_Name: "\u53EF\u7528\u89D2\u82721"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 340422236}
   - component: {fileID: 340422235}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: "\u53EF\u7528\u89D2\u82724"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,7 +1143,7 @@ GameObject:
   - component: {fileID: 457972741}
   - component: {fileID: 457972740}
   m_Layer: 5
-  m_Name: Character
+  m_Name: "Character\u5927\u56FE"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1704,7 +1704,7 @@ GameObject:
   - component: {fileID: 760066270}
   - component: {fileID: 760066269}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: "\u53EF\u7528\u89D2\u82726"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 1310296506}
   - component: {fileID: 1310296505}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: "\u53EF\u7528\u89D2\u82722"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2448,7 +2448,7 @@ GameObject:
   - component: {fileID: 1397109036}
   - component: {fileID: 1397109035}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: "\u53EF\u7528\u89D2\u82723"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2576,7 +2576,7 @@ GameObject:
   - component: {fileID: 1413723690}
   - component: {fileID: 1413723689}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Go
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2704,7 +2704,7 @@ GameObject:
   - component: {fileID: 1465768691}
   - component: {fileID: 1465768690}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: "P3\u56FE\u6807"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2859,7 +2859,7 @@ GameObject:
   - component: {fileID: 1540939194}
   - component: {fileID: 1540939193}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: "P2\u56FE\u6807"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2933,7 +2933,7 @@ GameObject:
   - component: {fileID: 1559990208}
   - component: {fileID: 1559990207}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: "P4\u56FE\u6807"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3008,7 +3008,7 @@ GameObject:
   - component: {fileID: 1561213848}
   - component: {fileID: 1561213847}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: "\u53EF\u7528\u89D2\u82725"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3296,7 +3296,7 @@ GameObject:
   - component: {fileID: 1663537840}
   - component: {fileID: 1663537839}
   m_Layer: 5
-  m_Name: Character-Icon
+  m_Name: "P1\u56FE\u6807"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
