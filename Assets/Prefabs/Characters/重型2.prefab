@@ -583,7 +583,6 @@ MonoBehaviour:
   TargetHp: 0
   lerpSpeed: 5
   lerpSpeed2: 5
-  playerNum: 0
 --- !u!114 &3623116101317093680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +613,6 @@ MonoBehaviour:
   controllable: 1
   MoveTimer: 0
   playerID: 10
-  cursor: {fileID: 0}
 --- !u!70 &3456338096740128182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -628,8 +626,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.19910026, y: 2.73}
-  m_Size: {x: 6, y: 10}
+  m_Offset: {x: -0.19910026, y: 2.1622157}
+  m_Size: {x: 4.011399, y: 8.621541}
   m_Direction: 0
 --- !u!1 &3713545007070266724
 GameObject:
@@ -797,7 +795,6 @@ MonoBehaviour:
   isTarget: 0
   isAttacking: 0
   AttackTime: 0.25
-  cursor: {fileID: 0}
 --- !u!1 &4113862262613470218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,8 +1659,6 @@ MonoBehaviour:
   dead: 0
   moveNum: 0
   playerID: 0
-  cursor: {fileID: 0}
-  Camp: 0
   gun1: {fileID: 0}
   gun2: {fileID: 0}
 --- !u!1 &7839029612284922387

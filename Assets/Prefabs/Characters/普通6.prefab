@@ -79,7 +79,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 277222997
   m_SortingLayer: 1
-  m_SortingOrder: 3
+  m_SortingOrder: 2
 --- !u!114 &5631359738714663790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,8 +511,6 @@ MonoBehaviour:
   dead: 0
   moveNum: 0
   playerID: 0
-  cursor: {fileID: 0}
-  Camp: 0
   gun1: {fileID: 2039171376039136788}
   gun2: {fileID: 1231230599561154682}
 --- !u!1 &2866896752667550704
@@ -575,7 +573,6 @@ MonoBehaviour:
   TargetHp: 0
   lerpSpeed: 5
   lerpSpeed2: 5
-  playerNum: 0
 --- !u!50 &430914595344635392
 Rigidbody2D:
   serializedVersion: 4
@@ -627,7 +624,6 @@ MonoBehaviour:
   controllable: 1
   MoveTimer: 0
   playerID: 10
-  cursor: {fileID: 0}
 --- !u!70 &651375625632856707
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -642,7 +638,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.18965879, y: 7.80965}
-  m_Size: {x: 9, y: 28.362131}
+  m_Size: {x: 9.07518, y: 28.362131}
   m_Direction: 0
 --- !u!1 &4248005224060585105
 GameObject:
@@ -800,7 +796,6 @@ MonoBehaviour:
   isTarget: 0
   isAttacking: 0
   AttackTime: 0
-  cursor: {fileID: 0}
 --- !u!1 &4476942396718062362
 GameObject:
   m_ObjectHideFlags: 0

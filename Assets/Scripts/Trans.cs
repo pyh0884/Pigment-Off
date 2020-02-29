@@ -7,14 +7,6 @@ using UnityEngine.SceneManagement;
 public class Trans : MonoBehaviour
 {
     public GameObject PauseMenu;
-    public bool DestroyManager = false;
-    private void Start()
-    {
-        if (DestroyManager) 
-        {
-            Destroy(FindObjectOfType<GameManager>().gameObject);
-        }
-    }
     public void LoadScene(int number)
     {
         StartCoroutine(LoadSceneFunction(number));
