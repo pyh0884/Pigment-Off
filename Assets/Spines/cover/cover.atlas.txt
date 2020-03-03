@@ -1,0 +1,20 @@
+
+cover.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Layer 1
+  rotate: false
+  xy: 2, 334
+  size: 520, 593
+  orig: 520, 593
+  offset: 0, 0
+  index: -1
+Layer 2
+  rotate: true
+  xy: 2, 2
+  size: 330, 347
+  orig: 330, 347
+  offset: 0, 0
+  index: -1

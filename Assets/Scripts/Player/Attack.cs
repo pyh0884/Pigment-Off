@@ -7,8 +7,7 @@ using Rewired;
 public class Attack : MonoBehaviour
 {
     #region Parameters
-    //Sniper
-
+    #region Sniper
     [Header("狙击角色：")]
     public bool isSniper;
     [Header("瞄准速度")]
@@ -28,8 +27,8 @@ public class Attack : MonoBehaviour
     private Vector3 RandomDir;
     public float SkillCd2 = 20;
     private float skillCd2 = 20;
-    //--------------------------------
-    //Cannon
+    #endregion
+    #region Cannon
     [Header("重炮角色：")]
     public bool isCannon;
     public LineRenderer TrajectoryLine;
@@ -41,31 +40,31 @@ public class Attack : MonoBehaviour
     public float SkillCd3 = 20;
     private float skillCd3 = 20;
     public float expRange = 1;
-    //--------------------------------
+    #endregion
+    #region Normal
+    private Vector3 dir2;
+    [HideInInspector] public SkeletonAnimation skeletonAnimation2;
+    private float angle2;
+    public GameObject EmitPoint2;
+    #endregion
     //Basic Attack Parameters
     [Header("基本参数：")]
-    public SkeletonAnimation skeletonAnimation;
-    public SkeletonAnimation skeletonAnimation2;
+    [HideInInspector] public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
     [HideInInspector] public string currentAnimation;
     [HideInInspector] public string previousState;
     private Vector3 dir;
-    private Vector3 dir2;
     private float angle;
-    private float angle2;
     public GameObject GunSprite;
     public GameObject EmitPoint;
-    public GameObject EmitPoint2;
     public GameObject Bullet;
     [Header("攻击间隔")]
     public float CdTime;
     private float cdTime = 10;
     public float SkillCd1 = 20;
     private float skillCd1 = 20;
-    [HideInInspector]
-    public float tempCD;
-    private Vector3 rotation;
+    [HideInInspector] public float tempCD;
     public Slider slider;
     public float Mp = 100;
     [Header("最大颜料值")]
@@ -92,7 +91,19 @@ public class Attack : MonoBehaviour
     private Player player;
     [HideInInspector] public Transform cursor;
     public int Camp = 0;
+    GameManager gm;
+    #region Flag Datas
+    public bool isCarryingFlag = false;
+    public GameObject flag;
+    public GameObject FlagWithCover;
     #endregion
+    #endregion
+    public void PickUp() 
+    {
+        Debug.Log(gameObject.transform.parent.name + " picked up the flag.");
+        flag.SetActive(true);
+        isCarryingFlag = true;
+    }
     public void KeLe()
     {
         StartCoroutine("Kele");
@@ -134,6 +145,7 @@ public class Attack : MonoBehaviour
     }
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         player = ReInput.players.GetPlayer(playerID);
         currentState = "idle";
         SetCharacterState(currentState);
@@ -190,8 +202,8 @@ public class Attack : MonoBehaviour
             bul.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2));
             bul2.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2));
         }
-        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
-        bul2.GetComponent<Rigidbody2D>().velocity = new Vector2(dir2.x, dir2.y).normalized * bul2.GetComponent<BulletAI>().ShootSpeed;
+        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed * (isCarryingFlag ? 1.4f : 1);
+        bul2.GetComponent<Rigidbody2D>().velocity = new Vector2(dir2.x, dir2.y).normalized * bul2.GetComponent<BulletAI>().ShootSpeed * (isCarryingFlag ? 1.4f : 1);
         if (angle >= -90 && angle <= 90)
         {
             bul.transform.rotation = Quaternion.Euler(0, 0, angle);
@@ -217,7 +229,6 @@ public class Attack : MonoBehaviour
             bul2.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle2 - 180));
         }
         //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.forward);
-
         cdTime = 0;
         TargetMp = Mp - MpCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
@@ -277,8 +288,8 @@ public class Attack : MonoBehaviour
         {
             laserRight.SetPosition(1, EmitPoint.transform.position + RightPoint.normalized * 20);
         }
-        LeftPoint = Vector3.Lerp(LeftPoint, EndPoint, AimingSpeed * Time.deltaTime);
-        RightPoint = Vector3.Lerp(RightPoint, EndPoint, AimingSpeed * Time.deltaTime);
+        LeftPoint = Vector3.Lerp(LeftPoint, EndPoint, AimingSpeed * (isCarryingFlag ? 1.4f : 1) * Time.deltaTime);
+        RightPoint = Vector3.Lerp(RightPoint, EndPoint, AimingSpeed * (isCarryingFlag ? 1.4f : 1) * Time.deltaTime);
     }
     public void SniperShoot()
     {
@@ -290,7 +301,7 @@ public class Attack : MonoBehaviour
         RandomDir = (EmitPoint.transform.position + LeftPoint + (RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude)) - EmitPoint.transform.position;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         bul.GetComponent<BulletAI>().Camp = Camp;
-        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed;
+        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed * (isCarryingFlag ? 1.4f : 1);
         //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg, Vector3.forward);
         if (Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg >= -90 && Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg <= 90)
         {
@@ -354,6 +365,7 @@ public class Attack : MonoBehaviour
         {
             var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             bul.GetComponent<CannonBullet>().Camp = Camp;
+            bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
             bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(cursor.position));
             bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
@@ -369,6 +381,8 @@ public class Attack : MonoBehaviour
             var bul2 = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             bul1.GetComponent<CannonBullet>().Camp = Camp;
             bul2.GetComponent<CannonBullet>().Camp = Camp;
+            bul1.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
+            bul2.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
             bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x - 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
             bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x + 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
             bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
@@ -552,6 +566,25 @@ public class Attack : MonoBehaviour
     }
     void Update()
     {
+        if (isCarryingFlag) 
+        {
+            switch (playerID) 
+            {
+                case 0:
+                    gm.player1Time += Time.deltaTime;
+                    break;
+                case 1:
+                    gm.player2Time += Time.deltaTime;
+                    break;
+                case 2:
+                    gm.player3Time += Time.deltaTime;
+                    break;
+                case 3:
+                    gm.player4Time += Time.deltaTime;
+                    break;
+            }
+                
+        }
         skillCd1 += Time.deltaTime;
         skillCd2 += Time.deltaTime;
         skillCd3 += Time.deltaTime;
@@ -606,9 +639,17 @@ public class Attack : MonoBehaviour
     {
         if (CannonAiming)
         {
-            minDamage += Time.fixedDeltaTime;
+            minDamage += Time.deltaTime * (isCarryingFlag ? 1.4f : 1);
             minDamage = Mathf.Clamp(minDamage, 10, maxDamage);
             CannonTrajectory();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (isCarryingFlag)
+        {
+            Instantiate(FlagWithCover, transform.position, Quaternion.identity);
+            FindObjectOfType<GameManager>().insMonster();
         }
     }
 }

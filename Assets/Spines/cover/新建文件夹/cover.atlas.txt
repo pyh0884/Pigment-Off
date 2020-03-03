@@ -1,0 +1,62 @@
+
+cover.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 1371, 569
+  size: 520, 593
+  orig: 520, 593
+  offset: 0, 0
+  index: -1
+2
+  rotate: false
+  xy: 1371, 2
+  size: 494, 565
+  orig: 494, 565
+  offset: 0, 0
+  index: -1
+3
+  rotate: false
+  xy: 670, 41
+  size: 529, 493
+  orig: 529, 493
+  offset: 0, 0
+  index: -1
+4
+  rotate: false
+  xy: 670, 536
+  size: 699, 626
+  orig: 699, 626
+  offset: 0, 0
+  index: -1
+5
+  rotate: false
+  xy: 2, 1187
+  size: 790, 741
+  orig: 790, 741
+  offset: 0, 0
+  index: -1
+6
+  rotate: true
+  xy: 794, 1164
+  size: 764, 728
+  orig: 764, 728
+  offset: 0, 0
+  index: -1
+7
+  rotate: true
+  xy: 2, 474
+  size: 711, 666
+  orig: 711, 666
+  offset: 0, 0
+  index: -1
+Layer 2
+  rotate: true
+  xy: 2, 142
+  size: 330, 347
+  orig: 330, 347
+  offset: 0, 0
+  index: -1

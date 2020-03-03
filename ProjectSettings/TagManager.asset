@@ -14,6 +14,11 @@ TagManager:
   - Sniper2
   - Cannon1
   - Cannon2
+  - Flag
+  - Slider1
+  - Slider2
+  - Slider3
+  - Slider4
   layers:
   - Default
   - TransparentFX

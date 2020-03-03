@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class BulletAI : MonoBehaviour
 {
-    //public bool isEnemy;
-    //public bool fromBoss;
-    //Collider2D nearest;
-    //Collider2D nearest2;
-    //public LayerMask enemyLayer; //敌人AI使用
     [Header("射速")]
     public float ShootSpeed;
     [Header("射程")]
@@ -63,7 +58,7 @@ public class BulletAI : MonoBehaviour
             }
             Destroy(gameObject);
         }
-        if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != Camp)
+        if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != Camp)//Player
         {
             if (Random.Range(0, 100) < CritPos)
             {
@@ -77,6 +72,11 @@ public class BulletAI : MonoBehaviour
         }
         if (collision.gameObject.layer == 13) //"Wall" TODO:场景摆放时，可以挡住子弹的使用Wall别的使用Default
         {
+            Destroy(gameObject);
+        }
+        if (collision.tag == "Flag") 
+        {
+            collision.GetComponent<Flag>().Damage(damage);
             Destroy(gameObject);
         }
     }

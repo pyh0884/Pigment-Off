@@ -68,6 +68,11 @@ public class CannonExplosion : MonoBehaviour
             }
             Destroy(main);
         }
+        if (collision.tag == "Flag")
+        {
+            collision.GetComponent<Flag>().Damage(damage);
+            Destroy(main);
+        }
     }
 
 }
