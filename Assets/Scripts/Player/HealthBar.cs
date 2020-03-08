@@ -17,7 +17,7 @@ public class HealthBar : MonoBehaviour
     public float lerpSpeed2 = 5;
     public int playerNum = 0;
     bool dead = false;
-    void Awake()
+    void Start()
     {
         Hp = HpMax;
         TargetHp = HpMax;
@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
         //Hp = gm.HP;
         //HpMax = gm.MAXHP;
         currentHealth();
-        GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();        
+        gameObject.transform.parent.gameObject.GetComponentInChildren<Canvas>().worldCamera = FindObjectOfType<Camera>();
     }
 
     public void Damage(float damageCount)

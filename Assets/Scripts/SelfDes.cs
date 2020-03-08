@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class SelfDes : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool des;
     void Start()
-    {
+    {if(des)
         Destroy(gameObject, 0.2f);
     }
-
-    // Update is called once per frame
+    public void destroySelf() 
+    {
+        Destroy(gameObject);
+    }
     void Update()
     {
         

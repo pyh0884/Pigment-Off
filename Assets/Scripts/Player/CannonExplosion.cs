@@ -18,6 +18,9 @@ public class CannonExplosion : MonoBehaviour
     public int CritDmgMultiplier = 150;
     public float ExpRange = 1;
     public GameObject main;
+    public GameObject efx2;
+    public int Camp;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,6 +43,8 @@ public class CannonExplosion : MonoBehaviour
             {
                 collision.GetComponent<EnemyHp>().Damage(damage);
             }
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Boss")
@@ -54,6 +59,8 @@ public class CannonExplosion : MonoBehaviour
                 collision.GetComponent<BossHp>().Damage(damage);
             }
             collision.GetComponent<BossHp>().HitByPlayer = true;
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != gameObject.transform.parent.GetComponent<CannonBullet>().Camp)
@@ -66,11 +73,15 @@ public class CannonExplosion : MonoBehaviour
             {
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Flag")
         {
             collision.GetComponent<Flag>().Damage(damage);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
     }

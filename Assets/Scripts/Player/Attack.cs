@@ -369,6 +369,7 @@ public class Attack : MonoBehaviour
             bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(cursor.position));
             bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
+            bul.GetComponentInChildren<CannonExplosion>().Camp = Camp;
             if (BoostCannon)
             {
                 bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
@@ -387,6 +388,8 @@ public class Attack : MonoBehaviour
             bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x + 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
             bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul2.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
+            bul1.GetComponentInChildren<CannonExplosion>().Camp = Camp;
+            bul2.GetComponentInChildren<CannonExplosion>().Camp = Camp;
             bul1.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             bul2.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             if (BoostCannon)

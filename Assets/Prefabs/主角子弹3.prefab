@@ -306,8 +306,10 @@ MonoBehaviour:
   - {fileID: 3956798044949954053, guid: aa869bb6e748bde43806ad7b1df866bd, type: 3}
   - {fileID: 3956798044949954053, guid: c312d5f1fbb597e45bee93c5da0143e5, type: 3}
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
+  efx2: {fileID: 4405911379138229989, guid: 8c0c83d9836fbf64c8a9b386401e84b9, type: 3}
   shadow: {fileID: 1797503483351462110}
   Camp: 0
+  isNormal: 0
 --- !u!212 &2067340241839163752
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -343,9 +345,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1007365853
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 2016994439088662217, guid: d6910157b52bc8f439c37213d708819c,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -188,9 +188,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1007365853
+  m_SortingLayer: 2
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8bbef26e5f2f653479e2e35ecab7e878, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -223,4 +223,6 @@ MonoBehaviour:
   ColorPool3: {fileID: 7097270998915139883, guid: c2cc55912757e2f4c9462ab33637b364,
     type: 3}
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
+  efx2: {fileID: 4405911379138229989, guid: 8c0c83d9836fbf64c8a9b386401e84b9, type: 3}
   shadow: {fileID: 2491919214985359070}
+  isBoss: 1
