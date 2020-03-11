@@ -10,14 +10,21 @@ public class FlagIndicator : MonoBehaviour
     public float dis;
     void Update()
     {
-        flag = GameObject.FindGameObjectWithTag("Flag").transform;
-        var direction = flag.position - transform.position;
-        dis = Vector2.Distance(flag.position,transform.position);
-        if (dis > distance)
+        if (GameObject.FindGameObjectWithTag("Flag"))
         {
-            indicator.SetActive(true);
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            flag = GameObject.FindGameObjectWithTag("Flag").transform;
+            var direction = flag.position - transform.position;
+            dis = Vector2.Distance(flag.position, transform.position);
+            if (dis > distance)
+            {
+                indicator.SetActive(true);
+                var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            }
+            else
+            {
+                indicator.SetActive(false);
+            }
         }
         else
         {

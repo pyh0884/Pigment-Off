@@ -339,7 +339,7 @@ public class GameManager : MonoBehaviour
                 }
                 }*/
             }
-            if (PlayTime <= 0)//游戏结束
+            if (PlayTime <= 0)//游戏结束 TODO 切换场景
             {
                 if (player4Camp == 1)//组队模式
                 {

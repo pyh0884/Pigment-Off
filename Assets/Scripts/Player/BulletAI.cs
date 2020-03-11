@@ -20,8 +20,13 @@ public class BulletAI : MonoBehaviour
     public GameObject[] ColorPool2;
     public GameObject[] ColorPool3;
     public GameObject efx;
+    public GameObject efx2;
     public GameObject shadow;
     public int Camp;
+    Color camp0 = new Color(0.8f, 0.8666667f, 0.5058824f);//黄色
+    Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
+    Color camp2 = new Color(0.4313726f, 0.6980392f, 0.6509804f);//蓝色
+    public bool isNormal;
 
     void Start()
     {
@@ -30,6 +35,21 @@ public class BulletAI : MonoBehaviour
     }
     private void Update()
     {
+        if (isNormal)
+        {
+            switch (Camp)
+            {
+                case 0:
+                    GetComponent<SpriteRenderer>().color = camp0;
+                    break;
+                case 1:
+                    GetComponent<SpriteRenderer>().color = camp1;
+                    break;
+                case 2:
+                    GetComponent<SpriteRenderer>().color = camp2;
+                    break;
+            }
+        }
         shadow.transform.localPosition += new Vector3(0,0.6f/(Range / ShootSpeed)*Time.deltaTime,0);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +64,8 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<EnemyHp>().Damage(damage);
             }
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(gameObject);
         }
         if (collision.tag == "Boss")
@@ -56,6 +78,8 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<BossHp>().Damage(damage);
             }
+            var effect = Instantiate(efx2, transform.position, transform.rotation);
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(gameObject);
         }
         if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != Camp)//Player
@@ -68,14 +92,18 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
+            var effect = Instantiate(efx2, transform.position, transform.rotation);
+            effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(gameObject);
         }
-        if (collision.gameObject.layer == 13) //"Wall" TODO:场景摆放时，可以挡住子弹的使用Wall别的使用Default
+        if (collision.gameObject.layer == 13) //"Wall" 
         {
             Destroy(gameObject);
         }
-        if (collision.tag == "Flag") 
+        if (collision.tag == "Flag")
         {
+            var effect2 = Instantiate(efx2, transform.position, transform.rotation);
+            effect2.GetComponent<EFXColorControl>().camp = Camp;
             collision.GetComponent<Flag>().Damage(damage);
             Destroy(gameObject);
         }
@@ -283,7 +311,20 @@ public class BulletAI : MonoBehaviour
 
         if (efx)
         {
-            Instantiate(efx, gameObject.transform.position, Quaternion.identity);
+            var effect = Instantiate(efx, gameObject.transform.position, Quaternion.identity);
+            switch (Camp)
+            {
+                case 0:
+                    effect.GetComponent<ParticleSystem>().startColor = camp0;
+                    break;
+                case 1:
+                    effect.GetComponent<ParticleSystem>().startColor = camp1;
+                    break;
+                case 2:
+                    effect.GetComponent<ParticleSystem>().startColor = camp2;
+                    break;
+            }
+
         }
     }
 }

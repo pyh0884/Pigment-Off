@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  efx2: {fileID: 4405911379138229989, guid: 8c0c83d9836fbf64c8a9b386401e84b9, type: 3}
 --- !u!1 &4270117139513765759
 GameObject:
   m_ObjectHideFlags: 0

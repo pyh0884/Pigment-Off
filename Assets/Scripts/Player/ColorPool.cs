@@ -10,7 +10,7 @@ public class ColorPool : MonoBehaviour
     public int Camp;
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 12 && Timer > 1 && collision.GetComponentInChildren<Attack>().Camp == Camp)//Todo:区分自己的颜料 阵营参数
+        if (collision.gameObject.layer == 12 && Timer > 1 && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
             collision.GetComponent<HealthBar>().Damage(-HpRecoverSpeed);
             Timer = 0;

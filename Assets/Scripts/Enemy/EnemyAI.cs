@@ -14,8 +14,9 @@ public class EnemyAI : MonoBehaviour
     public float AttackTimer;
     private Vector2 movement;
     public float moveSpeed = 10;
-    //public GameObject Bullet;
-    //public GameObject EmitPos;
+    public GameObject Bullet;
+    public GameObject EmitPos;
+    public float ShootSpeed;
     //public GameObject GunSprite;
     //void FindEnemy()
     //{
@@ -65,8 +66,8 @@ public class EnemyAI : MonoBehaviour
             timer1 = 0;
         } 
         //攻击间隔
-        AttackTimer += Time.deltaTime; 
-        if (AttackTimer >= 2.5f)
+        AttackTimer += Time.deltaTime;
+        if (AttackTimer >= 2.5f && Vector2.Distance(notMove.transform.position, transform.position) < 12) 
         {
             AttackTimer = 0;
             Attack();
@@ -85,10 +86,30 @@ public class EnemyAI : MonoBehaviour
     {
         anim.SetTrigger("Attack");
     }
+    public void Shoot() 
+    {
+        Vector3 dir = notMove.transform.position - EmitPos.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        var bul = Instantiate(Bullet, EmitPos.transform.position, Quaternion.identity);
+        bul.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x, dir.y).normalized * ShootSpeed;
+        if (angle >= -90 && angle <= 90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+        else if (angle > 90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle + 180));
+        }
+        else if (angle < -90)
+        {
+            bul.transform.rotation = Quaternion.Euler(0, 180, -1 * (angle - 180));
+        }
+
+    }
 
     void FixedUpdate()
     {
-        if (notMove != null && Vector2.Distance(notMove.transform.position, transform.position) > 6)
+        if (notMove != null && Vector2.Distance(notMove.transform.position, transform.position) > 12)
         {
             rb.position = (rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         }
