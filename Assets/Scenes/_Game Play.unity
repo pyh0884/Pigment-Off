@@ -1660,7 +1660,17 @@ PrefabInstance:
     - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
         type: 3}
       propertyPath: player3
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
+        type: 3}
+      propertyPath: player2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
+        type: 3}
+      propertyPath: player1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
         type: 3}

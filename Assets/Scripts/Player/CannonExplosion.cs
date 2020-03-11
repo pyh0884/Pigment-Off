@@ -60,6 +60,7 @@ public class CannonExplosion : MonoBehaviour
             }
             collision.GetComponent<BossHp>().HitByPlayer = true;
             var effect = Instantiate(efx2, transform.position, transform.rotation);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
@@ -74,6 +75,7 @@ public class CannonExplosion : MonoBehaviour
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
@@ -81,6 +83,7 @@ public class CannonExplosion : MonoBehaviour
         {
             collision.GetComponent<Flag>().Damage(damage);
             var effect = Instantiate(efx2, transform.position, transform.rotation);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }

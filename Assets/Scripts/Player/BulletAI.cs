@@ -79,6 +79,7 @@ public class BulletAI : MonoBehaviour
                 collision.GetComponent<BossHp>().Damage(damage);
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(gameObject);
         }
@@ -93,6 +94,7 @@ public class BulletAI : MonoBehaviour
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
+            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(gameObject);
         }
@@ -103,6 +105,7 @@ public class BulletAI : MonoBehaviour
         if (collision.tag == "Flag")
         {
             var effect2 = Instantiate(efx2, transform.position, transform.rotation);
+            var effect2 = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect2.GetComponent<EFXColorControl>().camp = Camp;
             collision.GetComponent<Flag>().Damage(damage);
             Destroy(gameObject);
