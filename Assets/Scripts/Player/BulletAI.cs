@@ -100,7 +100,7 @@ public class BulletAI : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (collision.tag == "Flag")
+        if (collision.tag == "Flag" && collision.GetComponent<Flag>()) 
         {
             var effect2 = Instantiate(efx2, transform.position, transform.rotation);
             effect2.GetComponent<EFXColorControl>().camp = Camp;

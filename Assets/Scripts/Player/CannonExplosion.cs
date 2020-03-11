@@ -77,7 +77,7 @@ public class CannonExplosion : MonoBehaviour
             effect.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
-        if (collision.tag == "Flag")
+        if (collision.tag == "Flag" && collision.GetComponent<Flag>())
         {
             collision.GetComponent<Flag>().Damage(damage);
             var effect = Instantiate(efx2, transform.position, transform.rotation);
