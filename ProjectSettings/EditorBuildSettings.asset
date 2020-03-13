@@ -10,10 +10,10 @@ EditorBuildSettings:
     guid: 54b80346e90cf42b299e39e055010680
   - enabled: 1
     path: Assets/Scenes/_2Players.unity
-    guid: fd0e6a2f403ec604ebb7730a78bccdc7
+    guid: 4f62a798bb948084fa3be170d5d0810a
   - enabled: 1
     path: Assets/Scenes/_3Players.unity
-    guid: b0c2e8b4fae181c46873d61e1d6c67cd
+    guid: ae817a01208394c4dbcf64638bc11100
   - enabled: 1
     path: Assets/Scenes/_4Players.unity
     guid: ca5b877bab743a6469b5f408a9e06245

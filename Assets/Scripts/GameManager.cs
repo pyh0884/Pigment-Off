@@ -308,16 +308,16 @@ public class GameManager : MonoBehaviour
         if (sceneNum == 4) //战斗场景
         {
             PlayTime -= Time.deltaTime;//倒计时
-            #region Pause Menu
-            if ((Player1.GetButtonDown("Menu")|| Player2.GetButtonDown("Menu")|| Player3.GetButtonDown("Menu")|| Player4.GetButtonDown("Menu")) && !paused) 
-            {
-                Pause();
-            }
-            else if ((Player1.GetButtonDown("Menu") || Player2.GetButtonDown("Menu") || Player3.GetButtonDown("Menu") || Player4.GetButtonDown("Menu")) && paused)
-            {
-                UnPause();
-            }
-            #endregion
+            //#region Pause Menu //TODO:暂停
+            //if ((Player1.GetButtonDown("Menu")|| Player2.GetButtonDown("Menu")|| Player3.GetButtonDown("Menu")|| Player4.GetButtonDown("Menu")) && !paused) 
+            //{
+            //    Pause();
+            //}
+            //else if ((Player1.GetButtonDown("Menu") || Player2.GetButtonDown("Menu") || Player3.GetButtonDown("Menu") || Player4.GetButtonDown("Menu")) && paused)
+            //{
+            //    UnPause();
+            //}
+            //#endregion
             if (StartInsBoss) 
             {
                 Instantiate(Bosss[0], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
@@ -355,6 +355,7 @@ public class GameManager : MonoBehaviour
                             WinnerNum = player2;
                         }
                         WinnerTime = player1Time + player2Time;
+                        pauseMenu.GetComponent<Trans>().QuickLoad(5);
                         Debug.Log("Camp 0 胜利 黄色");                        
                     }
                     else
@@ -368,6 +369,7 @@ public class GameManager : MonoBehaviour
                             WinnerNum = player4;
                         }
                         WinnerTime = player3Time + player4Time;
+                        pauseMenu.GetComponent<Trans>().QuickLoad(5);
                         Debug.Log("Camp 1 胜利 紫色");
                     }
 
@@ -380,18 +382,21 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
+                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
                             Debug.Log("Camp 0 胜利 黄色");
                         }
                         else if (player2Time >= player1Time && player2Time >= player3Time)
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
+                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                         else
                         {
                             WinnerTime = player3Time;
                             WinnerNum = player3;
+                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
                             Debug.Log("Camp 2 胜利 蓝色");
                         }
                     }
@@ -401,12 +406,14 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
+                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
                             Debug.Log("Camp 0 胜利 黄色");
                         }
                         else 
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
+                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                     }

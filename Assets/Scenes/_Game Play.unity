@@ -1585,105 +1585,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &171945789
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 9170028987852376600, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376606, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player4
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player3
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player2
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player1
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player2
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
-        type: 3}
-      propertyPath: player1
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f2ff436af24143946bedc913978a0b16, type: 3}
 --- !u!1 &189467442
 GameObject:
   m_ObjectHideFlags: 0
@@ -7525,7 +7426,7 @@ MonoBehaviour:
   m_MinimumFOV: 3
   m_MaximumFOV: 60
   m_MinimumOrthoSize: 10
-  m_MaximumOrthoSize: 37
+  m_MaximumOrthoSize: 45
 --- !u!114 &552908221
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -16254,16 +16155,19 @@ MonoBehaviour:
       _name: Player1
       _descriptiveName: Player1
       _startPlaying: 1
-      _defaultJoystickMaps:
+      _defaultJoystickMaps: []
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 1
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultMouseMaps: []
-      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
-      _assignMouseOnStart: 0
-      _assignKeyboardOnStart: 0
+      _assignMouseOnStart: 1
+      _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
       _controllerMapLayoutManagerSettings:
         _enabled: 1
@@ -16284,17 +16188,11 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultKeyboardMaps:
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 0
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 1
+      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
-      _assignMouseOnStart: 1
-      _assignKeyboardOnStart: 1
+      _assignMouseOnStart: 0
+      _assignKeyboardOnStart: 0
       _excludeFromControllerAutoAssignment: 0
       _controllerMapLayoutManagerSettings:
         _enabled: 1
