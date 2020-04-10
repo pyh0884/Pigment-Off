@@ -1,27 +1,192 @@
 
 06.png
-size: 512,256
+size: 1592,1014
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+06
+  rotate: false
+  xy: 2, 9
+  size: 1155, 1003
+  orig: 2048, 1024
+  offset: 3, 18
+  index: -1
+arm1
+  rotate: false
+  xy: 1517, 281
+  size: 56, 115
+  orig: 58, 120
+  offset: 1, 4
+  index: -1
+arm2
+  rotate: false
+  xy: 1489, 398
+  size: 62, 106
+  orig: 73, 108
+  offset: 1, 1
+  index: -1
+body
+  rotate: true
+  xy: 1262, 184
+  size: 178, 168
+  orig: 181, 174
+  offset: 2, 5
+  index: -1
+bubble
+  rotate: false
+  xy: 1517, 226
+  size: 61, 53
+  orig: 63, 55
+  offset: 1, 1
+  index: -1
 effect
   rotate: true
-  xy: 142, 73
-  size: 172, 130
-  orig: 172, 130
+  xy: 1406, 398
+  size: 106, 81
+  orig: 106, 81
   offset: 0, 0
+  index: -1
+eye1
+  rotate: true
+  xy: 1406, 506
+  size: 179, 82
+  orig: 181, 84
+  offset: 1, 1
+  index: -1
+eye2
+  rotate: false
+  xy: 1262, 105
+  size: 183, 77
+  orig: 186, 79
+  offset: 1, 1
+  index: -1
+eye3
+  rotate: true
+  xy: 1490, 507
+  size: 178, 75
+  orig: 182, 77
+  offset: 2, 1
+  index: -1
+glass
+  rotate: true
+  xy: 1159, 108
+  size: 254, 101
+  orig: 256, 103
+  offset: 1, 1
+  index: -1
+gun1
+  rotate: true
+  xy: 1447, 77
+  size: 147, 86
+  orig: 167, 88
+  offset: 18, 1
   index: -1
 gun2
-  rotate: true
-  xy: 2, 7
-  size: 238, 138
-  orig: 238, 138
+  rotate: false
+  xy: 1238, 16
+  size: 150, 87
+  orig: 150, 87
   offset: 0, 0
   index: -1
+hair1
+  rotate: false
+  xy: 1159, 364
+  size: 245, 321
+  orig: 249, 333
+  offset: 2, 9
+  index: -1
+hand1
+  rotate: false
+  xy: 1514, 696
+  size: 49, 56
+  orig: 51, 58
+  offset: 1, 1
+  index: -1
 hand2
-  rotate: true
-  xy: 142, 2
-  size: 69, 80
-  orig: 69, 80
+  rotate: false
+  xy: 1390, 49
+  size: 48, 54
+  orig: 48, 54
   offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1159, 687
+  size: 353, 325
+  orig: 357, 327
+  offset: 3, 1
+  index: -1
+leg1
+  rotate: true
+  xy: 1440, 9
+  size: 66, 71
+  orig: 70, 74
+  offset: 3, 1
+  index: -1
+leg2
+  rotate: false
+  xy: 1159, 2
+  size: 77, 104
+  orig: 79, 108
+  offset: 1, 2
+  index: -1
+shadow
+  rotate: true
+  xy: 1514, 754
+  size: 258, 76
+  orig: 260, 78
+  offset: 1, 1
+  index: -1
+swim ring
+  rotate: true
+  xy: 1432, 226
+  size: 170, 83
+  orig: 172, 85
+  offset: 1, 1
+  index: -1
+
+062.png
+size: 1591,2012
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+06body/06
+  rotate: false
+  xy: 2, 1007
+  size: 1587, 1003
+  orig: 1591, 1007
+  offset: 2, 2
+  index: -1
+06body/063
+  rotate: false
+  xy: 2, 2
+  size: 1564, 1003
+  orig: 1568, 1007
+  offset: 2, 2
+  index: -1
+
+063.png
+size: 1592,1014
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+06body/062
+  rotate: false
+  xy: 2, 2
+  size: 1588, 1010
+  orig: 1592, 1014
+  offset: 2, 2
+  index: -1
+
+064.png
+size: 1568,1007
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+06head/06
+  rotate: false
+  xy: 2, 2
+  size: 1564, 1003
+  orig: 1568, 1007
+  offset: 2, 2
   index: -1

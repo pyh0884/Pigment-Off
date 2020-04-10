@@ -210,7 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae03ba99a0e1dd448ce9901f55aad3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackGap: 2
+  AttackGap: 4
+  SwitchGap: 7
   notMove: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
@@ -221,7 +222,7 @@ MonoBehaviour:
   danmu2: {fileID: 1909256560393421979}
   timer1: 2
   AttackTimer: 1
-  moveSpeed: 5
+  moveSpeed: 3
   isAttacking: 0
   skeletonAnimation: {fileID: 5873586412946840354}
   idle: {fileID: 11400000, guid: 47339043f0320014b93451d1df6c4bfd, type: 2}

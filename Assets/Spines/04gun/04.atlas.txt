@@ -1,34 +1,165 @@
 
 04.png
-size: 1024,128
+size: 1780,484
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+arm1
+  rotate: true
+  xy: 784, 6
+  size: 88, 200
+  orig: 92, 203
+  offset: 1, 2
+  index: -1
+arm2
+  rotate: true
+  xy: 1085, 21
+  size: 73, 194
+  orig: 75, 197
+  offset: 1, 2
+  index: -1
+body
+  rotate: true
+  xy: 1449, 151
+  size: 190, 213
+  orig: 193, 216
+  offset: 2, 1
+  index: -1
 effect
-  rotate: false
-  xy: 361, 9
+  rotate: true
+  xy: 1664, 190
   size: 151, 114
   orig: 151, 114
   offset: 0, 0
   index: -1
-gun
+eye1
   rotate: false
-  xy: 2, 2
+  xy: 1528, 3
+  size: 246, 146
+  orig: 248, 148
+  offset: 1, 1
+  index: -1
+eye2
+  rotate: false
+  xy: 1281, 2
+  size: 245, 144
+  orig: 248, 146
+  offset: 1, 1
+  index: -1
+eye3
+  rotate: false
+  xy: 1528, 343
+  size: 247, 139
+  orig: 251, 141
+  offset: 1, 1
+  index: -1
+face
+  rotate: false
+  xy: 290, 72
+  size: 492, 410
+  orig: 496, 412
+  offset: 2, 1
+  index: -1
+gun
+  rotate: true
+  xy: 1151, 125
   size: 357, 121
   orig: 357, 121
   offset: 0, 0
   index: -1
-hand1
+hair
   rotate: true
-  xy: 514, 5
-  size: 59, 53
-  orig: 59, 53
+  xy: 2, 32
+  size: 450, 286
+  orig: 453, 289
+  offset: 2, 1
+  index: -1
+hand1
+  rotate: false
+  xy: 290, 5
+  size: 65, 65
+  orig: 65, 65
   offset: 0, 0
   index: -1
 hand2
-  rotate: true
-  xy: 514, 66
-  size: 57, 56
-  orig: 57, 56
+  rotate: false
+  xy: 357, 7
+  size: 61, 63
+  orig: 61, 63
   offset: 0, 0
+  index: -1
+hat
+  rotate: false
+  xy: 784, 96
+  size: 365, 386
+  orig: 368, 388
+  offset: 1, 1
+  index: -1
+leg1
+  rotate: true
+  xy: 420, 15
+  size: 55, 94
+  orig: 59, 97
+  offset: 2, 2
+  index: -1
+leg2
+  rotate: true
+  xy: 986, 20
+  size: 74, 97
+  orig: 76, 99
+  offset: 1, 1
+  index: -1
+shadow
+  rotate: false
+  xy: 516, 22
+  size: 235, 48
+  orig: 239, 50
+  offset: 3, 1
+  index: -1
+wool
+  rotate: true
+  xy: 1274, 148
+  size: 334, 173
+  orig: 356, 183
+  offset: 2, 1
+  index: -1
+
+042.png
+size: 1779,1548
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+04body/04
+  rotate: false
+  xy: 2, 521
+  size: 1598, 543
+  orig: 1602, 548
+  offset: 2, 2
+  index: -1
+04body/042
+  rotate: false
+  xy: 2, 1066
+  size: 1775, 480
+  orig: 1779, 484
+  offset: 2, 2
+  index: -1
+04body/043
+  rotate: false
+  xy: 2, 2
+  size: 1483, 517
+  orig: 1487, 521
+  offset: 2, 2
+  index: -1
+
+043.png
+size: 1487,521
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+04head/04
+  rotate: false
+  xy: 2, 2
+  size: 1483, 517
+  orig: 1487, 521
+  offset: 2, 2
   index: -1

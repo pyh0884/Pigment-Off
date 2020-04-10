@@ -17,6 +17,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject Bullet;
     public GameObject EmitPos;
     public float ShootSpeed;
+    public float AttackGap = 2.5f;
+    public float SwitchGap = 7;
     //public GameObject GunSprite;
     //void FindEnemy()
     //{
@@ -60,14 +62,14 @@ public class EnemyAI : MonoBehaviour
         movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
         //切换目标
         timer1 += Time.deltaTime; 
-        if (timer1 >= 7)
+        if (timer1 >= SwitchGap)
         {
             FindNonMove();
             timer1 = 0;
         } 
         //攻击间隔
         AttackTimer += Time.deltaTime;
-        if (AttackTimer >= 2.5f && Vector2.Distance(notMove.transform.position, transform.position) < 12) 
+        if (AttackTimer >= AttackGap && Vector2.Distance(notMove.transform.position, transform.position) < 12) 
         {
             AttackTimer = 0;
             Attack();

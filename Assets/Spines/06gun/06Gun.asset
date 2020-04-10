@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 06Gun
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: d11dcbba4cb8b954da7dc1a97b08974c, type: 2}
+  - {fileID: 11400000, guid: 0bd40a875f4f4c7478ed5bdc91c3895c, type: 2}
   scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 2f8ecfe0ec73493429fa6ef82ec5c311, type: 3}
+  skeletonJSON: {fileID: 4900000, guid: 9fa48a9b955627245bc3a111de9a5bd4, type: 3}
   skeletonDataModifiers: []
   fromAnimation: []
   toAnimation: []

@@ -1,48 +1,178 @@
 
 05.png
-size: 2048,1024
+size: 2026,1001
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 arm1
-  rotate: false
-  xy: 1028, 327
-  size: 156, 195
-  orig: 156, 195
+  rotate: true
+  xy: 1158, 370
+  size: 168, 196
+  orig: 168, 196
   offset: 0, 0
   index: -1
 arm2
   rotate: false
-  xy: 1050, 135
+  xy: 1765, 24
   size: 122, 190
   orig: 122, 190
   offset: 0, 0
   index: -1
 body
+  rotate: true
+  xy: 2, 291
+  size: 708, 577
+  orig: 903, 893
+  offset: 0, 316
+  index: -1
+ear
   rotate: false
-  xy: 2, 23
-  size: 903, 910
-  orig: 903, 910
-  offset: 0, 0
+  xy: 1356, 405
+  size: 445, 133
+  orig: 447, 136
+  offset: 1, 2
+  index: -1
+effect1
+  rotate: false
+  xy: 597, 2
+  size: 358, 365
+  orig: 413, 440
+  offset: 27, 35
+  index: -1
+effect2
+  rotate: false
+  xy: 957, 2
+  size: 358, 365
+  orig: 413, 440
+  offset: 27, 35
+  index: -1
+eye1
+  rotate: false
+  xy: 1379, 542
+  size: 301, 62
+  orig: 304, 64
+  offset: 2, 1
+  index: -1
+eye2
+  rotate: false
+  xy: 263, 4
+  size: 291, 56
+  orig: 294, 60
+  offset: 1, 2
+  index: -1
+gun1
+  rotate: true
+  xy: 1803, 663
+  size: 336, 221
+  orig: 340, 230
+  offset: 3, 2
+  index: -1
+gun2
+  rotate: true
+  xy: 1317, 32
+  size: 336, 226
+  orig: 340, 230
+  offset: 3, 2
+  index: -1
+hair1
+  rotate: false
+  xy: 263, 62
+  size: 332, 227
+  orig: 334, 236
+  offset: 1, 1
+  index: -1
+hair2
+  rotate: false
+  xy: 1803, 216
+  size: 220, 445
+  orig: 225, 449
+  offset: 4, 2
+  index: -1
+hand1
+  rotate: true
+  xy: 1545, 19
+  size: 195, 218
+  orig: 201, 220
+  offset: 4, 1
+  index: -1
+hand2
+  rotate: false
+  xy: 1545, 216
+  size: 191, 187
+  orig: 194, 191
+  offset: 2, 2
+  index: -1
+head
+  rotate: false
+  xy: 581, 369
+  size: 575, 630
+  orig: 685, 635
+  offset: 108, 3
   index: -1
 leg1
   rotate: false
-  xy: 907, 2
-  size: 141, 258
-  orig: 141, 258
-  offset: 0, 0
+  xy: 134, 27
+  size: 127, 262
+  orig: 141, 263
+  offset: 0, 1
   index: -1
 leg2
   rotate: false
-  xy: 907, 262
-  size: 119, 260
-  orig: 119, 260
+  xy: 2, 14
+  size: 130, 275
+  orig: 130, 275
   offset: 0, 0
   index: -1
 loop
-  rotate: true
-  xy: 907, 524
-  size: 409, 397
-  orig: 409, 397
+  rotate: false
+  xy: 1379, 606
+  size: 410, 393
+  orig: 410, 393
   offset: 0, 0
+  index: -1
+shadow
+  rotate: true
+  xy: 1158, 540
+  size: 459, 219
+  orig: 475, 232
+  offset: 10, 9
+  index: -1
+
+052.png
+size: 2017,989
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+05head/05
+  rotate: false
+  xy: 2, 2
+  size: 2013, 985
+  orig: 2017, 989
+  offset: 2, 2
+  index: -1
+
+053.png
+size: 1999,1048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+guncha5/05
+  rotate: false
+  xy: 2, 2
+  size: 1995, 1044
+  orig: 1999, 1049
+  offset: 2, 2
+  index: -1
+
+054.png
+size: 1927,1553
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+New folder/05
+  rotate: false
+  xy: 2, 2
+  size: 1923, 1549
+  orig: 2048, 2048
+  offset: 3, 496
   index: -1

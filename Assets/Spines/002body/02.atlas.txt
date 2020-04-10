@@ -1,62 +1,192 @@
 
 02.png
-size: 1024,1024
+size: 1972,681
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+arm1
+  rotate: false
+  xy: 1505, 322
+  size: 193, 357
+  orig: 193, 357
+  offset: 0, 0
+  index: -1
+arm2
+  rotate: true
+  xy: 1700, 548
+  size: 131, 270
+  orig: 131, 270
+  offset: 0, 0
+  index: -1
+cannon
+  rotate: true
+  xy: 2, 181
+  size: 498, 221
+  orig: 508, 224
+  offset: 2, 1
+  index: -1
+effect1
+  rotate: false
+  xy: 893, 300
+  size: 315, 379
+  orig: 323, 384
+  offset: 7, 2
+  index: -1
+effect2
+  rotate: false
+  xy: 225, 242
+  size: 307, 437
+  orig: 310, 442
+  offset: 2, 1
+  index: -1
+eye
+  rotate: true
+  xy: 839, 19
+  size: 228, 98
+  orig: 230, 102
+  offset: 1, 2
+  index: -1
+eye copy
+  rotate: true
+  xy: 291, 4
+  size: 236, 143
+  orig: 238, 145
+  offset: 1, 1
+  index: -1
+eye copy 2
+  rotate: false
+  xy: 1700, 446
+  size: 226, 100
+  orig: 228, 103
+  offset: 1, 1
+  index: -1
+face
+  rotate: true
+  xy: 1251, 5
+  size: 314, 273
+  orig: 317, 275
+  offset: 2, 1
+  index: -1
+hair
+  rotate: true
+  xy: 534, 249
+  size: 430, 357
+  orig: 432, 408
+  offset: 1, 5
+  index: -1
+hair1
+  rotate: false
+  xy: 1210, 321
+  size: 293, 358
+  orig: 298, 362
+  offset: 2, 1
+  index: -1
 hand1
   rotate: false
-  xy: 2, 26
-  size: 278, 526
-  orig: 278, 526
-  offset: 0, 0
+  xy: 1617, 125
+  size: 151, 158
+  orig: 168, 162
+  offset: 15, 2
   index: -1
 hand2
-  rotate: false
-  xy: 419, 10
-  size: 168, 402
-  orig: 168, 402
-  offset: 0, 0
+  rotate: true
+  xy: 1617, 10
+  size: 113, 141
+  orig: 122, 144
+  offset: 1, 2
   index: -1
 jacket
-  rotate: false
-  xy: 2, 554
-  size: 746, 461
-  orig: 746, 461
-  offset: 0, 0
+  rotate: true
+  xy: 939, 3
+  size: 295, 310
+  orig: 495, 310
+  offset: 132, 0
   index: -1
 jacket1
-  rotate: false
-  xy: 750, 582
-  size: 235, 433
-  orig: 235, 433
-  offset: 0, 0
+  rotate: true
+  xy: 2, 19
+  size: 160, 287
+  orig: 160, 292
+  offset: 0, 5
   index: -1
 leg1
   rotate: true
-  xy: 750, 414
-  size: 166, 227
-  orig: 166, 227
+  xy: 1760, 12
+  size: 111, 152
+  orig: 111, 152
   offset: 0, 0
   index: -1
 leg2
-  rotate: true
-  xy: 282, 456
-  size: 96, 201
-  orig: 96, 201
+  rotate: false
+  xy: 1770, 144
+  size: 109, 139
+  orig: 109, 139
   offset: 0, 0
   index: -1
 shadow
   rotate: true
-  xy: 282, 2
-  size: 410, 135
-  orig: 410, 135
-  offset: 0, 0
+  xy: 1526, 49
+  size: 271, 89
+  orig: 273, 91
+  offset: 1, 1
   index: -1
 shirt
+  rotate: false
+  xy: 654, 2
+  size: 183, 245
+  orig: 183, 282
+  offset: 0, 37
+  index: -1
+shou1
+  rotate: false
+  xy: 436, 11
+  size: 216, 229
+  orig: 244, 232
+  offset: 26, 2
+  index: -1
+shou2
   rotate: true
-  xy: 589, 138
-  size: 274, 423
-  orig: 274, 423
-  offset: 0, 0
+  xy: 1700, 285
+  size: 159, 213
+  orig: 183, 216
+  offset: 2, 2
+  index: -1
+
+022.png
+size: 1995,1739
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+002/02
+  rotate: false
+  xy: 2, 2
+  size: 1991, 1735
+  orig: 2048, 2048
+  offset: 3, 242
+  index: -1
+
+023.png
+size: 1900,730
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+002gun/02
+  rotate: false
+  xy: 2, 2
+  size: 1896, 726
+  orig: 1900, 730
+  offset: 2, 2
+  index: -1
+
+024.png
+size: 1986,689
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+002head/02
+  rotate: false
+  xy: 2, 2
+  size: 1982, 685
+  orig: 1986, 689
+  offset: 2, 2
   index: -1

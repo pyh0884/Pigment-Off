@@ -277,11 +277,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(20);
         Instantiate(Bosss[1], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
     }
-    public void insMonster()
-    {
-        Instantiate(Bosss[2], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
-        Instantiate(Bosss[2], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
-    }
+    //弃用：GM生成小怪
+    //public void insMonster()
+    //{
+    //    Instantiate(Bosss[2], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+    //    Instantiate(Bosss[2], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+    //}
 
     #endregion
     public void selfDes() 

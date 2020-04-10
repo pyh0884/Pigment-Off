@@ -179,6 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8888ebe30fb2f4ea05d50b3939c2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IncreaseShootingSpd: 1.5
+  IncreaseShootingSpd: 1.3
   HpRecoverSpeed: 5
   Camp: 0

@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28366393ed36b0d4babb0dbcd904bc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackGap: 2
+  AttackGap: 4
   notMove: {fileID: 0}
   enemyLayer:
     serializedVersion: 2

@@ -27,9 +27,22 @@ public class BulletAI : MonoBehaviour
     Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
     Color camp2 = new Color(0.4313726f, 0.6980392f, 0.6509804f);//蓝色
     public bool isNormal;
+    public GameObject SniperEFX;
 
     void Start()
     {
+        switch (Camp)
+        {
+            case 0:
+                GetComponent<SpriteRenderer>().color = camp0;
+                break;
+            case 1:
+                GetComponent<SpriteRenderer>().color = camp1;
+                break;
+            case 2:
+                GetComponent<SpriteRenderer>().color = camp2;
+                break;
+        }
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject,Range/ShootSpeed);
     }
@@ -66,6 +79,12 @@ public class BulletAI : MonoBehaviour
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            if (!isNormal)
+            {
+                var l1 = Instantiate(SniperEFX, transform);
+                l1.transform.parent = null;
+                l1.GetComponent<EFXColorControl>().camp = Camp;
+            }
             Destroy(gameObject);
         }
         if (collision.tag == "Boss")
@@ -80,6 +99,12 @@ public class BulletAI : MonoBehaviour
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            if (!isNormal)
+            {
+                var l1 = Instantiate(SniperEFX, transform);
+                l1.transform.parent = null;
+                l1.GetComponent<EFXColorControl>().camp = Camp;
+            }
             Destroy(gameObject);
         }
         if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != Camp)//Player
@@ -94,17 +119,35 @@ public class BulletAI : MonoBehaviour
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            if (!isNormal)
+            {
+                var l1 = Instantiate(SniperEFX, transform);
+                l1.transform.parent = null;
+                l1.GetComponent<EFXColorControl>().camp = Camp;
+            }
             Destroy(gameObject);
         }
         if (collision.gameObject.layer == 13) //"Wall" 
         {
+            if (!isNormal)
+            {
+                var l1 = Instantiate(SniperEFX, transform);
+                l1.transform.parent = null;
+                l1.GetComponent<EFXColorControl>().camp = Camp;
+            }
             Destroy(gameObject);
         }
-        if (collision.tag == "Flag" && collision.GetComponent<Flag>()) 
+        if (collision.tag == "Flag" && collision.GetComponent<Flag>())
         {
             var effect2 = Instantiate(efx2, transform.position, transform.rotation);
             effect2.GetComponent<EFXColorControl>().camp = Camp;
             collision.GetComponent<Flag>().Damage(damage);
+            if (!isNormal)
+            {
+                var l1 = Instantiate(SniperEFX, transform);
+                l1.transform.parent = null;
+                l1.GetComponent<EFXColorControl>().camp = Camp;
+            }
             Destroy(gameObject);
         }
     }

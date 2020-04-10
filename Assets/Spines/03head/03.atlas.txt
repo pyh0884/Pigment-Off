@@ -1,48 +1,185 @@
 
 03.png
-size: 1024,512
+size: 1437,554
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-eye1
+Layer 12
   rotate: false
-  xy: 2, 2
-  size: 232, 108
-  orig: 232, 108
+  xy: 2, 50
+  size: 240, 166
+  orig: 245, 168
+  offset: 3, 1
+  index: -1
+Layer 13
+  rotate: false
+  xy: 1155, 25
+  size: 238, 72
+  orig: 240, 74
+  offset: 1, 1
+  index: -1
+cloak
+  rotate: false
+  xy: 729, 216
+  size: 331, 204
+  orig: 333, 207
+  offset: 1, 2
+  index: -1
+effect1
+  rotate: false
+  xy: 244, 30
+  size: 154, 186
+  orig: 204, 216
+  offset: 4, 12
+  index: -1
+effect2
+  rotate: true
+  xy: 401, 37
+  size: 238, 287
+  orig: 310, 334
+  offset: 4, 18
+  index: -1
+effect3
+  rotate: false
+  xy: 1177, 216
+  size: 258, 336
+  orig: 339, 398
+  offset: 1, 30
+  index: -1
+eye1
+  rotate: true
+  xy: 1062, 214
+  size: 206, 96
+  orig: 206, 96
   offset: 0, 0
   index: -1
 eye2
-  rotate: false
-  xy: 236, 2
-  size: 232, 108
-  orig: 232, 108
+  rotate: true
+  xy: 1057, 6
+  size: 206, 96
+  orig: 206, 96
   offset: 0, 0
   index: -1
 eye3
   rotate: false
-  xy: 470, 66
-  size: 231, 108
-  orig: 231, 108
+  xy: 690, 2
+  size: 203, 96
+  orig: 203, 96
   offset: 0, 0
+  index: -1
+gun
+  rotate: false
+  xy: 729, 422
+  size: 446, 130
+  orig: 448, 140
+  offset: 1, 9
   index: -1
 hair1
   rotate: false
-  xy: 2, 112
-  size: 449, 381
-  orig: 449, 381
-  offset: 0, 0
+  xy: 2, 218
+  size: 397, 334
+  orig: 397, 336
+  offset: 0, 2
   index: -1
 hair2
-  rotate: false
-  xy: 837, 184
-  size: 129, 309
-  orig: 129, 309
+  rotate: true
+  xy: 1160, 99
+  size: 115, 274
+  orig: 115, 274
   offset: 0, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 690, 100
+  size: 114, 138
+  orig: 116, 140
+  offset: 1, 1
+  index: -1
+hand2
+  rotate: false
+  xy: 895, 16
+  size: 72, 106
+  orig: 74, 108
+  offset: 1, 1
   index: -1
 head
   rotate: false
-  xy: 453, 176
-  size: 382, 317
-  orig: 382, 317
-  offset: 0, 0
+  xy: 401, 277
+  size: 326, 275
+  orig: 337, 280
+  offset: 4, 5
+  index: -1
+leg1
+  rotate: true
+  xy: 830, 124
+  size: 90, 156
+  orig: 92, 160
+  offset: 1, 3
+  index: -1
+leg2
+  rotate: false
+  xy: 988, 81
+  size: 67, 133
+  orig: 69, 150
+  offset: 1, 16
+  index: -1
+
+032.png
+size: 1437,1117
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+03body/03
+  rotate: false
+  xy: 2, 2
+  size: 1361, 562
+  orig: 1365, 566
+  offset: 2, 2
+  index: -1
+03body/032
+  rotate: false
+  xy: 2, 566
+  size: 1433, 549
+  orig: 1437, 553
+  offset: 2, 2
+  index: -1
+
+033.png
+size: 1712,1551
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+03body/033
+  rotate: false
+  xy: 2, 2
+  size: 1708, 1547
+  orig: 1712, 1551
+  offset: 2, 2
+  index: -1
+
+034.png
+size: 1712,1551
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+gun03/03
+  rotate: false
+  xy: 2, 1117
+  size: 1708, 432
+  orig: 1712, 436
+  offset: 2, 2
+  index: -1
+gun03/032
+  rotate: false
+  xy: 2, 2
+  size: 1361, 562
+  orig: 1365, 566
+  offset: 2, 2
+  index: -1
+gun03/033
+  rotate: false
+  xy: 2, 566
+  size: 1433, 549
+  orig: 1437, 553
+  offset: 2, 2
   index: -1

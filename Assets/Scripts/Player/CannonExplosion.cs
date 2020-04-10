@@ -20,6 +20,7 @@ public class CannonExplosion : MonoBehaviour
     public GameObject main;
     public GameObject efx2;
     public int Camp;
+    public GameObject CannonEFX;
 
     void Start()
     {
@@ -45,6 +46,9 @@ public class CannonExplosion : MonoBehaviour
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            var l1 = Instantiate(CannonEFX, transform);
+            l1.transform.parent = null;
+            l1.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Boss")
@@ -61,6 +65,9 @@ public class CannonExplosion : MonoBehaviour
             collision.GetComponent<BossHp>().HitByPlayer = true;
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            var l1 = Instantiate(CannonEFX, transform);
+            l1.transform.parent = null;
+            l1.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != gameObject.transform.parent.GetComponent<CannonBullet>().Camp)
@@ -75,6 +82,9 @@ public class CannonExplosion : MonoBehaviour
             }
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            var l1 = Instantiate(CannonEFX, transform);
+            l1.transform.parent = null;
+            l1.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Flag" && collision.GetComponent<Flag>())
@@ -82,6 +92,9 @@ public class CannonExplosion : MonoBehaviour
             collision.GetComponent<Flag>().Damage(damage);
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
+            var l1 = Instantiate(CannonEFX, transform);
+            l1.transform.parent = null;
+            l1.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
     }

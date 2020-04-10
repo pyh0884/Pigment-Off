@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Rewired;
+using UnityEngine.SceneManagement;
 
 
 public class ChooseMenu : MonoBehaviour
@@ -25,6 +26,8 @@ public class ChooseMenu : MonoBehaviour
     public int playerID = 10;//0-3
     private Player player;
     public int currentNum;//1-6
+    public GameObject pauseMenu;
+    public bool paused;
 
     void Start()
     {
@@ -119,8 +122,7 @@ public class ChooseMenu : MonoBehaviour
                 break;
         }
     }
-
-        void KeepOpen()
+    void KeepOpen()
     {
         switch (currentNum)
         {
@@ -473,38 +475,42 @@ public class ChooseMenu : MonoBehaviour
     }
     void Update()
     {
-        #region MoveLeftRight
-        if (player.GetButtonDown("MoveLeft") && !locked) 
+        paused = pauseMenu.activeInHierarchy;
+        if (!paused)
         {
-            if (CheckLeftMovable())
-                MoveLeft();
-            else
-                MoveLeft2();
+            #region MoveLeftRight
+            if (player.GetButtonDown("MoveLeft") && !locked)
+            {
+                if (CheckLeftMovable())
+                    MoveLeft();
+                else
+                    MoveLeft2();
+            }
+            if (player.GetButtonDown("MoveRight") && !locked)
+            {
+                if (CheckRightMovable())
+                    MoveRight();
+                else
+                    MoveRight2();
+            }
+            if (player.GetButtonLongPress("MoveLeft") && !locked)
+            {
+                if (CheckLeftMovable())
+                    MoveLeft();
+                else
+                    MoveLeft2();
+            }
+            if (player.GetButtonLongPress("MoveRight") && !locked)
+            {
+                if (CheckRightMovable())
+                    MoveRight();
+                else
+                    MoveRight2();
+            }
+            #endregion
+            KeepOpen();
         }
-        if (player.GetButtonDown("MoveRight") && !locked)
-        {
-            if (CheckRightMovable())
-                MoveRight();
-            else
-                MoveRight2();
-        }
-        if (player.GetButtonLongPress("MoveLeft") && !locked)
-        {
-            if (CheckLeftMovable())
-                MoveLeft();
-            else
-                MoveLeft2();
-        }
-        if (player.GetButtonLongPress("MoveRight") && !locked)
-        {
-            if (CheckRightMovable())
-                MoveRight();
-            else
-                MoveRight2();
-        }
-        #endregion
-        KeepOpen();
-        if (player.GetButtonDown("Confirm") && !locked && CheckLockable()) 
+        if (player.GetButtonDown("Confirm") && !locked && CheckLockable() && !paused)  
         {
             MoveOther();
             locked = true;
@@ -512,17 +518,17 @@ public class ChooseMenu : MonoBehaviour
             lockedNum = currentNum;
             ChangeSelectBack();
         }
-        if (player.GetButtonDown("Cancel") && locked)
+        if (player.GetButtonDown("Cancel") && locked && !paused)
         {
             locked = false;
             lockedNum = 0;
             SelectBack.sprite = SprSelectBack[0];
         }
-        else if (player.GetButtonDown("Cancel") && !locked)
+        else if (player.GetButtonDown("Cancel") && !locked && !paused) 
         {
-            Debug.Log("暂停弹窗");
+            pauseMenu.SetActive(true);//todo
         }
-        if (player.GetButton("Start") && locked)
+        if (player.GetButton("Start") && locked && !paused)
         {
             switch (playerID)
             {
@@ -558,6 +564,17 @@ public class ChooseMenu : MonoBehaviour
                     break;
             }
 
+        }
+        if (paused)
+        {
+            if (player.GetButtonDown("Cancel"))
+            {
+                pauseMenu.SetActive(false);
+            }
+            else if (player.GetButton("Confirm"))
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

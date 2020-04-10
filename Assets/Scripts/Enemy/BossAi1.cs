@@ -8,6 +8,7 @@ public class BossAi1 : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float AttackGap = 2;
+    public float SwitchGap = 7;
     private Vector3 dir;
     private Vector3 dir2;
     private float angle;
@@ -107,14 +108,14 @@ public class BossAi1 : MonoBehaviour
             movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
             //切换目标
             timer1 += Time.deltaTime;
-            if (timer1 >= 7)
+            if (timer1 >= SwitchGap)
             {
                 FindNonMove();
                 timer1 = 0;
             }
             //攻击间隔
             AttackTimer += Time.deltaTime;
-            if (AttackTimer >= 6 && !isAttacking)
+            if (AttackTimer >= AttackGap && !isAttacking)
             {
                 isAttacking = true;
                 StartCoroutine("attack1");

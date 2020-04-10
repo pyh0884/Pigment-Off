@@ -34,8 +34,8 @@ public class Attack : MonoBehaviour
     public LineRenderer TrajectoryLine;
     private bool CannonAiming = false;
     private bool CannonPressed = false;
-    public float minDamage = 10;
-    public float maxDamage = 40;
+    public float minDamage = 30;
+    public float maxDamage = 50;
     public bool BoostCannon;
     public float SkillCd3 = 20;
     private float skillCd3 = 20;
@@ -49,7 +49,7 @@ public class Attack : MonoBehaviour
     #endregion
     //Basic Attack Parameters
     [Header("基本参数：")]
-    [HideInInspector] public SkeletonAnimation skeletonAnimation;
+    public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
     [HideInInspector] public string currentAnimation;
@@ -66,6 +66,9 @@ public class Attack : MonoBehaviour
     private float skillCd1 = 20;
     [HideInInspector] public float tempCD;
     public Slider slider;
+    public Image SliderImg;
+    public Image PlayerNumImg;
+    public Sprite[] PlayerNumSpr;
     public float Mp = 100;
     [Header("最大颜料值")]
     public float MpMax = 100;
@@ -151,6 +154,7 @@ public class Attack : MonoBehaviour
         SetCharacterState(currentState);
         cdTime = 10;
         tempCD = CdTime;
+        PlayerNumImg.sprite = PlayerNumSpr[playerID];
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
@@ -374,7 +378,7 @@ public class Attack : MonoBehaviour
             {
                 bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
             }
-            minDamage = 10;
+            minDamage = 30;
         }
         else
         {
@@ -397,7 +401,7 @@ public class Attack : MonoBehaviour
                 bul1.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
                 bul2.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
             }
-            minDamage = 10;
+            minDamage = 30;
         }
         cdTime = 0;
         StartCoroutine("waitFor4");
@@ -569,6 +573,7 @@ public class Attack : MonoBehaviour
     }
     void Update()
     {
+        SliderImg.SetNativeSize();
         if (isCarryingFlag) 
         {
             switch (playerID) 
@@ -643,7 +648,7 @@ public class Attack : MonoBehaviour
         if (CannonAiming)
         {
             minDamage += Time.deltaTime * (isCarryingFlag ? 1.4f : 1);
-            minDamage = Mathf.Clamp(minDamage, 10, maxDamage);
+            minDamage = Mathf.Clamp(minDamage, 30, maxDamage);
             CannonTrajectory();
         }
     }
@@ -652,7 +657,7 @@ public class Attack : MonoBehaviour
         if (isCarryingFlag)
         {
             Instantiate(FlagWithCover, transform.position, Quaternion.identity);
-            FindObjectOfType<GameManager>().insMonster();
+            //FindObjectOfType<GameManager>().insMonster(); //弃用：旗子掉落时生成漂浮敌人
         }
     }
 }
