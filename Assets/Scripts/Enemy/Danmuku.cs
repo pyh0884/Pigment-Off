@@ -22,6 +22,7 @@ public class Danmuku : MonoBehaviour
                 var bul = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, z + i));
                 bul.GetComponent<Rigidbody2D>().velocity = bul.transform.right * 20;
             }
+            GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(AttackGap);
         }
     }

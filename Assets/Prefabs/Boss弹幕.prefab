@@ -223,6 +223,6 @@ MonoBehaviour:
   ColorPool3: {fileID: 7097270998915139883, guid: c2cc55912757e2f4c9462ab33637b364,
     type: 3}
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
-  efx2: {fileID: 4405911379138229989, guid: 8c0c83d9836fbf64c8a9b386401e84b9, type: 3}
+  efx2: {fileID: 0}
   shadow: {fileID: 2491919214985359070}
   isBoss: 1

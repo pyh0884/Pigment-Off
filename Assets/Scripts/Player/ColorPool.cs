@@ -13,6 +13,7 @@ public class ColorPool : MonoBehaviour
         if (collision.gameObject.layer == 12 && Timer > 1 && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
             collision.GetComponent<HealthBar>().Damage(-HpRecoverSpeed);
+            collision.GetComponentInChildren<Attack>().yanliaoEFX.SetActive(true);
             Timer = 0;
         }
     }
@@ -38,16 +39,19 @@ public class ColorPool : MonoBehaviour
     {
         if (collision.gameObject.layer == 12 && (collision.tag == "Normal1" || collision.tag == "Normal2") && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
+            collision.GetComponentInChildren<Attack>().yanliaoEFX.SetActive(false);
             collision.GetComponentInChildren<Attack>().MpBoost = false;
             collision.GetComponentInChildren<Attack>().CdTime = collision.GetComponentInChildren<Attack>().tempCD;
         }
         if (collision.gameObject.layer == 12 && (collision.tag == "Sniper1" || collision.tag == "Sniper2") && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
+            collision.GetComponentInChildren<Attack>().yanliaoEFX.SetActive(false);
             collision.GetComponentInChildren<Attack>().MpBoost = false;
             collision.GetComponent<PlayerMovement>().Boost = false;
         }
         if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2") && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
+            collision.GetComponentInChildren<Attack>().yanliaoEFX.SetActive(false);
             collision.GetComponentInChildren<Attack>().expRange = 1;
             collision.GetComponentInChildren<Attack>().MpBoost = false;
         }

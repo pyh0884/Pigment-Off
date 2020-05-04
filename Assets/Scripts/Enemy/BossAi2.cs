@@ -27,6 +27,7 @@ public class BossAi2 : MonoBehaviour
     public RotateGun rg;
     public GameObject penshui;
     public bool isMoving;
+    public AudioSource BossMove;
 
     void Start()
     {
@@ -80,6 +81,14 @@ public class BossAi2 : MonoBehaviour
     }
     void Update()
     {
+        if (currentState == "walk")
+        {
+            BossMove.mute = false;
+        }
+        else
+        {
+            BossMove.mute = true;
+        }
         if (!notMove)
         {
             FindNonMove();
@@ -127,6 +136,7 @@ public class BossAi2 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         rg.SetCharacterState("attack");
         penshui.SetActive(true);
+        GetComponent<AudioSource>().Play();
         SetCharacterState("shoot");
         yield return new WaitForSeconds(4);
         penshui.SetActive(false);

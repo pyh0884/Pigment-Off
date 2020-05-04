@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 8953772972351659839, guid: 8362ecc9dbe629f42ad15583db20f583,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.64705884, g: 0.92941177, b: 0.10980392, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   ColorPool3: {fileID: 7097270998915139883, guid: c2cc55912757e2f4c9462ab33637b364,
     type: 3}
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
-  efx2: {fileID: 4405911379138229989, guid: 8c0c83d9836fbf64c8a9b386401e84b9, type: 3}
+  efx2: {fileID: 283265036870247980, guid: a7913bc341c9d934ca5f283ef88a043d, type: 3}
   shadow: {fileID: 4456638225782826260}
   isBoss: 0
 --- !u!1 &4456638225782826260

@@ -13,223 +13,251 @@ public class ChooseMenu : MonoBehaviour
     public int sceneNum;
     [HideInInspector] public int lockedNum = 0;
     public ChooseMenu[] cm;
-    public Image[] CharacterBack;//下，背景
-    public Image[] CharacterIcon;//下，角色头像
-    public Image SelectBack;//上，背景版
-    public Image Players;//上，角色小图
-    public Sprite[] SprCharacterBack;
-    public Sprite[] SprCharacterIcon;
+    //public Image[] CharacterBack;//下，背景
+    //public Image[] CharacterIcon;//下，角色头像
+    public Image SelectBack;//上，背景黄色部分
+    public Image PlayerFront;//上，角色小图
+    public Image PlayerBack;//上，角色大图
+    public Image Lock;
+    //public Sprite[] SprCharacterBack;
+    //public Sprite[] SprCharacterIcon;
+    public Sprite[] SprPlayerFront;
     public Sprite[] SprSelectBack;
-    public Sprite[] SprPlayers;
-    public GameObject[] LowerIcon;//下，P1P2P3P4标识
+    public Sprite[] SprPlayersBack;
+    //public GameObject[] LowerIcon;//下，P1P2P3P4标识
     public GameManager gm;
     public int playerID = 10;//0-3
     private Player player;
     public int currentNum;//1-6
     public GameObject pauseMenu;
     public bool paused;
+    public AudioSource Click;
 
     void Start()
     {
         player = ReInput.players.GetPlayer(playerID);
         gm = FindObjectOfType<GameManager>();
     }
-    void CloseUI(int num)
-    {
-        switch (sceneNum)//todo:修改不同场景的sceneNum，为游戏人数
-        {
-            case 4:
-                if (cm[0].currentNum == num || cm[1].currentNum == num || cm[2].currentNum == num)
-                    return;
-                break;
-            case 3:
-                if (cm[0].currentNum == num || cm[1].currentNum == num)
-                    return;
-                break;
-            case 2:
-                if (cm[0].currentNum == num)
-                    return;
-                break;
-        }
-        switch (num)
-        {
-            case 1:
-                CharacterBack[0].sprite = SprCharacterBack[0];
-                CharacterBack[0].SetNativeSize();
-                CharacterIcon[0].sprite = SprCharacterIcon[0];
-                CharacterIcon[0].SetNativeSize();
-                //LowerIcon[0].sprite=?? todo
-                break;
-            case 2:
-                CharacterBack[2].sprite = SprCharacterBack[2];
-                CharacterBack[2].SetNativeSize();
-                CharacterIcon[2].sprite = SprCharacterIcon[2];
-                CharacterIcon[2].SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 3:
-                CharacterBack[4].sprite = SprCharacterBack[4];
-                CharacterBack[4].SetNativeSize();
-                CharacterIcon[4].sprite = SprCharacterIcon[4];
-                CharacterIcon[4].SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 4:
-                CharacterBack[3].sprite = SprCharacterBack[3];
-                CharacterBack[3].SetNativeSize();
-                CharacterIcon[3].sprite = SprCharacterIcon[3];
-                CharacterIcon[3].SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 5:
-                CharacterBack[5].sprite = SprCharacterBack[5];
-                CharacterBack[5].SetNativeSize();
-                CharacterIcon[5].sprite = SprCharacterIcon[5];
-                CharacterIcon[5].SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 6:
-                CharacterBack[1].sprite = SprCharacterBack[1];
-                CharacterBack[1].SetNativeSize();
-                CharacterIcon[1].sprite = SprCharacterIcon[1];
-                CharacterIcon[1].SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
+    //void CloseUI(int num)
+    //{
+    //    switch (sceneNum)//todo:修改不同场景的sceneNum，为游戏人数
+    //    {
+    //        case 4:
+    //            if (cm[0].currentNum == num || cm[1].currentNum == num || cm[2].currentNum == num)
+    //                return;
+    //            break;
+    //        case 3:
+    //            if (cm[0].currentNum == num || cm[1].currentNum == num)
+    //                return;
+    //            break;
+    //        case 2:
+    //            if (cm[0].currentNum == num)
+    //                return;
+    //            break;
+    //    }
+    //    switch (num)
+    //    {
+    //        case 1:
+    //            CharacterBack[0].sprite = SprCharacterBack[0];
+    //            CharacterBack[0].SetNativeSize();
+    //            CharacterIcon[0].sprite = SprCharacterIcon[0];
+    //            CharacterIcon[0].SetNativeSize();
+    //            //LowerIcon[0].sprite=?? todo
+    //            break;
+    //        case 2:
+    //            CharacterBack[2].sprite = SprCharacterBack[2];
+    //            CharacterBack[2].SetNativeSize();
+    //            CharacterIcon[2].sprite = SprCharacterIcon[2];
+    //            CharacterIcon[2].SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 3:
+    //            CharacterBack[4].sprite = SprCharacterBack[4];
+    //            CharacterBack[4].SetNativeSize();
+    //            CharacterIcon[4].sprite = SprCharacterIcon[4];
+    //            CharacterIcon[4].SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 4:
+    //            CharacterBack[3].sprite = SprCharacterBack[3];
+    //            CharacterBack[3].SetNativeSize();
+    //            CharacterIcon[3].sprite = SprCharacterIcon[3];
+    //            CharacterIcon[3].SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 5:
+    //            CharacterBack[5].sprite = SprCharacterBack[5];
+    //            CharacterBack[5].SetNativeSize();
+    //            CharacterIcon[5].sprite = SprCharacterIcon[5];
+    //            CharacterIcon[5].SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 6:
+    //            CharacterBack[1].sprite = SprCharacterBack[1];
+    //            CharacterBack[1].SetNativeSize();
+    //            CharacterIcon[1].sprite = SprCharacterIcon[1];
+    //            CharacterIcon[1].SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
 
-        }
-    }
+    //    }
+    //}
     void ChangeSelectBack()
     {
         switch (currentNum)
         {
             case 1:
+                PlayerFront.sprite = SprPlayerFront[0];
+                PlayerBack.sprite = SprPlayersBack[0];
+                SelectBack.sprite = SprSelectBack[0];
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
+                break;
+            case 2:
+                PlayerFront.sprite = SprPlayerFront[1];
+                PlayerBack.sprite = SprPlayersBack[1];
                 SelectBack.sprite = SprSelectBack[1];
-                break;
-            case 2:
-                SelectBack.sprite = SprSelectBack[3];
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
                 break;
             case 3:
-                SelectBack.sprite = SprSelectBack[5];
-                break;
-            case 4:
-                SelectBack.sprite = SprSelectBack[4];
-                break;
-            case 5:
-                SelectBack.sprite = SprSelectBack[6];
-                break;
-            case 6:
+                PlayerFront.sprite = SprPlayerFront[2];
+                PlayerBack.sprite = SprPlayersBack[2];
                 SelectBack.sprite = SprSelectBack[2];
-                break;
-        }
-    }
-    void KeepOpen()
-    {
-        switch (currentNum)
-        {
-            case 1:
-                CharacterBack[0].sprite = SprCharacterBack[6];
-                CharacterBack[0].SetNativeSize();
-                CharacterIcon[0].sprite = SprCharacterIcon[6];
-                CharacterIcon[0].SetNativeSize();
-                break;
-            case 2:
-                CharacterBack[2].sprite = SprCharacterBack[8];
-                CharacterBack[2].SetNativeSize();
-                CharacterIcon[2].sprite = SprCharacterIcon[8];
-                CharacterIcon[2].SetNativeSize();
-                break;
-            case 3:
-                CharacterBack[4].sprite = SprCharacterBack[10];
-                CharacterBack[4].SetNativeSize();
-                CharacterIcon[4].sprite = SprCharacterIcon[10];
-                CharacterIcon[4].SetNativeSize();
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
                 break;
             case 4:
-                CharacterBack[3].sprite = SprCharacterBack[9];
-                CharacterBack[3].SetNativeSize();
-                CharacterIcon[3].sprite = SprCharacterIcon[9];
-                CharacterIcon[3].SetNativeSize();
+                PlayerFront.sprite = SprPlayerFront[3];
+                PlayerBack.sprite = SprPlayersBack[3];
+                SelectBack.sprite = SprSelectBack[3];
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
                 break;
             case 5:
-                CharacterBack[5].sprite = SprCharacterBack[11];
-                CharacterBack[5].SetNativeSize();
-                CharacterIcon[5].sprite = SprCharacterIcon[11];
-                CharacterIcon[5].SetNativeSize();
+                PlayerFront.sprite = SprPlayerFront[4];
+                PlayerBack.sprite = SprPlayersBack[4];
+                SelectBack.sprite = SprSelectBack[4];
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
                 break;
             case 6:
-                CharacterBack[1].sprite = SprCharacterBack[7];
-                CharacterBack[1].SetNativeSize();
-                CharacterIcon[1].sprite = SprCharacterIcon[7];
-                CharacterIcon[1].SetNativeSize();
+                PlayerFront.sprite = SprPlayerFront[5];
+                PlayerBack.sprite = SprPlayersBack[5];
+                SelectBack.sprite = SprSelectBack[5];
+                PlayerFront.SetNativeSize();
+                PlayerBack.SetNativeSize();
                 break;
         }
     }
-    void ChangeUI()
-    {
-        switch (currentNum)
-        {
-            case 1:
-                CharacterBack[0].sprite = SprCharacterBack[6];
-                CharacterBack[0].SetNativeSize();
-                CharacterIcon[0].sprite = SprCharacterIcon[6];
-                CharacterIcon[0].SetNativeSize();
-                Players.sprite = SprPlayers[0];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=?? todo
-                break;
-            case 2:
-                CharacterBack[2].sprite = SprCharacterBack[8];
-                CharacterBack[2].SetNativeSize();
-                CharacterIcon[2].sprite = SprCharacterIcon[8];
-                CharacterIcon[2].SetNativeSize();
-                Players.sprite = SprPlayers[2];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 3:
-                CharacterBack[4].sprite = SprCharacterBack[10];
-                CharacterBack[4].SetNativeSize();
-                CharacterIcon[4].sprite = SprCharacterIcon[10];
-                CharacterIcon[4].SetNativeSize();
-                Players.sprite = SprPlayers[4];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 4:
-                CharacterBack[3].sprite = SprCharacterBack[9];
-                CharacterBack[3].SetNativeSize();
-                CharacterIcon[3].sprite = SprCharacterIcon[9];
-                CharacterIcon[3].SetNativeSize();
-                Players.sprite = SprPlayers[3];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 5:
-                CharacterBack[5].sprite = SprCharacterBack[11];
-                CharacterBack[5].SetNativeSize();
-                CharacterIcon[5].sprite = SprCharacterIcon[11];
-                CharacterIcon[5].SetNativeSize();
-                Players.sprite = SprPlayers[5];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-            case 6:
-                CharacterBack[1].sprite = SprCharacterBack[7];
-                CharacterBack[1].SetNativeSize();
-                CharacterIcon[1].sprite = SprCharacterIcon[7];
-                CharacterIcon[1].SetNativeSize();
-                Players.sprite = SprPlayers[1];
-                Players.SetNativeSize();
-                //LowerIcon[0].sprite=??
-                break;
-        }
-    }
+    //void KeepOpen()
+    //{
+    //    switch (currentNum)
+    //    {
+    //        case 1:
+    //            CharacterBack[0].sprite = SprCharacterBack[6];
+    //            CharacterBack[0].SetNativeSize();
+    //            CharacterIcon[0].sprite = SprCharacterIcon[6];
+    //            CharacterIcon[0].SetNativeSize();
+    //            break;
+    //        case 2:
+    //            CharacterBack[2].sprite = SprCharacterBack[8];
+    //            CharacterBack[2].SetNativeSize();
+    //            CharacterIcon[2].sprite = SprCharacterIcon[8];
+    //            CharacterIcon[2].SetNativeSize();
+    //            break;
+    //        case 3:
+    //            CharacterBack[4].sprite = SprCharacterBack[10];
+    //            CharacterBack[4].SetNativeSize();
+    //            CharacterIcon[4].sprite = SprCharacterIcon[10];
+    //            CharacterIcon[4].SetNativeSize();
+    //            break;
+    //        case 4:
+    //            CharacterBack[3].sprite = SprCharacterBack[9];
+    //            CharacterBack[3].SetNativeSize();
+    //            CharacterIcon[3].sprite = SprCharacterIcon[9];
+    //            CharacterIcon[3].SetNativeSize();
+    //            break;
+    //        case 5:
+    //            CharacterBack[5].sprite = SprCharacterBack[11];
+    //            CharacterBack[5].SetNativeSize();
+    //            CharacterIcon[5].sprite = SprCharacterIcon[11];
+    //            CharacterIcon[5].SetNativeSize();
+    //            break;
+    //        case 6:
+    //            CharacterBack[1].sprite = SprCharacterBack[7];
+    //            CharacterBack[1].SetNativeSize();
+    //            CharacterIcon[1].sprite = SprCharacterIcon[7];
+    //            CharacterIcon[1].SetNativeSize();
+    //            break;
+    //    }
+    //}
+    //void ChangeUI()
+    //{
+    //    switch (currentNum)
+    //    {
+    //        case 1:
+    //            CharacterBack[0].sprite = SprCharacterBack[6];
+    //            CharacterBack[0].SetNativeSize();
+    //            CharacterIcon[0].sprite = SprCharacterIcon[6];
+    //            CharacterIcon[0].SetNativeSize();
+    //            Players.sprite = SprPlayers[0];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=?? todo
+    //            break;
+    //        case 2:
+    //            CharacterBack[2].sprite = SprCharacterBack[8];
+    //            CharacterBack[2].SetNativeSize();
+    //            CharacterIcon[2].sprite = SprCharacterIcon[8];
+    //            CharacterIcon[2].SetNativeSize();
+    //            Players.sprite = SprPlayers[2];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 3:
+    //            CharacterBack[4].sprite = SprCharacterBack[10];
+    //            CharacterBack[4].SetNativeSize();
+    //            CharacterIcon[4].sprite = SprCharacterIcon[10];
+    //            CharacterIcon[4].SetNativeSize();
+    //            Players.sprite = SprPlayers[4];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 4:
+    //            CharacterBack[3].sprite = SprCharacterBack[9];
+    //            CharacterBack[3].SetNativeSize();
+    //            CharacterIcon[3].sprite = SprCharacterIcon[9];
+    //            CharacterIcon[3].SetNativeSize();
+    //            Players.sprite = SprPlayers[3];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 5:
+    //            CharacterBack[5].sprite = SprCharacterBack[11];
+    //            CharacterBack[5].SetNativeSize();
+    //            CharacterIcon[5].sprite = SprCharacterIcon[11];
+    //            CharacterIcon[5].SetNativeSize();
+    //            Players.sprite = SprPlayers[5];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //        case 6:
+    //            CharacterBack[1].sprite = SprCharacterBack[7];
+    //            CharacterBack[1].SetNativeSize();
+    //            CharacterIcon[1].sprite = SprCharacterIcon[7];
+    //            CharacterIcon[1].SetNativeSize();
+    //            Players.sprite = SprPlayers[1];
+    //            Players.SetNativeSize();
+    //            //LowerIcon[0].sprite=??
+    //            break;
+    //    }
+    //}
     void LockIn()
     {
         switch (currentNum)
         {
             case 1:
-                SelectBack.sprite = SprSelectBack[1];
+                //SelectBack.sprite = SprSelectBack[1];
                 switch (playerID) {
                     case 0:
                         gm.player1 = 1;
@@ -246,7 +274,7 @@ public class ChooseMenu : MonoBehaviour
                 }
                 break;
             case 2:
-                SelectBack.sprite = SprSelectBack[3];
+                //SelectBack.sprite = SprSelectBack[3];
                 switch (playerID)
                 {
                     case 0:
@@ -264,7 +292,7 @@ public class ChooseMenu : MonoBehaviour
                 }
                 break;
             case 3:
-                SelectBack.sprite = SprSelectBack[5];
+                //SelectBack.sprite = SprSelectBack[5];
                 switch (playerID)
                 {
                     case 0:
@@ -282,7 +310,7 @@ public class ChooseMenu : MonoBehaviour
                 }
                 break;
             case 4:
-                SelectBack.sprite = SprSelectBack[4];
+                //SelectBack.sprite = SprSelectBack[4];
                 switch (playerID)
                 {
                     case 0:
@@ -300,7 +328,7 @@ public class ChooseMenu : MonoBehaviour
                 }
                 break;
             case 5:
-                SelectBack.sprite = SprSelectBack[6];
+                //SelectBack.sprite = SprSelectBack[6];
                 switch (playerID)
                 {
                     case 0:
@@ -318,7 +346,7 @@ public class ChooseMenu : MonoBehaviour
                 }
                 break;
             case 6:
-                SelectBack.sprite = SprSelectBack[2];
+                //SelectBack.sprite = SprSelectBack[2];
                 switch (playerID)
                 {
                     case 0:
@@ -339,27 +367,27 @@ public class ChooseMenu : MonoBehaviour
     }
     public void MoveLeft()
     {
-        CloseUI(currentNum);
+        //CloseUI(currentNum);
         currentNum--;
         if (currentNum < 1)
         {
             currentNum = 6;
         }
-        ChangeUI();
+        //ChangeUI();
     }
     public void MoveRight()
     {
-        CloseUI(currentNum);
+        //CloseUI(currentNum);
         currentNum++;
         if (currentNum > 6)
         {
             currentNum = 1;
         }
-        ChangeUI();
+        //ChangeUI();
     }
     public void MoveLeft2()
     {
-        CloseUI(currentNum);
+        //CloseUI(currentNum);
         currentNum--;
         if (currentNum < 1)
         {
@@ -370,11 +398,11 @@ public class ChooseMenu : MonoBehaviour
         {
             currentNum = 6;
         }
-        ChangeUI();
+        //ChangeUI();
     }
     public void MoveRight2()
     {
-        CloseUI(currentNum);
+        //CloseUI(currentNum);
         currentNum++;
         if (currentNum > 6)
         {
@@ -385,7 +413,7 @@ public class ChooseMenu : MonoBehaviour
         {
             currentNum = 1;
         }
-        ChangeUI();
+        //ChangeUI();
     }
     bool CheckLockable()
     {
@@ -475,12 +503,14 @@ public class ChooseMenu : MonoBehaviour
     }
     void Update()
     {
+        ChangeSelectBack();
         paused = pauseMenu.activeInHierarchy;
         if (!paused)
         {
             #region MoveLeftRight
             if (player.GetButtonDown("MoveLeft") && !locked)
             {
+                Click.Play();
                 if (CheckLeftMovable())
                     MoveLeft();
                 else
@@ -488,6 +518,7 @@ public class ChooseMenu : MonoBehaviour
             }
             if (player.GetButtonDown("MoveRight") && !locked)
             {
+                Click.Play();
                 if (CheckRightMovable())
                     MoveRight();
                 else
@@ -495,6 +526,7 @@ public class ChooseMenu : MonoBehaviour
             }
             if (player.GetButtonLongPress("MoveLeft") && !locked)
             {
+                Click.Play();
                 if (CheckLeftMovable())
                     MoveLeft();
                 else
@@ -502,34 +534,40 @@ public class ChooseMenu : MonoBehaviour
             }
             if (player.GetButtonLongPress("MoveRight") && !locked)
             {
+                Click.Play();
                 if (CheckRightMovable())
                     MoveRight();
                 else
                     MoveRight2();
             }
             #endregion
-            KeepOpen();
+            //KeepOpen();
         }
-        if (player.GetButtonDown("Confirm") && !locked && CheckLockable() && !paused)  
+        if (player.GetButtonDown("Confirm") && !locked && CheckLockable() && !paused)
         {
+            Click.Play();
             MoveOther();
             locked = true;
+            Lock.enabled = true;
             LockIn();
             lockedNum = currentNum;
-            ChangeSelectBack();
         }
         if (player.GetButtonDown("Cancel") && locked && !paused)
         {
+            Click.Play();
             locked = false;
+            Lock.enabled = false;
             lockedNum = 0;
-            SelectBack.sprite = SprSelectBack[0];
+            //SelectBack.sprite = SprSelectBack[0];
         }
-        else if (player.GetButtonDown("Cancel") && !locked && !paused) 
+        else if (player.GetButtonDown("Cancel") && !locked && !paused)
         {
-            pauseMenu.SetActive(true);//todo
+            Click.Play();
+            pauseMenu.SetActive(true);
         }
         if (player.GetButton("Start") && locked && !paused)
         {
+            Click.Play();
             switch (playerID)
             {
                 case 0:

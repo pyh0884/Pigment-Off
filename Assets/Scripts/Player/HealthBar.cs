@@ -17,6 +17,7 @@ public class HealthBar : MonoBehaviour
     public float lerpSpeed2 = 5;
     public int playerNum = 0;
     bool dead = false;
+    public AudioSource dieAudio;
     void Start()
     {
         Hp = HpMax;
@@ -43,16 +44,26 @@ public class HealthBar : MonoBehaviour
         {
             if (!cheat)
             {
+                GetComponent<AudioSource>().Play();
                 if (!Shield)
+                {
                     TargetHp -= damageCount;
+                }
                 else
-                    TargetHp -= damageCount * .6f;
+                {
+                    Shield = false;
+                    FindObjectOfType<TopCanvas>().Shield(playerNum);
+                }
             }
             TargetHp = Mathf.Clamp(TargetHp, 0, HpMax);
             //currentHealth();
         }
     }
-    
+    public void ShieldUp()
+    {
+        FindObjectOfType<TopCanvas>().Shield(playerNum);
+        Shield = true;
+    }
     public void IncreaseMax()
     {
         HpMax += IncreaseHp;
@@ -82,7 +93,8 @@ public class HealthBar : MonoBehaviour
     }
     IEnumerator Die()
     {
-        Debug.Log("Die");
+        Debug.Log(gameObject.name + "Die");
+        dieAudio.Play();
         GetComponent<PlayerMovement>().controllable = false;
         GetComponent<PlayerMovement>().dead = true;
         GetComponentInChildren<Attack>().dead = true;

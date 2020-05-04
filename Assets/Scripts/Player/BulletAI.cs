@@ -23,9 +23,9 @@ public class BulletAI : MonoBehaviour
     public GameObject efx2;
     public GameObject shadow;
     public int Camp;
-    Color camp0 = new Color(0.8f, 0.8666667f, 0.5058824f);//黄色
+    Color camp0 = new Color(0.9215686f, 0.6431373f, 0);//黄色
     Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
-    Color camp2 = new Color(0.4313726f, 0.6980392f, 0.6509804f);//蓝色
+    Color camp2 = new Color(0,0.6745098f,0.9215686f);//蓝色0.6745098f,0.9215686f
     public bool isNormal;
     public GameObject SniperEFX;
 
@@ -77,8 +77,8 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<EnemyHp>().Damage(damage);
             }
-            var effect = Instantiate(efx2, transform.position, transform.rotation);
-            effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
             if (!isNormal)
             {
                 var l1 = Instantiate(SniperEFX, transform);
@@ -97,8 +97,8 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<BossHp>().Damage(damage);
             }
-            var effect = Instantiate(efx2, transform.position, transform.rotation);
-            effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
             if (!isNormal)
             {
                 var l1 = Instantiate(SniperEFX, transform);
@@ -117,8 +117,8 @@ public class BulletAI : MonoBehaviour
             {
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
-            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
-            effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
             if (!isNormal)
             {
                 var l1 = Instantiate(SniperEFX, transform);

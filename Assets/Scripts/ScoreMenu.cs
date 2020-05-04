@@ -14,7 +14,7 @@ public class ScoreMenu : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
         img[0].sprite = spr[gm.WinnerNum - 1];
-        tex[0].text = (Mathf.FloorToInt(gm.WinnerTime / 180f * 1000f) / 10f) + " %";
+        tex[0].text = (Mathf.FloorToInt(gm.WinnerTime / 300f * 1000f) / 10f) + " %";
         tex[1].text = gm.player1Time + "S";
         tex[2].text = gm.player2Time + "S";
         if (gm.player3 != 0) 

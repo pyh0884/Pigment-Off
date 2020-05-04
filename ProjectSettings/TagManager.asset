@@ -19,6 +19,10 @@ TagManager:
   - Slider2
   - Slider3
   - Slider4
+  - Mp1
+  - Mp2
+  - Mp3
+  - Mp4
   layers:
   - Default
   - TransparentFX

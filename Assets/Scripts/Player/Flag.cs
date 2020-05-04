@@ -5,66 +5,51 @@ using Spine.Unity;
 
 public class Flag : MonoBehaviour
 {
-    public SkeletonAnimation skeletonAnimation;
-    public AnimationReferenceAsset idle, attack;
-    private string currentAnimation;
-    private string currentName;
     public float hp;
     public float MaxHp;
     private bool dead = false;
     GameManager gm;
-    public GameObject exp;
     public GameObject flag;
+    private Animator anim;
+    private bool canMove;
+    private Vector3 pos;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (dead && collision.gameObject.layer == 12) 
+        {
+            collision.GetComponentInChildren<Attack>().PickUp();
+            anim.SetBool("Get", true);
+            pos = collision.gameObject.transform.position;
+            MoveTo();
+            //Destroy(gameObject);
+            //todo:移动到角色头上
+        }
+    }
+    void MoveTo()
+    {
+        canMove = true;
+        transform.position = Vector2.MoveTowards(transform.position, new Vector3(pos.x, pos.y + 2.5f), 5 * Time.deltaTime);
+    }
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
         MaxHp = Mathf.Clamp(gm.PlayTime * 5 / 9, 1, 100);
         hp = MaxHp;
-        currentAnimation = "idle";
-        SetCharacterState(currentAnimation);
+        anim = GetComponent<Animator>();
     }
-    public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
-    {
-        if (animation.name.Equals(currentName))
-        {
-            return;
-        }
-        skeletonAnimation.state.SetAnimation(0, animation, loop);
-        currentName = animation.name;
-    }
-    public void SetCharacterState(string state)
-    {
-        if (state.Equals("attack"))
-        {
-            SetAnimation(attack, false, 1f);
-        }
-        else if (state.Equals("idle"))
-        {
-            SetAnimation(idle, true, 1f);
-        }
-    }
-    IEnumerator WaitForHit() 
-    {
-        SetCharacterState("attack");
-        yield return new WaitForSeconds(0.66f);
-        SetCharacterState("idle");
-    }
+
     public void Damage(float damageCount)
     {
         //伤害特效 
-        //       FindObjectOfType<AudioManager>().Play("Player_Hit");
-        if (damageCount > 0)
+        if (damageCount > 0 && !dead) 
         {
             hp -= damageCount;
             hp = Mathf.Clamp(hp, 0, MaxHp);
-            StartCoroutine("WaitForHit");
+            anim.SetTrigger("Hit");
         }
     }
-    IEnumerator desSelf() 
+    public void desSelf() 
     {
-        yield return new WaitForSeconds(0.66f);
-        flag.SetActive(true);
-        flag.transform.parent = null;
         Destroy(gameObject);
     }
     void Update()
@@ -72,11 +57,12 @@ public class Flag : MonoBehaviour
         if ((hp <= 0) && !dead)
         {
             dead = true;
-            //StartCoroutine("Die");
-            GetComponent<MeshRenderer>().enabled = false;
-            exp.SetActive(true);
-            StartCoroutine("desSelf");
+            GetComponent<CircleCollider2D>().isTrigger = true;
+            gameObject.tag = "Untagged";
         }
-
+        if (canMove)
+        {
+            MoveTo();
+        }
     }
 }

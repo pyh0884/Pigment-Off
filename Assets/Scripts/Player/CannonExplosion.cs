@@ -21,6 +21,7 @@ public class CannonExplosion : MonoBehaviour
     public GameObject efx2;
     public int Camp;
     public GameObject CannonEFX;
+    public GameObject CannonEFX2;
 
     void Start()
     {
@@ -44,11 +45,16 @@ public class CannonExplosion : MonoBehaviour
             {
                 collision.GetComponent<EnemyHp>().Damage(damage);
             }
-            var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
-            effect.GetComponent<EFXColorControl>().camp = Camp;
-            var l1 = Instantiate(CannonEFX, transform);
-            l1.transform.parent = null;
-            l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);//TODO
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var l1 = Instantiate(CannonEFX, transform);
+            //l1.transform.parent = null;
+            //l1.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var l2 = Instantiate(CannonEFX2, transform);
+            //l2.transform.parent = null;
+            //l2.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l2.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Boss")
@@ -63,11 +69,16 @@ public class CannonExplosion : MonoBehaviour
                 collision.GetComponent<BossHp>().Damage(damage);
             }
             collision.GetComponent<BossHp>().HitByPlayer = true;
-            var effect = Instantiate(efx2, transform.position, transform.rotation);
-            effect.GetComponent<EFXColorControl>().camp = Camp;
-            var l1 = Instantiate(CannonEFX, transform);
-            l1.transform.parent = null;
-            l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var l1 = Instantiate(CannonEFX, transform);
+            //l1.transform.parent = null;
+            //l1.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var l2 = Instantiate(CannonEFX2, transform);
+            //l2.transform.parent = null;
+            //l2.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l2.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.gameObject.layer == 12 && collision.GetComponentInChildren<Attack>().Camp != gameObject.transform.parent.GetComponent<CannonBullet>().Camp)
@@ -80,11 +91,16 @@ public class CannonExplosion : MonoBehaviour
             {
                 collision.GetComponent<HealthBar>().Damage(damage);
             }
-            var effect = Instantiate(efx2, transform.position, transform.rotation);
-            effect.GetComponent<EFXColorControl>().camp = Camp;
-            var l1 = Instantiate(CannonEFX, transform);
-            l1.transform.parent = null;
-            l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var effect = Instantiate(efx2, transform.position, transform.rotation);
+            //effect.GetComponent<EFXColorControl>().camp = Camp;
+            //var l1 = Instantiate(CannonEFX, transform);
+            //l1.transform.parent = null;
+            //l1.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var l2 = Instantiate(CannonEFX2, transform);
+            //l2.transform.parent = null;
+            //l2.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l2.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
         if (collision.tag == "Flag" && collision.GetComponent<Flag>())
@@ -92,11 +108,25 @@ public class CannonExplosion : MonoBehaviour
             collision.GetComponent<Flag>().Damage(damage);
             var effect = Instantiate(efx2, transform.position, transform.rotation);
             effect.GetComponent<EFXColorControl>().camp = Camp;
-            var l1 = Instantiate(CannonEFX, transform);
-            l1.transform.parent = null;
-            l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var l1 = Instantiate(CannonEFX, transform);
+            //l1.transform.parent = null;
+            //l1.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l1.GetComponent<EFXColorControl>().camp = Camp;
+            //var l2 = Instantiate(CannonEFX2, transform);
+            //l2.transform.parent = null;
+            //l2.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //l2.GetComponent<EFXColorControl>().camp = Camp;
             Destroy(main);
         }
     }
+    private void OnDestroy()
+    {
+        var l1 = Instantiate(CannonEFX, transform);
+        l1.transform.parent = null;
+        l1.transform.rotation = Quaternion.Euler(0, 0, 0);
 
+        var l2 = Instantiate(CannonEFX2, transform);
+        l2.transform.parent = null;
+        l2.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
 }

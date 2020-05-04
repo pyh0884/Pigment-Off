@@ -30,6 +30,7 @@ public class BossAi1 : MonoBehaviour
     public string currentAnimation;
     public string previousState;
     public bool isMoving;
+    public AudioSource BossMove;
 
 
     void Start()
@@ -85,6 +86,14 @@ public class BossAi1 : MonoBehaviour
     }
     void Update()
     {
+        if (currentState == "walk")
+        {
+            BossMove.mute = false;
+        }
+        else
+        {
+            BossMove.mute = true;
+        }
         if (!notMove)
         {
             FindNonMove();

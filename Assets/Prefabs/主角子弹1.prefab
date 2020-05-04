@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShootSpeed: 25
-  Range: 12
+  Range: 17
   damage: 10
   CritPos: 10
   CritDmgMultiplier: 125

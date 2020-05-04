@@ -5,9 +5,15 @@ using UnityEngine;
 public class SelfDes : MonoBehaviour
 {
     public bool des;
+    public float time;
     void Start()
-    {if(des)
-        Destroy(gameObject, 0.2f);
+    {
+        if (des && time == 0)
+            Destroy(gameObject, 0.2f);
+        if (time != 0)
+        {
+            Destroy(gameObject, time);
+        }
     }
     public void destroySelf() 
     {

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int MenuMode = 0;
     public static GameManager instance;
     int sceneNum;
+    public GameObject bornEFX;
     public int player1 = 0;
     public int player1Life = 2;//剩余复活次数
     public float player1Time = 0;
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     public Vector3[] trans;//boss刷新位置
     public GameObject[] Players;
     public Vector3[] PlayerTrans;
-    public int playernum=1;//ChooseMenu
+    public int playernum = 1;//ChooseMenu
     public GameObject[] Bosss;
     public int BossType;
     private Player Player1;
@@ -43,9 +44,10 @@ public class GameManager : MonoBehaviour
     private Player Player4;
     public GameObject pauseMenu;
     public bool paused = false;
-    public float PlayTime = 180;
+    public float PlayTime = 300;
     public int WinnerNum = 1;
     public float WinnerTime = 0;
+    [HideInInspector] public CursorSprites cs;
     //public float ItemTimer = 3;
     //private float itemTimer;
     //public GameObject[] Items;
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
-        PlayTime = 180;
+        PlayTime = 300;
         player1Time = 0;
         player2Time = 0;
         player3Time = 0;
@@ -77,10 +79,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManagerInitialed");
         Player1 = ReInput.players.GetPlayer(0);
         Player2 = ReInput.players.GetPlayer(1);
-        if (player3 != 0) 
-        Player3 = ReInput.players.GetPlayer(2);
-        if (player4 != 0) 
-        Player4 = ReInput.players.GetPlayer(3);
+        if (player3 != 0)
+            Player3 = ReInput.players.GetPlayer(2);
+        if (player4 != 0)
+            Player4 = ReInput.players.GetPlayer(3);
         StartInsBoss = false;
         if (sceneNum == 1) //选人场景 2 Players
         {
@@ -106,59 +108,38 @@ public class GameManager : MonoBehaviour
             player3Camp = 1;
             player4Camp = 1;
         }
-        if (sceneNum == 4) //战斗场景
+        if (sceneNum == 4 || sceneNum == 5)  //战斗场景
         {
+            if (sceneNum == 5)
+            {
+                PlayerTrans[0] = new Vector3(-17.83f, 9.5f);
+                PlayerTrans[1] = new Vector3(17.83f, 9.5f);
+                PlayerTrans[2] = new Vector3(-17.83f, -11);
+                PlayerTrans[3] = new Vector3(17.83f, -11);
+            }
             StartCoroutine("InsBoss1");
+            cs.ChangeCursor();
             if (player1 != 0)
             {
                 cursor1.SetActive(true);
-                var p1 = Instantiate(Players[player1], PlayerTrans[0], Quaternion.identity);
-                p1.GetComponentInChildren<PlayerMovement>().playerID = 0;
-                p1.GetComponentInChildren<Attack>().playerID = 0;
-                p1.GetComponentInChildren<Attack>().Camp = player1Camp;
-                p1.GetComponentInChildren<PlayerMovement>().cursor = cursor1.transform;
-                p1.GetComponentInChildren<Attack>().cursor = cursor1.transform;
-                p1.GetComponentInChildren<HeadControl>().cursor = cursor1.transform;
-                p1.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider1").GetComponent<Slider>();
+                StartCoroutine(Res(1, 0));
             }
-
             if (player2 != 0)
             {
                 cursor2.SetActive(true);
-                var p2 = Instantiate(Players[player2], PlayerTrans[1], Quaternion.identity);
-                p2.GetComponentInChildren<PlayerMovement>().playerID = 1;
-                p2.GetComponentInChildren<Attack>().playerID = 1;
-                p2.GetComponentInChildren<Attack>().Camp = player2Camp;
-                p2.GetComponentInChildren<PlayerMovement>().cursor = cursor2.transform;
-                p2.GetComponentInChildren<Attack>().cursor = cursor2.transform;
-                p2.GetComponentInChildren<HeadControl>().cursor = cursor2.transform;
-                p2.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider2").GetComponent<Slider>();
+                StartCoroutine(Res(2, 0));
             }
 
             if (player3 != 0)
             {
                 cursor3.SetActive(true);
-                var p3 = Instantiate(Players[player3], PlayerTrans[2], Quaternion.identity);
-                p3.GetComponentInChildren<PlayerMovement>().playerID = 2;
-                p3.GetComponentInChildren<Attack>().playerID = 2;
-                p3.GetComponentInChildren<Attack>().Camp = player3Camp;
-                p3.GetComponentInChildren<PlayerMovement>().cursor = cursor3.transform;
-                p3.GetComponentInChildren<Attack>().cursor = cursor3.transform;
-                p3.GetComponentInChildren<HeadControl>().cursor = cursor3.transform;
-                p3.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider3").GetComponent<Slider>();
+                StartCoroutine(Res(3, 0));
             }
 
             if (player4 != 0)
             {
                 cursor4.SetActive(true);
-                var p4 = Instantiate(Players[player4], PlayerTrans[3], Quaternion.identity);
-                p4.GetComponentInChildren<PlayerMovement>().playerID = 3;
-                p4.GetComponentInChildren<Attack>().playerID = 3;
-                p4.GetComponentInChildren<Attack>().Camp = player4Camp;
-                p4.GetComponentInChildren<PlayerMovement>().cursor = cursor4.transform;
-                p4.GetComponentInChildren<Attack>().cursor = cursor4.transform;
-                p4.GetComponentInChildren<HeadControl>().cursor = cursor4.transform;
-                p4.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider4").GetComponent<Slider>();
+                StartCoroutine(Res(4, 0));
             }
         }
 
@@ -167,108 +148,80 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(Res(number, 3));
     }
-    IEnumerator Res(int num,int resTime)
+    IEnumerator Res(int num, int resTime)
     {
-        switch (num) 
+        switch (num)
         {
             case 1:
+                Instantiate(bornEFX, PlayerTrans[0], Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
                 yield return new WaitForSeconds(resTime);
-                player1Life--;
-                if (player1Life >= 0)
-                {
-                    var p1 = Instantiate(Players[player1], PlayerTrans[0], Quaternion.identity);
-                    if (player1 != 0)
-                    {
-                        p1.GetComponentInChildren<PlayerMovement>().playerID = 0;
-                        p1.GetComponentInChildren<Attack>().playerID = 0;
-                        p1.GetComponentInChildren<Attack>().Camp = player1Camp;
-                        p1.GetComponentInChildren<PlayerMovement>().cursor = cursor1.transform;
-                        p1.GetComponentInChildren<Attack>().cursor = cursor1.transform;
-                        p1.GetComponentInChildren<HeadControl>().cursor = cursor1.transform;
-                        p1.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider1").GetComponent<Slider>();
-                    }
-                }
-                else
-                {
-                    cursor1.SetActive(false);
-                }
+                var p1 = Instantiate(Players[player1], PlayerTrans[0], Quaternion.identity);
+                p1.GetComponentInChildren<PlayerMovement>().playerID = 0;
+                p1.GetComponentInChildren<PlayerMovement>().ResPosition = PlayerTrans[0];
+                p1.GetComponentInChildren<Attack>().playerID = 0;
+                p1.GetComponentInChildren<Attack>().Camp = player1Camp;
+                p1.GetComponentInChildren<PlayerMovement>().cursor = cursor1.transform;
+                p1.GetComponentInChildren<Attack>().cursor = cursor1.transform;
+                p1.GetComponentInChildren<HeadControl>().cursor = cursor1.transform;
+                p1.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider1").GetComponent<Slider>();
+                p1.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp1").GetComponent<Slider>();
                 break;
             case 2:
+                Instantiate(bornEFX, PlayerTrans[1], Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
                 yield return new WaitForSeconds(resTime);
-                player2Life--;
-                if (player2Life >= 0)
-                {
-                    var p2 = Instantiate(Players[player2], PlayerTrans[1], Quaternion.identity);
-                    if (player2 != 0)
-                    {
-                        p2.GetComponentInChildren<PlayerMovement>().playerID = 1;
-                        p2.GetComponentInChildren<Attack>().playerID = 1;
-                        p2.GetComponentInChildren<Attack>().Camp = player2Camp;
-                        p2.GetComponentInChildren<PlayerMovement>().cursor = cursor2.transform;
-                        p2.GetComponentInChildren<Attack>().cursor = cursor2.transform;
-                        p2.GetComponentInChildren<HeadControl>().cursor = cursor2.transform;
-                        p2.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider2").GetComponent<Slider>();
-                    }
-                }
-                else
-                {
-                    cursor2.SetActive(false);
-                }
+                var p2 = Instantiate(Players[player2], PlayerTrans[1], Quaternion.identity);
+                p2.GetComponentInChildren<PlayerMovement>().playerID = 1;
+                p2.GetComponentInChildren<PlayerMovement>().ResPosition = PlayerTrans[1];
+                p2.GetComponentInChildren<Attack>().playerID = 1;
+                p2.GetComponentInChildren<Attack>().Camp = player2Camp;
+                p2.GetComponentInChildren<PlayerMovement>().cursor = cursor2.transform;
+                p2.GetComponentInChildren<Attack>().cursor = cursor2.transform;
+                p2.GetComponentInChildren<HeadControl>().cursor = cursor2.transform;
+                p2.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider2").GetComponent<Slider>();
+                p2.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp2").GetComponent<Slider>();
                 break;
             case 3:
+                Instantiate(bornEFX, PlayerTrans[2], Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
                 yield return new WaitForSeconds(resTime);
-                player3Life--;
-                if (player3Life >= 0)
-                {
-                    var p3 = Instantiate(Players[player3], PlayerTrans[2], Quaternion.identity);
-                    if (player3 != 0)
-                    {
-                        p3.GetComponentInChildren<PlayerMovement>().playerID = 2;
-                        p3.GetComponentInChildren<Attack>().playerID = 2;
-                        p3.GetComponentInChildren<Attack>().Camp = player3Camp;
-                        p3.GetComponentInChildren<PlayerMovement>().cursor = cursor3.transform;
-                        p3.GetComponentInChildren<Attack>().cursor = cursor3.transform;
-                        p3.GetComponentInChildren<HeadControl>().cursor = cursor3.transform;
-                        p3.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider3").GetComponent<Slider>();
-                    }
-                }
-                else
-                {
-                    cursor3.SetActive(false);
-                }
+                var p3 = Instantiate(Players[player3], PlayerTrans[2], Quaternion.identity);
+                p3.GetComponentInChildren<PlayerMovement>().playerID = 2;
+                p3.GetComponentInChildren<PlayerMovement>().ResPosition = PlayerTrans[2];
+                p3.GetComponentInChildren<Attack>().playerID = 2;
+                p3.GetComponentInChildren<Attack>().Camp = player3Camp;
+                p3.GetComponentInChildren<PlayerMovement>().cursor = cursor3.transform;
+                p3.GetComponentInChildren<Attack>().cursor = cursor3.transform;
+                p3.GetComponentInChildren<HeadControl>().cursor = cursor3.transform;
+                p3.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider3").GetComponent<Slider>();
+                p3.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp3").GetComponent<Slider>();
                 break;
             case 4:
+                Instantiate(bornEFX, PlayerTrans[3], Quaternion.identity);
+                yield return new WaitForSeconds(0.5f);
                 yield return new WaitForSeconds(resTime);
-                player4Life--;
-                if (player4Life >= 0)
-                {
-                    var p4 = Instantiate(Players[player4], PlayerTrans[3], Quaternion.identity);
-                    if (player4 != 0)
-                    {
-                        p4.GetComponentInChildren<PlayerMovement>().playerID = 3;
-                        p4.GetComponentInChildren<Attack>().playerID = 3;
-                        p4.GetComponentInChildren<Attack>().Camp = player4Camp;
-                        p4.GetComponentInChildren<PlayerMovement>().cursor = cursor4.transform;
-                        p4.GetComponentInChildren<Attack>().cursor = cursor4.transform;
-                        p4.GetComponentInChildren<HeadControl>().cursor = cursor4.transform;
-                        p4.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider4").GetComponent<Slider>();
-                    }
-                }
-                else 
-                {
-                    cursor4.SetActive(false);
-                }
+                var p4 = Instantiate(Players[player4], PlayerTrans[3], Quaternion.identity);
+                p4.GetComponentInChildren<PlayerMovement>().playerID = 3;
+                p4.GetComponentInChildren<PlayerMovement>().ResPosition = PlayerTrans[3];
+                p4.GetComponentInChildren<Attack>().playerID = 3;
+                p4.GetComponentInChildren<Attack>().Camp = player4Camp;
+                p4.GetComponentInChildren<PlayerMovement>().cursor = cursor4.transform;
+                p4.GetComponentInChildren<Attack>().cursor = cursor4.transform;
+                p4.GetComponentInChildren<HeadControl>().cursor = cursor4.transform;
+                p4.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider4").GetComponent<Slider>();
+                p4.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp4").GetComponent<Slider>();
                 break;
         }
     }
     #region Boss Instantiate
     bool StartInsBoss = false;
-    IEnumerator InsBoss1() //150s后在随机位置生成boss2
+    IEnumerator InsBoss1() //120s后在随机位置生成boss2
     {
-        yield return new WaitForSeconds(150);
+        yield return new WaitForSeconds(120);
         StartInsBoss = true;
     }
-    public void insBoss2() 
+    public void insBoss2()
     {
         StartCoroutine("InsBoss2");
     }
@@ -285,18 +238,18 @@ public class GameManager : MonoBehaviour
     //}
 
     #endregion
-    public void selfDes() 
+    public void selfDes()
     {
         Destroy(gameObject);
     }
-    public void Pause() 
+    public void Pause()
     {
         Debug.Log("Paused");
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         paused = true;
     }
-    public void UnPause() 
+    public void UnPause()
     {
         Debug.Log("Unpaused");
         Time.timeScale = 1;
@@ -306,7 +259,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         sceneNum = SceneManager.GetActiveScene().buildIndex;
-        if (sceneNum == 4) //战斗场景
+        if (sceneNum == 4 || sceneNum == 5) //战斗场景
         {
             PlayTime -= Time.deltaTime;//倒计时
             //#region Pause Menu //TODO:暂停
@@ -319,7 +272,7 @@ public class GameManager : MonoBehaviour
             //    UnPause();
             //}
             //#endregion
-            if (StartInsBoss) 
+            if (StartInsBoss)
             {
                 Instantiate(Bosss[0], trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
                 StartInsBoss = false;
@@ -348,16 +301,19 @@ public class GameManager : MonoBehaviour
                     {
                         if (player1Time >= player2Time)
                         {
-                               WinnerNum = player1;
+                            WinnerNum = player1;
                         }
                         else
                         {
-                            
+
                             WinnerNum = player2;
                         }
                         WinnerTime = player1Time + player2Time;
-                        pauseMenu.GetComponent<Trans>().QuickLoad(5);
-                        Debug.Log("Camp 0 胜利 黄色");                        
+                        if (sceneNum == 4)
+                            pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                        else
+                            pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                        Debug.Log("Camp 0 胜利 黄色");
                     }
                     else
                     {
@@ -370,7 +326,10 @@ public class GameManager : MonoBehaviour
                             WinnerNum = player4;
                         }
                         WinnerTime = player3Time + player4Time;
-                        pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                        if (sceneNum == 4)
+                            pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                        else
+                            pauseMenu.GetComponent<Trans>().QuickLoad(7);
                         Debug.Log("Camp 1 胜利 紫色");
                     }
 
@@ -383,21 +342,30 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
-                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                            if (sceneNum == 4)
+                                pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            else
+                                pauseMenu.GetComponent<Trans>().QuickLoad(7);
                             Debug.Log("Camp 0 胜利 黄色");
                         }
                         else if (player2Time >= player1Time && player2Time >= player3Time)
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
-                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                            if (sceneNum == 4)
+                                pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            else
+                                pauseMenu.GetComponent<Trans>().QuickLoad(7);
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                         else
                         {
                             WinnerTime = player3Time;
                             WinnerNum = player3;
-                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                            if (sceneNum == 4)
+                                pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            else
+                                pauseMenu.GetComponent<Trans>().QuickLoad(7);
                             Debug.Log("Camp 2 胜利 蓝色");
                         }
                     }
@@ -407,14 +375,20 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
-                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                            if (sceneNum == 4)
+                                pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            else
+                                pauseMenu.GetComponent<Trans>().QuickLoad(7);
                             Debug.Log("Camp 0 胜利 黄色");
                         }
-                        else 
+                        else
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
-                            pauseMenu.GetComponent<Trans>().QuickLoad(5);
+                            if (sceneNum == 4)
+                                pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            else
+                                pauseMenu.GetComponent<Trans>().QuickLoad(7);
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                     }

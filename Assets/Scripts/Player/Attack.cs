@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour
     #endregion
     #region Normal
     private Vector3 dir2;
-    [HideInInspector] public SkeletonAnimation skeletonAnimation2;
+    public SkeletonAnimation skeletonAnimation2;
     private float angle2;
     public GameObject EmitPoint2;
     #endregion
@@ -66,7 +66,6 @@ public class Attack : MonoBehaviour
     private float skillCd1 = 20;
     [HideInInspector] public float tempCD;
     public Slider slider;
-    public Image SliderImg;
     public Image PlayerNumImg;
     public Sprite[] PlayerNumSpr;
     public float Mp = 100;
@@ -95,6 +94,9 @@ public class Attack : MonoBehaviour
     [HideInInspector] public Transform cursor;
     public int Camp = 0;
     GameManager gm;
+    public GameObject SkillEFX;
+    public GameObject keleEFX;
+    public GameObject yanliaoEFX;
     #region Flag Datas
     public bool isCarryingFlag = false;
     public GameObject flag;
@@ -103,7 +105,12 @@ public class Attack : MonoBehaviour
     #endregion
     public void PickUp() 
     {
-        Debug.Log(gameObject.transform.parent.name + " picked up the flag.");
+        StartCoroutine("pickUp");
+    }
+    IEnumerator pickUp()
+    {
+        //Debug.Log(gameObject.transform.parent.name + " picked up the flag.");
+        yield return new WaitForSeconds(0.5f);
         flag.SetActive(true);
         isCarryingFlag = true;
     }
@@ -114,7 +121,9 @@ public class Attack : MonoBehaviour
     IEnumerator Kele()
     {
         MpIncreaseSpeed *= 1.4f;
+        keleEFX.SetActive(true);
         yield return new WaitForSeconds(5);
+        keleEFX.SetActive(false);
         MpIncreaseSpeed /= 1.4f;
     }
     IEnumerator SkillBoost1()
@@ -122,7 +131,9 @@ public class Attack : MonoBehaviour
         SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         CdTime /= 2;
+        SkillEFX.SetActive(true);
         yield return new WaitForSeconds(8);
+        SkillEFX.SetActive(false);
         MpIncreaseSpeed /= 3;
         CdTime *= 2;
     }
@@ -139,11 +150,13 @@ public class Attack : MonoBehaviour
     {
         SkillTimer = 0;
         MpIncreaseSpeed *= 3;
-        main.GetComponent<HealthBar>().Shield = true;
+        //main.GetComponent<HealthBar>().Shield = true;
         CannonSkill = true;
+        SkillEFX.SetActive(true);
         yield return new WaitForSeconds(8);
+        SkillEFX.SetActive(false);
         CannonSkill = false;
-        main.GetComponent<HealthBar>().Shield = false;
+        //main.GetComponent<HealthBar>().Shield = false;
         MpIncreaseSpeed /= 3;
     }
     void Start()
@@ -198,6 +211,8 @@ public class Attack : MonoBehaviour
         NormalShooting = true;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         var bul2 = Instantiate(Bullet, EmitPoint2.transform.position, Quaternion.identity);
+        GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
         bul.GetComponent<BulletAI>().Camp = Camp;
         bul2.GetComponent<BulletAI>().Camp = Camp;
         if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2)) < 12) 
@@ -282,7 +297,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            laserLeft.SetPosition(1, EmitPoint.transform.position + LeftPoint.normalized * 20);
+            laserLeft.SetPosition(1, EmitPoint.transform.position + LeftPoint.normalized * 30);
         }
         if (RightHit)
         {
@@ -290,7 +305,7 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            laserRight.SetPosition(1, EmitPoint.transform.position + RightPoint.normalized * 20);
+            laserRight.SetPosition(1, EmitPoint.transform.position + RightPoint.normalized * 30);
         }
         LeftPoint = Vector3.Lerp(LeftPoint, EndPoint, AimingSpeed * (isCarryingFlag ? 1.4f : 1) * Time.deltaTime);
         RightPoint = Vector3.Lerp(RightPoint, EndPoint, AimingSpeed * (isCarryingFlag ? 1.4f : 1) * Time.deltaTime);
@@ -304,6 +319,7 @@ public class Attack : MonoBehaviour
         pressed = false;
         RandomDir = (EmitPoint.transform.position + LeftPoint + (RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude)) - EmitPoint.transform.position;
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+        GetComponent<AudioSource>().Play();
         bul.GetComponent<BulletAI>().Camp = Camp;
         bul.GetComponent<Rigidbody2D>().velocity = new Vector2(RandomDir.x, RandomDir.y).normalized * bul.GetComponent<BulletAI>().ShootSpeed * (isCarryingFlag ? 1.4f : 1);
         //bul.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(RandomDir.y, RandomDir.x) * Mathf.Rad2Deg, Vector3.forward);
@@ -327,6 +343,7 @@ public class Attack : MonoBehaviour
     private float VelocityY;
     private float VelocityX;
     private bool CannonSkill;
+    private Vector3 targetPos;
     public void CannonTrajectory()
     {
         if (!pressed)
@@ -338,13 +355,12 @@ public class Attack : MonoBehaviour
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         TrajectoryLine.enabled = true;
         TrajectoryLine.SetPosition(0, EmitPoint.transform.position);
-        VelocityX = (Camera.main.ScreenToWorldPoint(cursor.position).x - EmitPoint.transform.position.x) / 1.2f;
-        VelocityY = (Camera.main.ScreenToWorldPoint(cursor.position).y - EmitPoint.transform.position.y) / 1.2f;
-        //VelocityX = (cursor.position.x - EmitPoint.transform.position.x) / 1.2f;
-        //VelocityY = (cursor.position.y - EmitPoint.transform.position.y) / 1.2f;
+        targetPos = EmitPoint.transform.position + (Camera.main.ScreenToWorldPoint(cursor.position) - EmitPoint.transform.position).normalized * 16;
+        VelocityX = (targetPos.x - EmitPoint.transform.position.x) / 1.2f;
+        VelocityY = (targetPos.y - EmitPoint.transform.position.y) / 1.2f;
         VelocityZ = 1 / 1.2f + 10 * 1.2f;
         float i = 0.02f;
-        while (i < 1 && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - Camera.main.ScreenToWorldPoint(cursor.position).x) > 0.2f || i < 0.65f))
+        while (i < 1 && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - targetPos.x) > 0.2f || i < 0.65f))
         {
             TrajectoryLine.positionCount = Mathf.RoundToInt(i / 0.02f) + 1;
             TrajectoryLine.SetPosition(Mathf.RoundToInt(i / 0.02f), new Vector3(EmitPoint.transform.position.x + VelocityX * i * 1.75f, EmitPoint.transform.position.y + (VelocityY * i + VelocityZ * i) * 1.95f, 0));
@@ -365,12 +381,13 @@ public class Attack : MonoBehaviour
         CannonPressed = false;
         CannonAiming = false;
         TrajectoryLine.enabled = false;
+        GetComponent<AudioSource>().Play();
         if (!CannonSkill)
         {
             var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
             bul.GetComponent<CannonBullet>().Camp = Camp;
             bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
-            bul.GetComponent<CannonBullet>().StartShoot(Camera.main.ScreenToWorldPoint(cursor.position));
+            bul.GetComponent<CannonBullet>().StartShoot(targetPos);
             bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
             bul.GetComponentInChildren<CannonExplosion>().Camp = Camp;
@@ -388,8 +405,8 @@ public class Attack : MonoBehaviour
             bul2.GetComponent<CannonBullet>().Camp = Camp;
             bul1.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
             bul2.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
-            bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x - 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
-            bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x + 1, Camera.main.ScreenToWorldPoint(cursor.position).y));
+            bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(targetPos.x - 1, targetPos.y));
+            bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(targetPos.x + 1, targetPos.y));
             bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul2.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
             bul1.GetComponentInChildren<CannonExplosion>().Camp = Camp;
@@ -573,7 +590,6 @@ public class Attack : MonoBehaviour
     }
     void Update()
     {
-        SliderImg.SetNativeSize();
         if (isCarryingFlag) 
         {
             switch (playerID) 

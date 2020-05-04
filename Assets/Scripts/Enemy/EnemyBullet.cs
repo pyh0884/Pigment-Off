@@ -34,7 +34,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.layer == 12) //"Player"
         {
             collision.GetComponent<HealthBar>().Damage(damage);
-            Instantiate(efx2, transform.position, transform.rotation);//TODO
+            //Instantiate(efx2, transform.position, transform.rotation);//TODO
             Destroy(gameObject);
         }
         if (collision.gameObject.layer == 13) //"Wall"
@@ -46,6 +46,10 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnDestroy()
     {
+        if (efx2)
+        {
+            Instantiate(efx2, transform.position, transform.rotation);
+        }
         switch (ColorType)
         {
             case 0:
@@ -64,7 +68,7 @@ public class EnemyBullet : MonoBehaviour
         if (efx)
         {
             var effect = Instantiate(efx, gameObject.transform.position, Quaternion.identity);
-            effect.GetComponent<ParticleSystem>().startColor = new Color(0, 0, 0);
+            effect.GetComponent<ParticleSystem>().startColor = new Color(0.6470588f, 0.9294118f, 0.1098039f);
         }
     }
 }

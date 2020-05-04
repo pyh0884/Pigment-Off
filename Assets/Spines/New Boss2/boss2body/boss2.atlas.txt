@@ -1,0 +1,186 @@
+
+boss2.png
+size: 2001,4036
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm1
+  rotate: true
+  xy: 1568, 310
+  size: 220, 277
+  orig: 239, 303
+  offset: 0, 26
+  index: -1
+body
+  rotate: false
+  xy: 535, 33
+  size: 406, 310
+  orig: 656, 354
+  offset: 0, 44
+  index: -1
+body2
+  rotate: false
+  xy: 1196, 91
+  size: 250, 223
+  orig: 250, 223
+  offset: 0, 0
+  index: -1
+boss2
+  rotate: false
+  xy: 2, 2156
+  size: 1993, 1878
+  orig: 2048, 2048
+  offset: 3, 34
+  index: -1
+ear1
+  rotate: true
+  xy: 1572, 1072
+  size: 500, 379
+  orig: 541, 386
+  offset: 0, 7
+  index: -1
+ear2
+  rotate: false
+  xy: 2, 2
+  size: 531, 424
+  orig: 559, 522
+  offset: 28, 0
+  index: -1
+effect1
+  rotate: true
+  xy: 1572, 817
+  size: 253, 427
+  orig: 571, 805
+  offset: 318, 302
+  index: -1
+effect2
+  rotate: false
+  xy: 1290, 878
+  size: 280, 538
+  orig: 282, 644
+  offset: 2, 1
+  index: -1
+effect3
+  rotate: false
+  xy: 1521, 1574
+  size: 387, 580
+  orig: 599, 794
+  offset: 212, 88
+  index: -1
+face1
+  rotate: true
+  xy: 943, 65
+  size: 278, 251
+  orig: 280, 253
+  offset: 1, 1
+  index: -1
+face2
+  rotate: true
+  xy: 1299, 316
+  size: 278, 267
+  orig: 280, 269
+  offset: 1, 1
+  index: -1
+face3
+  rotate: false
+  xy: 1299, 596
+  size: 270, 280
+  orig: 272, 282
+  offset: 1, 1
+  index: -1
+gun
+  rotate: false
+  xy: 2, 428
+  size: 609, 988
+  orig: 615, 990
+  offset: 6, 0
+  index: -1
+head
+  rotate: false
+  xy: 613, 345
+  size: 532, 511
+  orig: 587, 578
+  offset: 0, 64
+  index: -1
+leg
+  rotate: false
+  xy: 1147, 439
+  size: 150, 417
+  orig: 150, 417
+  offset: 0, 0
+  index: -1
+motobike
+  rotate: false
+  xy: 2, 1418
+  size: 1517, 736
+  orig: 1517, 1133
+  offset: 0, 262
+  index: -1
+neck
+  rotate: false
+  xy: 1571, 532
+  size: 333, 283
+  orig: 495, 295
+  offset: 0, 0
+  index: -1
+scarf1
+  rotate: true
+  xy: 1847, 322
+  size: 208, 146
+  orig: 208, 146
+  offset: 0, 0
+  index: -1
+scarf2
+  rotate: false
+  xy: 1448, 187
+  size: 174, 121
+  orig: 183, 163
+  offset: 0, 42
+  index: -1
+tail
+  rotate: false
+  xy: 613, 858
+  size: 675, 558
+  orig: 675, 558
+  offset: 0, 0
+  index: -1
+
+boss22.png
+size: 7067,2016
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boss02/boss2
+  rotate: true
+  xy: 2, 18
+  size: 1996, 4032
+  orig: 2001, 4036
+  offset: 2, 2
+  index: -1
+boss02/boss22
+  rotate: false
+  xy: 4036, 2
+  size: 2039, 2012
+  orig: 2043, 2016
+  offset: 2, 2
+  index: -1
+boss02/boss23
+  rotate: true
+  xy: 6077, 42
+  size: 1972, 988
+  orig: 1976, 992
+  offset: 2, 2
+  index: -1
+
+boss23.png
+size: 1976,992
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boss2gun/boss2
+  rotate: false
+  xy: 2, 2
+  size: 1972, 988
+  orig: 2048, 1024
+  offset: 13, 33
+  index: -1

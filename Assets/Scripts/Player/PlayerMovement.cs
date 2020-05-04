@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     float SpeedMultiplier = 1;
     public bool Slowed = false;
     public bool Boost = false;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     Vector2 movement;
     public bool isAttacking = false;
     public bool dead = false;
@@ -32,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
     private Player player;
     Attack atk;
     [HideInInspector] public Transform cursor;
+    public AudioSource walkAudio;
+    public GameObject dummy;
+    public Vector3 ResPosition;
+    public GameObject dashEcho;
+    private bool isDashing;
+    public Transform dashPoint;
+    public GameObject PaoxieEFX;
 
     public void HitBack()
     {
@@ -46,14 +53,15 @@ public class PlayerMovement : MonoBehaviour
     }
     IEnumerator Dash()
     {
-        Debug.Log(111);
         DashCount -= 1;
+        isDashing = true;
         hitBackTime = 0;
         Vector3 dir = cursor.position - Camera.main.WorldToScreenPoint(transform.position);
         //Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         rb.velocity = new Vector2(dir.x, dir.y).normalized * DashSpeed;
         yield return new WaitForSeconds(DashTime);
         rb.velocity = Vector2.zero;
+        isDashing = false;
     }
     public void Paoxie()
     {
@@ -62,7 +70,9 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator PaoXie()
     {
         MoveSpeed *= 1.4f;
+        PaoxieEFX.SetActive(true);
         yield return new WaitForSeconds(5);
+        PaoxieEFX.SetActive(false);
         MoveSpeed /= 1.4f;
     }
     //Top-down Shooting Movement
@@ -73,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
         currentAnimation = "idle";
         SetCharacterState(currentAnimation);
-        rb = GetComponent<Rigidbody2D>();
         isSniper = atk.isSniper;
         isCannon = atk.isCannon;
     }
@@ -117,7 +126,11 @@ public class PlayerMovement : MonoBehaviour
             SetAnimation(walk, true, 1f);
         }
 
-    } 
+    }
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         if (player.GetButtonDown("KillPlayer")) 
@@ -132,6 +145,12 @@ public class PlayerMovement : MonoBehaviour
         if (DashCount > 0 && isSniper && player.GetButtonDown("Skill")) 
         {
             StartCoroutine("Dash");
+        }
+        if (isSniper&&isDashing)
+        {
+            var echo = Instantiate(dashEcho, dashPoint.position, Quaternion.identity);
+            echo.transform.parent = null;
+            Destroy(echo, 0.5f);
         }
         movement.x = player.GetAxisRaw("MoveHorizontal");
         movement.y = player.GetAxisRaw("MoveVertical");
@@ -151,11 +170,13 @@ public class PlayerMovement : MonoBehaviour
                 if (movement.x != 0 || movement.y != 0)
                 {
                     SetCharacterState("walk");
+                    walkAudio.mute = false;
                     MoveTimer = 0;
                 }
                 else
                 {
                     SetCharacterState("idle");
+                    walkAudio.mute = true;
                     MoveTimer += Time.deltaTime;
                 }
             }
@@ -191,6 +212,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnDestroy()
     {
+        var dum=Instantiate(dummy, transform.position,Quaternion.identity);
+        dum.GetComponent<DummyAI>().destination = ResPosition;
+        dum.transform.parent = null;
+        FindObjectOfType<CinemachineTargetGroup>().AddMember(dum.transform, 1, 0);
         FindObjectOfType<CinemachineTargetGroup>().RemoveMember(gameObject.transform);
     }
 }
