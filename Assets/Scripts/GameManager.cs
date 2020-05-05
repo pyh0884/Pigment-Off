@@ -165,7 +165,8 @@ public class GameManager : MonoBehaviour
                 p1.GetComponentInChildren<Attack>().cursor = cursor1.transform;
                 p1.GetComponentInChildren<HeadControl>().cursor = cursor1.transform;
                 p1.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider1").GetComponent<Slider>();
-                p1.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp1").GetComponent<Slider>();
+                p1.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp1").transform.parent.GetComponentInParent<Slider>();
+                p1.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp1").GetComponent<Image>();
                 break;
             case 2:
                 Instantiate(bornEFX, PlayerTrans[1], Quaternion.identity);
@@ -180,7 +181,8 @@ public class GameManager : MonoBehaviour
                 p2.GetComponentInChildren<Attack>().cursor = cursor2.transform;
                 p2.GetComponentInChildren<HeadControl>().cursor = cursor2.transform;
                 p2.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider2").GetComponent<Slider>();
-                p2.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp2").GetComponent<Slider>();
+                p2.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp2").transform.parent.GetComponentInParent<Slider>();
+                p2.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp2").GetComponent<Image>();
                 break;
             case 3:
                 Instantiate(bornEFX, PlayerTrans[2], Quaternion.identity);
@@ -195,7 +197,8 @@ public class GameManager : MonoBehaviour
                 p3.GetComponentInChildren<Attack>().cursor = cursor3.transform;
                 p3.GetComponentInChildren<HeadControl>().cursor = cursor3.transform;
                 p3.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider3").GetComponent<Slider>();
-                p3.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp3").GetComponent<Slider>();
+                p3.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp3").transform.parent.GetComponentInParent<Slider>();
+                p3.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp3").GetComponent<Image>();
                 break;
             case 4:
                 Instantiate(bornEFX, PlayerTrans[3], Quaternion.identity);
@@ -210,7 +213,8 @@ public class GameManager : MonoBehaviour
                 p4.GetComponentInChildren<Attack>().cursor = cursor4.transform;
                 p4.GetComponentInChildren<HeadControl>().cursor = cursor4.transform;
                 p4.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider4").GetComponent<Slider>();
-                p4.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp4").GetComponent<Slider>();
+                p4.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp4").transform.parent.GetComponentInParent<Slider>();
+                p4.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp4").GetComponent<Image>();
                 break;
         }
     }

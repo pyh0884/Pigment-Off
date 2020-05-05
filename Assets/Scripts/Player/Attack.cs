@@ -49,6 +49,9 @@ public class Attack : MonoBehaviour
     #endregion
     //Basic Attack Parameters
     [Header("基本参数：")]
+    Color camp0 = new Color(0.9215686f, 0.6431373f, 0);//黄色
+    Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
+    Color camp2 = new Color(0, 0.6745098f, 0.9215686f);//蓝色
     public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
@@ -66,6 +69,7 @@ public class Attack : MonoBehaviour
     private float skillCd1 = 20;
     [HideInInspector] public float tempCD;
     public Slider slider;
+    public Image sliderImage;
     public Image PlayerNumImg;
     public Sprite[] PlayerNumSpr;
     public float Mp = 100;
@@ -168,6 +172,18 @@ public class Attack : MonoBehaviour
         cdTime = 10;
         tempCD = CdTime;
         PlayerNumImg.sprite = PlayerNumSpr[playerID];
+        if (Camp == 0)
+        {
+            sliderImage.color = camp0;
+        }
+        else if (Camp == 1)
+        {
+            sliderImage.color = camp1;
+        }
+        else
+        {
+            sliderImage.color = camp2;
+        }
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
@@ -586,7 +602,6 @@ public class Attack : MonoBehaviour
             Mp = Mathf.Lerp(Mp, TargetMp, Time.deltaTime * lerpSpeed);
         }
         slider.value = (float)(Mp / MpMax);
-
     }
     void Update()
     {

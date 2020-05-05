@@ -10,11 +10,13 @@ public class ScoreMenu : MonoBehaviour
     public Sprite[] spr;
     public Text[] tex;
     GameManager gm;
+    public GameObject[] crowns;
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
         img[0].sprite = spr[gm.WinnerNum - 1];
-        tex[0].text = (Mathf.FloorToInt(gm.WinnerTime / 300f * 1000f) / 10f) + " %";
+        crowns[gm.WinnerNum - 1].SetActive(true);
+        //tex[0].text = (Mathf.FloorToInt(gm.WinnerTime / 300f * 1000f) / 10f) + " %";
         tex[1].text = gm.player1Time + "S";
         tex[2].text = gm.player2Time + "S";
         if (gm.player3 != 0) 
@@ -38,6 +40,6 @@ public class ScoreMenu : MonoBehaviour
     }
     private void LateUpdate()
     {
-        img[0].SetNativeSize();
+        //img[0].SetNativeSize();
     }
 }

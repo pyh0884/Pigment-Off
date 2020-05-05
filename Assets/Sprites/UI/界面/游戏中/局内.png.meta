@@ -80,6 +80,15 @@ TextureImporter:
   - first:
       213: -4644813681427894413
     second: "\u5C40\u5185_25"
+  - first:
+      213: 120853428299611733
+    second: "\u5C40\u5185_26"
+  - first:
+      213: -6789841891480869441
+    second: "\u5C40\u5185_27"
+  - first:
+      213: -904064959300863889
+    second: "\u5C40\u5185_28"
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -138,7 +147,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -150,7 +159,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 4096
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -692,12 +701,12 @@ TextureImporter:
       name: "\u5C40\u5185_25"
       rect:
         serializedVersion: 2
-        x: 1086
-        y: 712
+        x: 1483
+        y: 954
         width: 71
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -705,6 +714,69 @@ TextureImporter:
       bones: []
       spriteID: 32425f986c257c24db10a9059183f38a
       internalID: -4644813681427894413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u5C40\u5185_26"
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 530
+        width: 195
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8de92f86c79093429e3556deb00b6df
+      internalID: 120853428299611733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u5C40\u5185_27"
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 379
+        width: 174
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d2afbf751e9564e8cfbe4436f4759c
+      internalID: -6789841891480869441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u5C40\u5185_28"
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 726
+        width: 249
+        height: 116
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d9598f7735e5446b2c4d677043c389
+      internalID: -904064959300863889
       vertices: []
       indices: 
       edges: []

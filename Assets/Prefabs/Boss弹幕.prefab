@@ -78,7 +78,7 @@ SpriteRenderer:
   m_Size: {x: 11.931115, y: 3.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3082881938200241482
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 2834805218277304284}
   - component: {fileID: 5193644002696264607}
   - component: {fileID: 8600466781888668968}
+  - component: {fileID: 4560313722842390345}
   m_Layer: 0
   m_Name: "Boss\u5F39\u5E55"
   m_TagString: EnemyAttack
@@ -150,9 +151,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.46, y: 0}
+  m_Offset: {x: -0.09, y: 0.25}
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 1.1
 --- !u!212 &5193644002696264607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -191,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 1007365853
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bbef26e5f2f653479e2e35ecab7e878, type: 3}
+  m_Sprite: {fileID: 442103771643077519, guid: f0e349f00ad61fe499c6cc49163d25d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -223,6 +224,25 @@ MonoBehaviour:
   ColorPool3: {fileID: 7097270998915139883, guid: c2cc55912757e2f4c9462ab33637b364,
     type: 3}
   efx: {fileID: 740930176129607399, guid: 3ead0f666a1681c438cda46ea77f44a2, type: 3}
-  efx2: {fileID: 0}
+  efx2: {fileID: 8125064631580348706, guid: f6605eb86aa83fe4eb94617442da46da, type: 3}
   shadow: {fileID: 2491919214985359070}
   isBoss: 1
+--- !u!95 &4560313722842390345
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3082881938200241482}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48e0394787df739428c87271912e471f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

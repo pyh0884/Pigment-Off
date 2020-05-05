@@ -278,6 +278,24 @@ public class ChooseMenu : MonoBehaviour
                 switch (playerID)
                 {
                     case 0:
+                        gm.player1 = 2;
+                        break;
+                    case 1:
+                        gm.player2 = 2;
+                        break;
+                    case 2:
+                        gm.player3 = 2;
+                        break;
+                    case 3:
+                        gm.player4 = 2;
+                        break;
+                }
+                break;
+            case 3:
+                //SelectBack.sprite = SprSelectBack[5];
+                switch (playerID)
+                {
+                    case 0:
                         gm.player1 = 3;
                         break;
                     case 1:
@@ -288,24 +306,6 @@ public class ChooseMenu : MonoBehaviour
                         break;
                     case 3:
                         gm.player4 = 3;
-                        break;
-                }
-                break;
-            case 3:
-                //SelectBack.sprite = SprSelectBack[5];
-                switch (playerID)
-                {
-                    case 0:
-                        gm.player1 = 5;
-                        break;
-                    case 1:
-                        gm.player2 = 5;
-                        break;
-                    case 2:
-                        gm.player3 = 5;
-                        break;
-                    case 3:
-                        gm.player4 = 5;
                         break;
                 }
                 break;
@@ -332,6 +332,24 @@ public class ChooseMenu : MonoBehaviour
                 switch (playerID)
                 {
                     case 0:
+                        gm.player1 = 5;
+                        break;
+                    case 1:
+                        gm.player2 = 5;
+                        break;
+                    case 2:
+                        gm.player3 = 5;
+                        break;
+                    case 3:
+                        gm.player4 = 5;
+                        break;
+                }
+                break;
+            case 6:
+                //SelectBack.sprite = SprSelectBack[2];
+                switch (playerID)
+                {
+                    case 0:
                         gm.player1 = 6;
                         break;
                     case 1:
@@ -342,24 +360,6 @@ public class ChooseMenu : MonoBehaviour
                         break;
                     case 3:
                         gm.player4 = 6;
-                        break;
-                }
-                break;
-            case 6:
-                //SelectBack.sprite = SprSelectBack[2];
-                switch (playerID)
-                {
-                    case 0:
-                        gm.player1 = 2;
-                        break;
-                    case 1:
-                        gm.player2 = 2;
-                        break;
-                    case 2:
-                        gm.player3 = 2;
-                        break;
-                    case 3:
-                        gm.player4 = 2;
                         break;
                 }
                 break;

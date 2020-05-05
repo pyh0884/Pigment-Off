@@ -123,7 +123,7 @@ public class TopCanvas : MonoBehaviour
     }
     void Update()
     {
-        txt.text = Mathf.FloorToInt(gm.PlayTime / 60) + ":" + Mathf.FloorToInt(gm.PlayTime - Mathf.FloorToInt(gm.PlayTime / 60) * 60);
+        txt.text = Mathf.FloorToInt(gm.PlayTime / 60) + " : " + Mathf.FloorToInt(gm.PlayTime - Mathf.FloorToInt(gm.PlayTime / 60) * 60);
     }
     private void LateUpdate()
     {
