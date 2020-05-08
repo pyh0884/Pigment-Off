@@ -1,147 +1,147 @@
 
 boss2.png
-size: 2001,4036
+size: 4494,1882
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 arm1
   rotate: true
-  xy: 1568, 310
-  size: 220, 277
-  orig: 239, 303
-  offset: 0, 26
+  xy: 4186, 596
+  size: 377, 290
+  orig: 409, 317
+  offset: 0, 27
   index: -1
 body
-  rotate: false
-  xy: 535, 33
-  size: 406, 310
-  orig: 656, 354
+  rotate: true
+  xy: 4115, 975
+  size: 405, 308
+  orig: 654, 352
   offset: 0, 44
   index: -1
 body2
   rotate: false
-  xy: 1196, 91
-  size: 250, 223
-  orig: 250, 223
+  xy: 4172, 91
+  size: 248, 221
+  orig: 248, 221
   offset: 0, 0
   index: -1
 boss2
   rotate: false
-  xy: 2, 2156
+  xy: 2, 2
   size: 1993, 1878
   orig: 2048, 2048
   offset: 3, 34
   index: -1
 ear1
   rotate: true
-  xy: 1572, 1072
-  size: 500, 379
-  orig: 541, 386
+  xy: 4115, 1382
+  size: 498, 377
+  orig: 539, 384
   offset: 0, 7
   index: -1
 ear2
   rotate: false
-  xy: 2, 2
-  size: 531, 424
-  orig: 559, 522
+  xy: 2529, 2
+  size: 529, 423
+  orig: 557, 521
   offset: 28, 0
   index: -1
 effect1
   rotate: true
-  xy: 1572, 817
-  size: 253, 427
-  orig: 571, 805
-  offset: 318, 302
+  xy: 1997, 547
+  size: 597, 659
+  orig: 597, 792
+  offset: 0, 0
   index: -1
 effect2
   rotate: false
-  xy: 1290, 878
-  size: 280, 538
-  orig: 282, 644
-  offset: 2, 1
+  xy: 3228, 281
+  size: 277, 528
+  orig: 280, 642
+  offset: 1, 0
   index: -1
 effect3
   rotate: false
-  xy: 1521, 1574
-  size: 387, 580
-  orig: 599, 794
-  offset: 212, 88
+  xy: 2658, 427
+  size: 568, 717
+  orig: 569, 803
+  offset: 1, 1
   index: -1
 face1
-  rotate: true
-  xy: 943, 65
-  size: 278, 251
-  orig: 280, 253
-  offset: 1, 1
+  rotate: false
+  xy: 3217, 95
+  size: 278, 184
+  orig: 278, 185
+  offset: 0, 0
   index: -1
 face2
-  rotate: true
-  xy: 1299, 316
-  size: 278, 267
-  orig: 280, 269
-  offset: 1, 1
+  rotate: false
+  xy: 3507, 86
+  size: 278, 249
+  orig: 278, 249
+  offset: 0, 0
   index: -1
 face3
   rotate: false
-  xy: 1299, 596
-  size: 270, 280
-  orig: 272, 282
-  offset: 1, 1
+  xy: 4186, 314
+  size: 271, 280
+  orig: 271, 280
+  offset: 0, 0
   index: -1
 gun
   rotate: false
-  xy: 2, 428
-  size: 609, 988
-  orig: 615, 990
-  offset: 6, 0
+  xy: 3513, 895
+  size: 600, 985
+  orig: 610, 988
+  offset: 10, 3
   index: -1
 head
   rotate: false
-  xy: 613, 345
-  size: 532, 511
-  orig: 587, 578
+  xy: 1997, 32
+  size: 530, 513
+  orig: 585, 580
   offset: 0, 64
   index: -1
 leg
-  rotate: false
-  xy: 1147, 439
-  size: 150, 417
-  orig: 150, 417
+  rotate: true
+  xy: 3787, 185
+  size: 150, 383
+  orig: 150, 383
   offset: 0, 0
   index: -1
 motobike
   rotate: false
-  xy: 2, 1418
-  size: 1517, 736
-  orig: 1517, 1133
+  xy: 1997, 1146
+  size: 1514, 734
+  orig: 1514, 1131
   offset: 0, 262
   index: -1
 neck
-  rotate: false
-  xy: 1571, 532
-  size: 333, 283
-  orig: 495, 295
+  rotate: true
+  xy: 3228, 811
+  size: 333, 281
+  orig: 495, 293
   offset: 0, 0
   index: -1
 scarf1
   rotate: true
-  xy: 1847, 322
-  size: 208, 146
-  orig: 208, 146
+  xy: 3060, 37
+  size: 206, 144
+  orig: 206, 144
   offset: 0, 0
   index: -1
 scarf2
-  rotate: false
-  xy: 1448, 187
-  size: 174, 121
-  orig: 183, 163
-  offset: 0, 42
+  rotate: true
+  xy: 3060, 245
+  size: 180, 155
+  orig: 189, 210
+  offset: 0, 55
   index: -1
 tail
   rotate: false
-  xy: 613, 858
-  size: 675, 558
-  orig: 675, 558
+  xy: 3511, 337
+  size: 673, 556
+  orig: 673, 556
   offset: 0, 0
   index: -1
 
@@ -173,14 +173,34 @@ boss02/boss23
   index: -1
 
 boss23.png
-size: 1976,992
+size: 7067,4073
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 boss2gun/boss2
+  rotate: true
+  xy: 2, 2
+  size: 2055, 4049
+  orig: 2059, 4053
+  offset: 2, 2
+  index: -1
+boss2gun/boss22
+  rotate: false
+  xy: 2, 2059
+  size: 7063, 2012
+  orig: 7067, 2016
+  offset: 2, 2
+  index: -1
+
+boss24.png
+size: 7067,4014
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boss2gun/boss23
   rotate: false
   xy: 2, 2
-  size: 1972, 988
-  orig: 2048, 1024
-  offset: 13, 33
+  size: 7063, 4010
+  orig: 7067, 4014
+  offset: 2, 2
   index: -1

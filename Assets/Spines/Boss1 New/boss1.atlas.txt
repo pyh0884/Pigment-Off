@@ -1,0 +1,125 @@
+
+boss1.png
+size: 2614,666
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: true
+  xy: 1063, 17
+  size: 209, 179
+  orig: 209, 191
+  offset: 0, 12
+  index: -1
+ear1
+  rotate: true
+  xy: 1537, 290
+  size: 374, 346
+  orig: 400, 346
+  offset: 0, 0
+  index: -1
+ear2
+  rotate: false
+  xy: 1885, 295
+  size: 301, 369
+  orig: 319, 451
+  offset: 10, 0
+  index: -1
+effect1
+  rotate: false
+  xy: 227, 10
+  size: 173, 200
+  orig: 205, 207
+  offset: 12, 6
+  index: -1
+effect2
+  rotate: false
+  xy: 444, 228
+  size: 895, 436
+  orig: 895, 436
+  offset: 0, 0
+  index: -1
+face1
+  rotate: false
+  xy: 2, 2
+  size: 223, 208
+  orig: 223, 208
+  offset: 0, 0
+  index: -1
+face2
+  rotate: true
+  xy: 601, 3
+  size: 223, 229
+  orig: 223, 229
+  offset: 0, 0
+  index: -1
+face3
+  rotate: true
+  xy: 832, 4
+  size: 222, 229
+  orig: 222, 229
+  offset: 0, 0
+  index: -1
+finger1
+  rotate: true
+  xy: 402, 11
+  size: 199, 197
+  orig: 199, 197
+  offset: 0, 0
+  index: -1
+finger2
+  rotate: true
+  xy: 2419, 435
+  size: 229, 181
+  orig: 245, 187
+  offset: 13, 0
+  index: -1
+hand1
+  rotate: true
+  xy: 2285, 82
+  size: 225, 327
+  orig: 415, 574
+  offset: 190, 11
+  index: -1
+hand2
+  rotate: false
+  xy: 1662, 3
+  size: 290, 285
+  orig: 292, 286
+  offset: 0, 1
+  index: -1
+hand3
+  rotate: true
+  xy: 2188, 309
+  size: 355, 229
+  orig: 379, 259
+  offset: 0, 30
+  index: -1
+head
+  rotate: true
+  xy: 2, 212
+  size: 452, 440
+  orig: 481, 510
+  offset: 0, 69
+  index: -1
+leg1
+  rotate: true
+  xy: 1244, 29
+  size: 197, 416
+  orig: 394, 416
+  offset: 197, 0
+  index: -1
+leg2
+  rotate: false
+  xy: 1341, 288
+  size: 194, 376
+  orig: 194, 410
+  offset: 0, 34
+  index: -1
+neck
+  rotate: false
+  xy: 1954, 42
+  size: 329, 251
+  orig: 384, 251
+  offset: 19, 0
+  index: -1

@@ -1,147 +1,147 @@
 
 boss2.png
-size: 2059,4053
+size: 4653,1887
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 arm1
   rotate: false
-  xy: 1455, 9
-  size: 236, 300
-  orig: 239, 303
-  offset: 1, 1
+  xy: 2866, 70
+  size: 233, 300
+  orig: 409, 317
+  offset: 175, 0
   index: -1
 body
   rotate: false
-  xy: 544, 1125
-  size: 656, 300
-  orig: 656, 354
-  offset: 0, 54
+  xy: 3101, 83
+  size: 654, 287
+  orig: 654, 352
+  offset: 0, 57
   index: -1
 body2
-  rotate: false
-  xy: 613, 2
+  rotate: true
+  xy: 4432, 1638
   size: 247, 219
-  orig: 250, 223
-  offset: 1, 2
+  orig: 248, 221
+  offset: 0, 1
   index: -1
 boss2
   rotate: false
-  xy: 2, 2173
+  xy: 2, 7
   size: 1993, 1878
   orig: 2048, 2048
   offset: 3, 34
   index: -1
 ear1
-  rotate: false
-  xy: 2, 1039
-  size: 540, 386
-  orig: 541, 386
-  offset: 0, 0
+  rotate: true
+  xy: 3685, 403
+  size: 494, 382
+  orig: 539, 384
+  offset: 0, 2
   index: -1
 ear2
-  rotate: true
-  xy: 1521, 1612
-  size: 559, 522
-  orig: 559, 522
-  offset: 0, 0
+  rotate: false
+  xy: 3129, 379
+  size: 554, 518
+  orig: 557, 521
+  offset: 2, 0
   index: -1
 effect1
   rotate: false
-  xy: 1202, 458
-  size: 253, 427
-  orig: 571, 805
-  offset: 318, 302
+  xy: 3735, 912
+  size: 265, 421
+  orig: 597, 792
+  offset: 332, 297
   index: -1
 effect2
-  rotate: false
-  xy: 1202, 887
-  size: 280, 538
-  orig: 282, 644
+  rotate: true
+  xy: 4069, 441
+  size: 278, 536
+  orig: 280, 642
   offset: 2, 1
   index: -1
 effect3
-  rotate: false
-  xy: 1521, 1030
-  size: 387, 580
-  orig: 599, 794
-  offset: 212, 88
+  rotate: true
+  xy: 1997, 2
+  size: 368, 587
+  orig: 569, 803
+  offset: 201, 89
   index: -1
 face1
-  rotate: false
-  xy: 893, 20
-  size: 278, 251
-  orig: 280, 253
-  offset: 1, 1
+  rotate: true
+  xy: 4433, 161
+  size: 278, 184
+  orig: 278, 185
+  offset: 0, 0
   index: -1
 face2
-  rotate: false
-  xy: 1175, 189
-  size: 278, 267
-  orig: 280, 269
-  offset: 1, 1
+  rotate: true
+  xy: 4182, 161
+  size: 278, 249
+  orig: 278, 249
+  offset: 0, 0
   index: -1
 face3
-  rotate: true
-  xy: 893, 273
-  size: 270, 280
-  orig: 272, 282
-  offset: 1, 1
+  rotate: false
+  xy: 3909, 121
+  size: 271, 280
+  orig: 271, 280
+  offset: 0, 0
   index: -1
 gun
   rotate: false
-  xy: 2, 40
-  size: 609, 988
-  orig: 615, 990
+  xy: 3129, 899
+  size: 604, 986
+  orig: 610, 988
   offset: 6, 0
   index: -1
 head
   rotate: false
-  xy: 613, 545
-  size: 587, 578
-  orig: 587, 578
-  offset: 0, 0
+  xy: 4069, 721
+  size: 582, 578
+  orig: 585, 580
+  offset: 1, 2
   index: -1
 leg
   rotate: false
-  xy: 1910, 1196
-  size: 147, 414
-  orig: 150, 417
-  offset: 2, 1
+  xy: 3757, 20
+  size: 150, 381
+  orig: 150, 383
+  offset: 0, 1
   index: -1
 motobike
-  rotate: false
-  xy: 2, 1427
-  size: 1517, 744
-  orig: 1517, 1133
-  offset: 0, 257
+  rotate: true
+  xy: 1997, 372
+  size: 1513, 1130
+  orig: 1514, 1131
+  offset: 1, 1
   index: -1
 neck
   rotate: true
-  xy: 613, 223
-  size: 320, 278
-  orig: 495, 295
-  offset: 2, 2
+  xy: 2586, 42
+  size: 328, 278
+  orig: 495, 293
+  offset: 0, 1
   index: -1
 scarf1
-  rotate: true
-  xy: 1910, 988
+  rotate: false
+  xy: 4432, 1301
   size: 206, 144
-  orig: 208, 146
-  offset: 1, 1
+  orig: 206, 144
+  offset: 0, 0
   index: -1
 scarf2
   rotate: true
-  xy: 1173, 6
-  size: 181, 161
-  orig: 183, 163
-  offset: 1, 1
+  xy: 4432, 1447
+  size: 189, 210
+  orig: 189, 210
+  offset: 0, 0
   index: -1
 tail
-  rotate: true
-  xy: 1484, 311
-  size: 675, 558
-  orig: 675, 558
+  rotate: false
+  xy: 3757, 1335
+  size: 673, 550
+  orig: 673, 556
   offset: 0, 0
   index: -1
 
@@ -167,33 +167,6 @@ boss02/boss22
 boss02/boss23
   rotate: true
   xy: 6077, 42
-  size: 1972, 988
-  orig: 1976, 992
-  offset: 2, 2
-  index: -1
-
-boss23.png
-size: 7067,4014
-format: RGBA8888
-filter: Linear,Linear
-repeat: none
-boss2body/boss2
-  rotate: true
-  xy: 2, 2
-  size: 1996, 4032
-  orig: 2001, 4036
-  offset: 2, 2
-  index: -1
-boss2body/boss22
-  rotate: false
-  xy: 2, 2000
-  size: 7063, 2012
-  orig: 7067, 2016
-  offset: 2, 2
-  index: -1
-boss2body/boss23
-  rotate: false
-  xy: 4036, 1010
   size: 1972, 988
   orig: 1976, 992
   offset: 2, 2

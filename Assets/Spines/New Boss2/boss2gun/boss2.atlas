@@ -1,0 +1,40 @@
+
+boss23.png
+size: 7067,7908
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boss2body/boss2
+  rotate: false
+  xy: 2, 6028
+  size: 4490, 1878
+  orig: 4494, 1882
+  offset: 2, 2
+  index: -1
+boss2body/boss22
+  rotate: false
+  xy: 2, 4014
+  size: 7063, 2012
+  orig: 7067, 2016
+  offset: 2, 2
+  index: -1
+boss2body/boss24
+  rotate: false
+  xy: 2, 2
+  size: 7063, 4010
+  orig: 7067, 4014
+  offset: 2, 2
+  index: -1
+
+boss24.png
+size: 7067,4073
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+boss2body/boss23
+  rotate: false
+  xy: 2, 2
+  size: 7063, 4069
+  orig: 7067, 4073
+  offset: 2, 2
+  index: -1
