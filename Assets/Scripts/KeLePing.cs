@@ -13,7 +13,8 @@ public class KeLePing : MonoBehaviour
     {
         if (collision.gameObject.layer == 12)
         {
-            collision.gameObject.GetComponentInChildren<Attack>().KeLe();
+            //collision.gameObject.GetComponentInChildren<Attack>().KeLe();
+            collision.gameObject.GetComponent<PlayerMovement>().PickUpItem(1);
         }
         Destroy(gameObject);
 

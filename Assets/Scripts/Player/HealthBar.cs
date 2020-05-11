@@ -52,7 +52,7 @@ public class HealthBar : MonoBehaviour
                 else
                 {
                     Shield = false;
-                    FindObjectOfType<TopCanvas>().Shield(playerNum);
+                    FindObjectOfType<TopCanvas>().ShieldOff(playerNum);
                 }
             }
             TargetHp = Mathf.Clamp(TargetHp, 0, HpMax);

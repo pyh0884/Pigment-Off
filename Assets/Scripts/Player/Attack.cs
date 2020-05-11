@@ -102,6 +102,8 @@ public class Attack : MonoBehaviour
     public GameObject SkillEFX;
     public GameObject keleEFX;
     public GameObject yanliaoEFX;
+    public GameObject FireEFX;
+    public GameObject FireEFX2;
     #region Flag Datas
     public bool isCarryingFlag = false;
     public GameObject flag;
@@ -151,16 +153,18 @@ public class Attack : MonoBehaviour
         yield return new WaitForSeconds(8);
         MpIncreaseSpeed /= 3;
     }
+    private Vector3 temp;
     IEnumerator SkillBoost3()
     {
-        SkillTimer = 0;
+        temp = Camera.main.ScreenToWorldPoint(cursor.position);
+           SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         SkillEFX.SetActive(true);
-        var skill1 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        var skill1 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
         yield return new WaitForSeconds(0.5f);
-        var skill2 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        var skill2 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
         yield return new WaitForSeconds(0.5f);
-        var skill3 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        var skill3 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
         yield return new WaitForSeconds(7);
         SkillEFX.SetActive(false);
         MpIncreaseSpeed /= 3;
@@ -186,6 +190,25 @@ public class Attack : MonoBehaviour
         {
             sliderImage.color = camp2;
         }
+        switch (Camp)
+        {
+            case 0:
+                FireEFX.GetComponent<ParticleSystem>().startColor = camp0;
+                if (FireEFX2!=null)
+                    FireEFX2.GetComponent<ParticleSystem>().startColor = camp0;
+                break;
+            case 1:
+                FireEFX.GetComponent<ParticleSystem>().startColor = camp1;
+                if (FireEFX2 != null)
+                    FireEFX2.GetComponent<ParticleSystem>().startColor = camp1;
+                break;
+            case 2:
+                FireEFX.GetComponent<ParticleSystem>().startColor = camp2;
+                if (FireEFX2 != null)
+                    FireEFX2.GetComponent<ParticleSystem>().startColor = camp2;
+                break;
+        }
+
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
@@ -227,6 +250,8 @@ public class Attack : MonoBehaviour
     {
         AttackTimer = 0;
         NormalShooting = true;
+        FireEFX.GetComponent<ParticleSystem>().Play();
+        FireEFX2.GetComponent<ParticleSystem>().Play();
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         var bul2 = Instantiate(Bullet, EmitPoint2.transform.position, Quaternion.identity);
         GetComponent<AudioSource>().Play();
@@ -336,6 +361,7 @@ public class Attack : MonoBehaviour
         laserRight.enabled = false;
         pressed = false;
         RandomDir = (EmitPoint.transform.position + LeftPoint + (RightPoint - LeftPoint).normalized * Random.Range(0, (RightPoint - LeftPoint).magnitude)) - EmitPoint.transform.position;
+        FireEFX.GetComponent<ParticleSystem>().Play();
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         GetComponent<AudioSource>().Play();
         bul.GetComponent<BulletAI>().Camp = Camp;
@@ -399,6 +425,7 @@ public class Attack : MonoBehaviour
         CannonAiming = false;
         TrajectoryLine.enabled = false;
         GetComponent<AudioSource>().Play();
+        FireEFX.GetComponent<ParticleSystem>().Play();
         var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
         bul.GetComponent<CannonBullet>().Camp = Camp;
         bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);

@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing;
     public Transform dashPoint;
     public GameObject PaoxieEFX;
+    public int[] items;
 
     public void HitBack()
     {
@@ -85,6 +86,63 @@ public class PlayerMovement : MonoBehaviour
         SetCharacterState(currentAnimation);
         isSniper = atk.isSniper;
         isCannon = atk.isCannon;
+        items = new int[2];
+    }
+    public void PickUpItem(int num) //num0=null,1=可乐，2=跑鞋，3=护盾
+    {
+        if (items[0] == 0)
+        {
+            items[0] = num;
+            FindObjectOfType<TopCanvas>().ChangeItem(playerID, items);
+        }
+        else if (items[1] == 0)
+        {
+            items[1] = num;
+            FindObjectOfType<TopCanvas>().ChangeItem(playerID, items);
+        }
+        else 
+        {
+            items[0] = items[1];
+            items[1] = num;
+            FindObjectOfType<TopCanvas>().ChangeItem(playerID, items);
+        }
+    }
+    public void UseItem(int num) 
+    {
+        switch (num) 
+        {
+            case 1://kele
+                GetComponentInChildren<Attack>().KeLe();
+                break;
+            case 2://paoxie
+                Paoxie();
+                break;
+            case 3://hudun
+                GetComponent<HealthBar>().ShieldUp();
+                break;
+            default:
+                break;
+        }
+    }
+    public void L1Item() 
+    {
+        if (player.GetButtonDown("Item1"))  
+        {
+            UseItem(items[0]);
+            items[0] = items[1];
+            items[1] = 0;
+            FindObjectOfType<TopCanvas>().ChangeItem(playerID, items);
+        }
+    }
+    public void R1Item()
+    {
+        if (player.GetButtonDown("Item2"))
+        {
+            UseItem(items[1]);
+            items[1] = 0;
+            FindObjectOfType<TopCanvas>().ChangeItem(playerID, items);
+        }
+
     }
     public void SetAnimation(AnimationReferenceAsset animation, bool loop, float timescale)
     {
@@ -133,6 +191,14 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        if (items[0] != 0) 
+        {
+            L1Item();
+            if (items[1] != 0)
+            {
+                R1Item();
+            }
+        }        
         if (player.GetButtonDown("KillPlayer")) 
         {
             GetComponent<HealthBar>().die();

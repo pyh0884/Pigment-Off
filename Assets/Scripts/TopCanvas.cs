@@ -7,10 +7,11 @@ public class TopCanvas : MonoBehaviour
 {
     GameManager gm;
     public Image[] images;
+    public Image[] items;
+    public Sprite[] SprItems;
     public Sprite[] sprs;
     public Text txt;
     public GameObject[] gos;
-    private bool s1, s2, s3, s4;
     public Image[] refresh;
     private void Start()
     {
@@ -104,20 +105,56 @@ public class TopCanvas : MonoBehaviour
         switch (num)
         {
             case 1:
-                images[8].sprite = sprs[s1 ? 6 : 7];
-                s1 = !s1;
+                images[8].sprite = sprs[6];
                 break;
             case 2:
-                images[9].sprite = sprs[s2 ? 6 : 7];
-                s2 = !s2;
+                images[9].sprite = sprs[6];
                 break;
             case 3:
-                images[10].sprite = sprs[s3 ? 6 : 7];
-                s3 = !s3;
+                images[10].sprite = sprs[6];
                 break;
             case 4:
-                images[11].sprite = sprs[s4 ? 6 : 7];
-                s4 = !s4;
+                images[11].sprite = sprs[6];
+                break;
+        }
+    }
+    public void ShieldOff(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                images[8].sprite = sprs[7];
+                break;
+            case 2:
+                images[9].sprite = sprs[7];
+                break;
+            case 3:
+                images[10].sprite = sprs[7];
+                break;
+            case 4:
+                images[11].sprite = sprs[7];
+                break;
+        }
+    }
+    public void ChangeItem(int playerNum,int[] ItemList) 
+    {
+        switch (playerNum) 
+        {
+            case 0:
+                items[0].sprite = SprItems[ItemList[0]];
+                items[1].sprite = SprItems[ItemList[1]];
+                break;
+            case 1:
+                items[2].sprite = SprItems[ItemList[0]];
+                items[3].sprite = SprItems[ItemList[1]];
+                break;
+            case 2:
+                items[5].sprite = SprItems[ItemList[0]];
+                items[4].sprite = SprItems[ItemList[1]];
+                break;
+            case 3:
+                items[7].sprite = SprItems[ItemList[0]];
+                items[6].sprite = SprItems[ItemList[1]];
                 break;
         }
     }

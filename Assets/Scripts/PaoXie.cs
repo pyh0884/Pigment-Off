@@ -13,7 +13,8 @@ public class PaoXie : MonoBehaviour
     {
         if (collision.gameObject.layer == 12) 
         {
-            collision.gameObject.GetComponent<PlayerMovement>().Paoxie();
+            //collision.gameObject.GetComponent<PlayerMovement>().Paoxie();
+            collision.gameObject.GetComponent<PlayerMovement>().PickUpItem(2);
         }
         Destroy(gameObject);
     }

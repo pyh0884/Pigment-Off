@@ -13,7 +13,8 @@ public class Shield : MonoBehaviour
     {
         if (collision.gameObject.layer == 12)
         {
-            collision.gameObject.GetComponent<HealthBar>().ShieldUp();
+            //collision.gameObject.GetComponent<HealthBar>().ShieldUp();
+            collision.gameObject.GetComponent<PlayerMovement>().PickUpItem(3);
         }
         Destroy(gameObject);
     }
