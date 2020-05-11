@@ -972,6 +972,8 @@ MonoBehaviour:
   laserRight: {fileID: 0}
   SkillCd2: 20
   isCannon: 1
+  CannonSkill: {fileID: 2182644440102690670, guid: c6e5adcdffeb21342b52a543dc96c685,
+    type: 3}
   TrajectoryLine: {fileID: 3811028482898237771}
   minDamage: 30
   maxDamage: 45
@@ -994,6 +996,7 @@ MonoBehaviour:
   SkillCd1: 20
   tempCD: 0
   slider: {fileID: 0}
+  sliderImage: {fileID: 0}
   PlayerNumImg: {fileID: 6012236223694279794}
   PlayerNumSpr:
   - {fileID: -7643917424006292240, guid: c4dc863185b40a14bb486c700d525000, type: 3}
@@ -1752,12 +1755,12 @@ PrefabInstance:
     - target: {fileID: 8945978063564191152, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8945978063564191152, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.44
+      value: 13.97
       objectReference: {fileID: 0}
     - target: {fileID: 8945978063564191152, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}

@@ -414,6 +414,7 @@ MonoBehaviour:
   SkillCd1: 20
   tempCD: 0
   slider: {fileID: 0}
+  sliderImage: {fileID: 0}
   PlayerNumImg: {fileID: 6748981573792205827}
   PlayerNumSpr:
   - {fileID: -7643917424006292240, guid: c4dc863185b40a14bb486c700d525000, type: 3}
@@ -1944,7 +1945,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e618d3ed11573d44ba398261bb755552, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6632882754329934893, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -1963,7 +1964,7 @@ PrefabInstance:
     - target: {fileID: 8945978063564191152, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8945978063564191152, guid: 6493937f408fee34ea67b02f1933e7d0,
         type: 3}

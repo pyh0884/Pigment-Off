@@ -428,8 +428,8 @@ TextureImporter:
       name: "\u5C40\u5185_12"
       rect:
         serializedVersion: 2
-        x: 813
-        y: 586
+        x: 852
+        y: 288
         width: 45
         height: 45
       alignment: 0
@@ -449,8 +449,8 @@ TextureImporter:
       name: "\u5C40\u5185_13"
       rect:
         serializedVersion: 2
-        x: 968
-        y: 581
+        x: 1007
+        y: 284
         width: 45
         height: 45
       alignment: 0
@@ -470,8 +470,8 @@ TextureImporter:
       name: "\u5C40\u5185_14"
       rect:
         serializedVersion: 2
-        x: 1130
-        y: 582
+        x: 1170
+        y: 285
         width: 45
         height: 45
       alignment: 0
@@ -491,8 +491,8 @@ TextureImporter:
       name: "\u5C40\u5185_15"
       rect:
         serializedVersion: 2
-        x: 812
-        y: 243
+        x: 850
+        y: 87
         width: 45
         height: 45
       alignment: 0
@@ -512,8 +512,8 @@ TextureImporter:
       name: "\u5C40\u5185_16"
       rect:
         serializedVersion: 2
-        x: 965
-        y: 244
+        x: 1004
+        y: 87
         width: 45
         height: 45
       alignment: 0
@@ -533,8 +533,8 @@ TextureImporter:
       name: "\u5C40\u5185_17"
       rect:
         serializedVersion: 2
-        x: 1124
-        y: 243
+        x: 1164
+        y: 86
         width: 45
         height: 45
       alignment: 0
@@ -554,8 +554,8 @@ TextureImporter:
       name: "\u5C40\u5185_18"
       rect:
         serializedVersion: 2
-        x: 1366
-        y: 794
+        x: 1461
+        y: 795
         width: 75
         height: 75
       alignment: 0
@@ -596,7 +596,7 @@ TextureImporter:
       name: "\u5C40\u5185_20"
       rect:
         serializedVersion: 2
-        x: 1358
+        x: 1453
         y: 515
         width: 75
         height: 75
@@ -638,8 +638,8 @@ TextureImporter:
       name: "\u5C40\u5185_22"
       rect:
         serializedVersion: 2
-        x: 1360
-        y: 266
+        x: 1456
+        y: 267
         width: 75
         height: 75
       alignment: 9
@@ -722,9 +722,9 @@ TextureImporter:
       name: "\u5C40\u5185_26"
       rect:
         serializedVersion: 2
-        x: 163
-        y: 530
-        width: 195
+        x: 914
+        y: 589
+        width: 184
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -743,10 +743,10 @@ TextureImporter:
       name: "\u5C40\u5185_27"
       rect:
         serializedVersion: 2
-        x: 163
-        y: 379
-        width: 174
-        height: 12
+        x: 922
+        y: 454
+        width: 173
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -764,10 +764,10 @@ TextureImporter:
       name: "\u5C40\u5185_28"
       rect:
         serializedVersion: 2
-        x: 875
-        y: 726
-        width: 249
-        height: 116
+        x: 900
+        y: 702
+        width: 213
+        height: 110
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

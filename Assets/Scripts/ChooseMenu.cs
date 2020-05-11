@@ -13,17 +13,19 @@ public class ChooseMenu : MonoBehaviour
     public int sceneNum;
     [HideInInspector] public int lockedNum = 0;
     public ChooseMenu[] cm;
-    //public Image[] CharacterBack;//下，背景
-    //public Image[] CharacterIcon;//下，角色头像
-    public Image SelectBack;//上，背景黄色部分
-    public Image PlayerFront;//上，角色小图
-    public Image PlayerBack;//上，角色大图
+    //public Image[] CharacterBack;//背景
+    //public Image[] CharacterIcon;//角色头像
+    public Image CharacterName;//背景黄色部分
+    public Image CharacterInfo;//角色属性介绍
+    public Image PlayerFront;//角色小图
+    public Image PlayerBack;//角色大图    
     public Image Lock;
     //public Sprite[] SprCharacterBack;
     //public Sprite[] SprCharacterIcon;
     public Sprite[] SprPlayerFront;
-    public Sprite[] SprSelectBack;
+    public Sprite[] SprName;
     public Sprite[] SprPlayersBack;
+    public Sprite[] SprInfo;
     //public GameObject[] LowerIcon;//下，P1P2P3P4标识
     public GameManager gm;
     public int playerID = 10;//0-3
@@ -109,42 +111,48 @@ public class ChooseMenu : MonoBehaviour
             case 1:
                 PlayerFront.sprite = SprPlayerFront[0];
                 PlayerBack.sprite = SprPlayersBack[0];
-                SelectBack.sprite = SprSelectBack[0];
+                CharacterName.sprite = SprName[0];
+                CharacterInfo.sprite = SprInfo[0];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;
             case 2:
                 PlayerFront.sprite = SprPlayerFront[1];
                 PlayerBack.sprite = SprPlayersBack[1];
-                SelectBack.sprite = SprSelectBack[1];
+                CharacterName.sprite = SprName[1];
+                CharacterInfo.sprite = SprInfo[1];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;
             case 3:
                 PlayerFront.sprite = SprPlayerFront[2];
                 PlayerBack.sprite = SprPlayersBack[2];
-                SelectBack.sprite = SprSelectBack[2];
+                CharacterName.sprite = SprName[2];
+                CharacterInfo.sprite = SprInfo[2];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;
             case 4:
                 PlayerFront.sprite = SprPlayerFront[3];
                 PlayerBack.sprite = SprPlayersBack[3];
-                SelectBack.sprite = SprSelectBack[3];
+                CharacterName.sprite = SprName[3];
+                CharacterInfo.sprite = SprInfo[3];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;
             case 5:
                 PlayerFront.sprite = SprPlayerFront[4];
                 PlayerBack.sprite = SprPlayersBack[4];
-                SelectBack.sprite = SprSelectBack[4];
+                CharacterName.sprite = SprName[4];
+                CharacterInfo.sprite = SprInfo[4];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;
             case 6:
                 PlayerFront.sprite = SprPlayerFront[5];
                 PlayerBack.sprite = SprPlayersBack[5];
-                SelectBack.sprite = SprSelectBack[5];
+                CharacterName.sprite = SprName[5];
+                CharacterInfo.sprite = SprInfo[5];
                 PlayerFront.SetNativeSize();
                 PlayerBack.SetNativeSize();
                 break;

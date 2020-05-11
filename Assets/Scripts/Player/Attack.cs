@@ -31,6 +31,7 @@ public class Attack : MonoBehaviour
     #region Cannon
     [Header("重炮角色：")]
     public bool isCannon;
+    public GameObject CannonSkill;
     public LineRenderer TrajectoryLine;
     private bool CannonAiming = false;
     private bool CannonPressed = false;
@@ -87,7 +88,7 @@ public class Attack : MonoBehaviour
     public float MpSlowNum = 3;
     [Header("每发子弹颜料消耗")]
     public int MpCost = 10;
-    public bool CanAttack = true; 
+    public bool CanAttack = true;
     public GameObject main;
     public bool dead;
     private float AttackTimer;
@@ -107,7 +108,7 @@ public class Attack : MonoBehaviour
     public GameObject FlagWithCover;
     #endregion
     #endregion
-    public void PickUp() 
+    public void PickUp()
     {
         StartCoroutine("pickUp");
     }
@@ -154,13 +155,14 @@ public class Attack : MonoBehaviour
     {
         SkillTimer = 0;
         MpIncreaseSpeed *= 3;
-        //main.GetComponent<HealthBar>().Shield = true;
-        CannonSkill = true;
         SkillEFX.SetActive(true);
-        yield return new WaitForSeconds(8);
+        var skill1 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        var skill2 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        var skill3 = Instantiate(CannonSkill, new Vector3(Camera.main.ScreenToWorldPoint(cursor.position).x, Camera.main.ScreenToWorldPoint(cursor.position).y + 10), Quaternion.identity);
+        yield return new WaitForSeconds(7);
         SkillEFX.SetActive(false);
-        CannonSkill = false;
-        //main.GetComponent<HealthBar>().Shield = false;
         MpIncreaseSpeed /= 3;
     }
     void Start()
@@ -192,9 +194,9 @@ public class Attack : MonoBehaviour
             return;
         }
         skeletonAnimation.state.SetAnimation(0, animation, loop);
-        if (skeletonAnimation2) 
+        if (skeletonAnimation2)
         {
-        skeletonAnimation2.state.SetAnimation(0, animation, loop);
+            skeletonAnimation2.state.SetAnimation(0, animation, loop);
         }
         currentAnimation = animation.name;
     }
@@ -231,7 +233,7 @@ public class Attack : MonoBehaviour
         GetComponent<AudioSource>().Play();
         bul.GetComponent<BulletAI>().Camp = Camp;
         bul2.GetComponent<BulletAI>().Camp = Camp;
-        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2)) < 12) 
+        if (Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2)) < 12)
         {
             //Debug.Log(Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y, 2)));
             bul.GetComponent<BulletAI>().Range = Mathf.Sqrt(Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).x - transform.position.x, 2) + Mathf.Pow(Camera.main.ScreenToWorldPoint(cursor.position).y - transform.position.y, 2));
@@ -283,7 +285,7 @@ public class Attack : MonoBehaviour
         if (!currentState.Equals("shoot"))
         {
             SetCharacterState("target");
-        }            
+        }
         TargetMp -= AimingCost;
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         laserLeft.SetPosition(0, EmitPoint.transform.position);
@@ -358,7 +360,6 @@ public class Attack : MonoBehaviour
     private float VelocityZ = 1 / 1.2f + 10 * 1.2f;
     private float VelocityY;
     private float VelocityX;
-    private bool CannonSkill;
     private Vector3 targetPos;
     public void CannonTrajectory()
     {
@@ -398,44 +399,18 @@ public class Attack : MonoBehaviour
         CannonAiming = false;
         TrajectoryLine.enabled = false;
         GetComponent<AudioSource>().Play();
-        if (!CannonSkill)
+        var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
+        bul.GetComponent<CannonBullet>().Camp = Camp;
+        bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
+        bul.GetComponent<CannonBullet>().StartShoot(targetPos);
+        bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
+        bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
+        bul.GetComponentInChildren<CannonExplosion>().Camp = Camp;
+        if (BoostCannon)
         {
-            var bul = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            bul.GetComponent<CannonBullet>().Camp = Camp;
-            bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
-            bul.GetComponent<CannonBullet>().StartShoot(targetPos);
-            bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
-            bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
-            bul.GetComponentInChildren<CannonExplosion>().Camp = Camp;
-            if (BoostCannon)
-            {
-                bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
-            }
-            minDamage = 30;
+            bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
         }
-        else
-        {
-            var bul1 = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            var bul2 = Instantiate(Bullet, EmitPoint.transform.position, Quaternion.identity);
-            bul1.GetComponent<CannonBullet>().Camp = Camp;
-            bul2.GetComponent<CannonBullet>().Camp = Camp;
-            bul1.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
-            bul2.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
-            bul1.GetComponent<CannonBullet>().StartShoot(new Vector3(targetPos.x - 1, targetPos.y));
-            bul2.GetComponent<CannonBullet>().StartShoot(new Vector3(targetPos.x + 1, targetPos.y));
-            bul1.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
-            bul2.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
-            bul1.GetComponentInChildren<CannonExplosion>().Camp = Camp;
-            bul2.GetComponentInChildren<CannonExplosion>().Camp = Camp;
-            bul1.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
-            bul2.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
-            if (BoostCannon)
-            {
-                bul1.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
-                bul2.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
-            }
-            minDamage = 30;
-        }
+        minDamage = 30;
         cdTime = 0;
         StartCoroutine("waitFor4");
     }
@@ -480,7 +455,7 @@ public class Attack : MonoBehaviour
     void SniperUpdate()
     {
         //狙击射击（松开左键时）
-        if ((isSniper && player.GetButtonUp("Fire")  && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
+        if ((isSniper && player.GetButtonUp("Fire") && pressed) /*|| (Mp <= 5 && isSniper && pressed)*/)
         {
             main.GetComponent<PlayerMovement>().isAttacking = true;
             main.GetComponent<PlayerMovement>().HitBack();
@@ -565,7 +540,7 @@ public class Attack : MonoBehaviour
             main.GetComponent<PlayerMovement>().isAttacking = false;
         }
         if (NormalShooting)
-        { 
+        {
             SetCharacterState("target");
         }
         else
@@ -605,9 +580,9 @@ public class Attack : MonoBehaviour
     }
     void Update()
     {
-        if (isCarryingFlag) 
+        if (isCarryingFlag)
         {
-            switch (playerID) 
+            switch (playerID)
             {
                 case 0:
                     gm.player1Time += Time.deltaTime;
@@ -622,7 +597,7 @@ public class Attack : MonoBehaviour
                     gm.player4Time += Time.deltaTime;
                     break;
             }
-                
+
         }
         skillCd1 += Time.deltaTime;
         skillCd2 += Time.deltaTime;
@@ -641,7 +616,7 @@ public class Attack : MonoBehaviour
                 moveNum = 1;
             }
         }
-        else 
+        else
         {
             if (SkillTimer > 5)
             {
@@ -657,11 +632,12 @@ public class Attack : MonoBehaviour
             SetCharacterState("die");
         }
         else
-        {if (isSniper || isCannon)
+        {
+            if (isSniper || isCannon)
             {
                 RotateGun();
             }
-            else 
+            else
             {
                 RotateGun1();
             }
