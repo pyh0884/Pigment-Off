@@ -97,12 +97,19 @@ public class BossAi2 : MonoBehaviour
         {
             dir = notMove.transform.position - Gun.transform.position;
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Gun.transform.rotation = Quaternion.Euler(0, 0, angle);
-
+            Gun.transform.rotation = Quaternion.Euler(0, 0, angle+150);
+            if (Vector2.Distance(notMove.transform.position, transform.position) > 15)
+            {
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
             movement = new Vector2((notMove.transform.position - transform.position).x, (notMove.transform.position - transform.position).y).normalized;
             //切换目标
             timer1 += Time.deltaTime;
-            if (timer1 >= SwitchGap)
+            if (timer1 >= SwitchGap && !isAttacking) 
             {
                 FindNonMove();
                 timer1 = 0;

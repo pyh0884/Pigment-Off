@@ -516,7 +516,7 @@ public class ChooseMenu : MonoBehaviour
         if (!paused)
         {
             #region MoveLeftRight
-            if (player.GetButtonDown("MoveLeft") && !locked)
+            if (player.GetButtonDown("MoveLeft") && !locked && !paused)
             {
                 Click.Play();
                 if (CheckLeftMovable())
@@ -524,7 +524,7 @@ public class ChooseMenu : MonoBehaviour
                 else
                     MoveLeft2();
             }
-            if (player.GetButtonDown("MoveRight") && !locked)
+            if (player.GetButtonDown("MoveRight") && !locked && !paused)
             {
                 Click.Play();
                 if (CheckRightMovable())
@@ -532,7 +532,7 @@ public class ChooseMenu : MonoBehaviour
                 else
                     MoveRight2();
             }
-            if (player.GetButtonLongPress("MoveLeft") && !locked)
+            if (player.GetButtonLongPress("MoveLeft") && !locked && !paused)
             {
                 Click.Play();
                 if (CheckLeftMovable())
@@ -540,7 +540,7 @@ public class ChooseMenu : MonoBehaviour
                 else
                     MoveLeft2();
             }
-            if (player.GetButtonLongPress("MoveRight") && !locked)
+            if (player.GetButtonLongPress("MoveRight") && !locked && !paused)
             {
                 Click.Play();
                 if (CheckRightMovable())
@@ -572,6 +572,19 @@ public class ChooseMenu : MonoBehaviour
         {
             Click.Play();
             pauseMenu.SetActive(true);
+        }
+        else if (paused)
+        {
+            if (player.GetButtonDown("Cancel"))
+            {
+                paused = false;
+                pauseMenu.SetActive(false);
+            }
+            else if (player.GetButton("Confirm"))
+            {
+                SceneManager.LoadScene(0);
+            }
+
         }
         if (player.GetButton("Start") && locked && !paused)
         {
@@ -611,16 +624,16 @@ public class ChooseMenu : MonoBehaviour
             }
 
         }
-        if (paused)
-        {
-            if (player.GetButtonDown("Cancel"))
-            {
-                pauseMenu.SetActive(false);
-            }
-            else if (player.GetButton("Confirm"))
-            {
-                SceneManager.LoadScene(0);
-            }
-        }
+        //if (paused)
+        //{
+        //    if (player.GetButtonDown("Cancel"))
+        //    {
+        //        pauseMenu.SetActive(false);
+        //    }
+        //    else if (player.GetButton("Confirm"))
+        //    {
+        //        SceneManager.LoadScene(0);
+        //    }
+        //}
     }
 }

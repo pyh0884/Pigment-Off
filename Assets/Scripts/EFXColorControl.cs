@@ -7,10 +7,9 @@ public class EFXColorControl : MonoBehaviour
     public int camp = 0;
     private void Start()
     {
-        Color camp0 = new Color(0.9215686f, 0.6431373f, 0);//黄色 0.9215686f,0.6431373f
-        Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
-        Color camp2 = new Color(0,0.6745098f,0.9215686f);//蓝色
-
+        Color camp0 = new Color(0.454902f, 0.8980392f, 0.04705882f);//绿色
+        Color camp1 = new Color(0.9803922f, 0.1843137f, 0.6745098f);//粉色
+        Color camp2 = new Color(0.9215686f, 0.6431373f, 0);//黄色
         switch (camp)
         {
             case 0:

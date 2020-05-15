@@ -6,12 +6,12 @@ public class FlagIn : MonoBehaviour
 {
     public GameObject flagCover;
     [HideInInspector] public bool Unpaused;
-    
-    void Update()
+
+    private void FixedUpdate()
     {
-        if (Unpaused) 
+        if (Unpaused)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y - 0.4f);
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f);
         }
     }
     private void OnDestroy()

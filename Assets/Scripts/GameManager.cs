@@ -164,6 +164,19 @@ public class GameManager : MonoBehaviour
                 p1.GetComponentInChildren<PlayerMovement>().cursor = cursor1.transform;
                 p1.GetComponentInChildren<Attack>().cursor = cursor1.transform;
                 p1.GetComponentInChildren<HeadControl>().cursor = cursor1.transform;
+                cursor1.GetComponentInChildren<CursorBoundaries2>().PlayerTrans = p1.GetComponentInChildren<PlayerMovement>().transform;
+                if (player1 < 3)
+                {
+                    cursor1.GetComponentInChildren<CursorBoundaries2>().PlayerType = 0;
+                }
+                else if (player1 < 5)
+                {
+                    cursor1.GetComponentInChildren<CursorBoundaries2>().PlayerType = 1;
+                }
+                else 
+                {
+                    cursor1.GetComponentInChildren<CursorBoundaries2>().PlayerType = 2;
+                }
                 p1.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider1").GetComponent<Slider>();
                 p1.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp1").transform.parent.GetComponentInParent<Slider>();
                 p1.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp1").GetComponent<Image>();
@@ -180,6 +193,19 @@ public class GameManager : MonoBehaviour
                 p2.GetComponentInChildren<PlayerMovement>().cursor = cursor2.transform;
                 p2.GetComponentInChildren<Attack>().cursor = cursor2.transform;
                 p2.GetComponentInChildren<HeadControl>().cursor = cursor2.transform;
+                cursor2.GetComponentInChildren<CursorBoundaries2>().PlayerTrans = p2.GetComponentInChildren<PlayerMovement>().transform;
+                if (player2 < 3)
+                {
+                    cursor2.GetComponentInChildren<CursorBoundaries2>().PlayerType = 0;
+                }
+                else if (player2 < 5)
+                {
+                    cursor2.GetComponentInChildren<CursorBoundaries2>().PlayerType = 1;
+                }
+                else
+                {
+                    cursor2.GetComponentInChildren<CursorBoundaries2>().PlayerType = 2;
+                }
                 p2.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider2").GetComponent<Slider>();
                 p2.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp2").transform.parent.GetComponentInParent<Slider>();
                 p2.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp2").GetComponent<Image>();
@@ -196,6 +222,19 @@ public class GameManager : MonoBehaviour
                 p3.GetComponentInChildren<PlayerMovement>().cursor = cursor3.transform;
                 p3.GetComponentInChildren<Attack>().cursor = cursor3.transform;
                 p3.GetComponentInChildren<HeadControl>().cursor = cursor3.transform;
+                cursor3.GetComponentInChildren<CursorBoundaries2>().PlayerTrans = p3.GetComponentInChildren<PlayerMovement>().transform;
+                if (player3 < 3)
+                {
+                    cursor3.GetComponentInChildren<CursorBoundaries2>().PlayerType = 0;
+                }
+                else if (player3 < 5)
+                {
+                    cursor3.GetComponentInChildren<CursorBoundaries2>().PlayerType = 1;
+                }
+                else
+                {
+                    cursor3.GetComponentInChildren<CursorBoundaries2>().PlayerType = 2;
+                }
                 p3.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider3").GetComponent<Slider>();
                 p3.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp3").transform.parent.GetComponentInParent<Slider>();
                 p3.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp3").GetComponent<Image>();
@@ -212,6 +251,19 @@ public class GameManager : MonoBehaviour
                 p4.GetComponentInChildren<PlayerMovement>().cursor = cursor4.transform;
                 p4.GetComponentInChildren<Attack>().cursor = cursor4.transform;
                 p4.GetComponentInChildren<HeadControl>().cursor = cursor4.transform;
+                cursor4.GetComponentInChildren<CursorBoundaries2>().PlayerTrans = p4.GetComponentInChildren<PlayerMovement>().transform;
+                if (player4 < 3)
+                {
+                    cursor4.GetComponentInChildren<CursorBoundaries2>().PlayerType = 0;
+                }
+                else if (player4 < 5)
+                {
+                    cursor4.GetComponentInChildren<CursorBoundaries2>().PlayerType = 1;
+                }
+                else
+                {
+                    cursor4.GetComponentInChildren<CursorBoundaries2>().PlayerType = 2;
+                }
                 p4.GetComponentInChildren<HealthBar>().slider = GameObject.FindGameObjectWithTag("Slider4").GetComponent<Slider>();
                 p4.GetComponentInChildren<Attack>().slider = GameObject.FindGameObjectWithTag("Mp4").transform.parent.GetComponentInParent<Slider>();
                 p4.GetComponentInChildren<Attack>().sliderImage = GameObject.FindGameObjectWithTag("Mp4").GetComponent<Image>();

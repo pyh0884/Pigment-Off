@@ -1794,19 +1794,22 @@ MonoBehaviour:
       _name: Player1
       _descriptiveName: Player1
       _startPlaying: 1
-      _defaultJoystickMaps:
+      _defaultJoystickMaps: []
+      _defaultMouseMaps:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultMouseMaps: []
-      _defaultKeyboardMaps: []
+      _defaultKeyboardMaps:
+      - _enabled: 1
+        _categoryId: 0
+        _layoutId: 0
       _defaultCustomControllerMaps:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
       _startingCustomControllers: []
-      _assignMouseOnStart: 0
-      _assignKeyboardOnStart: 0
+      _assignMouseOnStart: 1
+      _assignKeyboardOnStart: 1
       _excludeFromControllerAutoAssignment: 0
       _controllerMapLayoutManagerSettings:
         _enabled: 1
@@ -1848,21 +1851,15 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
-      _defaultMouseMaps:
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 0
-      _defaultKeyboardMaps:
-      - _enabled: 1
-        _categoryId: 0
-        _layoutId: 0
+      _defaultMouseMaps: []
+      _defaultKeyboardMaps: []
       _defaultCustomControllerMaps:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
       _startingCustomControllers: []
-      _assignMouseOnStart: 1
-      _assignKeyboardOnStart: 1
+      _assignMouseOnStart: 0
+      _assignKeyboardOnStart: 0
       _excludeFromControllerAutoAssignment: 0
       _controllerMapLayoutManagerSettings:
         _enabled: 1
@@ -2402,7 +2399,7 @@ MonoBehaviour:
   DestroyManager: 0
   locked: 0
   gm: {fileID: 0}
-  playerID: 3
+  playerID: 1
   MapNum: 0
   pauseMenu: {fileID: 1017762810}
   paused: 0
@@ -5365,6 +5362,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
+        type: 3}
+      propertyPath: player2Camp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
+        type: 3}
+      propertyPath: player3Camp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170028987852376607, guid: f2ff436af24143946bedc913978a0b16,
+        type: 3}
+      propertyPath: player4Camp
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2ff436af24143946bedc913978a0b16, type: 3}

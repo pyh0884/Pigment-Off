@@ -7,6 +7,7 @@ public class Intromenu : MonoBehaviour
 {
     public int playerID = 0;
     private Player player;
+    private float timer = 0;
     void Start()
     {
         Time.timeScale = 0;
@@ -15,17 +16,20 @@ public class Intromenu : MonoBehaviour
     {        
             FindObjectOfType<GameManager>().Initial(); 
     }
-
     void Update()
     {
-        //todo:点击确定后运行Initial，删除scene2的InitialGM
-        if (Input.anyKeyDown) 
+        timer += Time.fixedDeltaTime;
+        if (timer > 1)
         {
-            Time.timeScale = 1;
-            Initial();
-            FindObjectOfType<FlagIn>().Unpaused = true;
-            Destroy(FindObjectOfType<FlagIn>().gameObject, 1);
-            Destroy(gameObject);
+            //todo:点击确定后运行Initial，删除scene2的InitialGM
+            if (Input.anyKeyDown)
+            {
+                Time.timeScale = 1;
+                Initial();
+                FindObjectOfType<FlagIn>().Unpaused = true;
+                Destroy(FindObjectOfType<FlagIn>().gameObject, 1);
+                Destroy(gameObject);
+            }
         }
     }
 }

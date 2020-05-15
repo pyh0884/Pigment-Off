@@ -6,11 +6,15 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
+    public Slider localSlider;
+    public Image[] sliderImage;
     public float Hp = 100;
     public float HpMax = 100;
     public int IncreaseHp;
     public GameManager gm;
     public bool cheat;
+    public Image ShieldImage;
+    public Sprite[] ShieldSpr;
     public bool Shield;
     public float TargetHp = 100;
     public float lerpSpeed = 5;
@@ -52,6 +56,7 @@ public class HealthBar : MonoBehaviour
                 else
                 {
                     Shield = false;
+                    ShieldImage.sprite = ShieldSpr[2];
                     FindObjectOfType<TopCanvas>().ShieldOff(playerNum);
                 }
             }
@@ -86,6 +91,7 @@ public class HealthBar : MonoBehaviour
             Hp = Mathf.Lerp(Hp, TargetHp, Time.deltaTime * lerpSpeed2);
         }
         slider.value = (float)(Hp / HpMax);
+        localSlider.value = (float)(Hp / HpMax);
     }
     public void die() 
     {
@@ -108,6 +114,10 @@ public class HealthBar : MonoBehaviour
     }
     private void Update()
     {
+        if (Shield) 
+        {
+            ShieldImage.sprite = ShieldSpr[1];
+        }
         playerNum = GetComponent<PlayerMovement>().playerID + 1;
         //HpMax = gm.MAXHP;
         currentHealth();
@@ -115,5 +125,10 @@ public class HealthBar : MonoBehaviour
         //{
         //    StartCoroutine("Die");
         //}
+    }
+    private void LateUpdate()
+    {
+        sliderImage[0].SetNativeSize();
+        sliderImage[1].SetNativeSize();
     }
 }

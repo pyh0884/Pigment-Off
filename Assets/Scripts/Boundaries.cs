@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
-    [SerializeField]Vector2 screenBounds;
+    [SerializeField]Vector3 screenBounds;
     private void Update()
     {
         screenBounds = new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z);

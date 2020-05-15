@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CannonBullet : MonoBehaviour
 {
-    Color camp0 = new Color(0.9215686f, 0.6431373f, 0);//黄色
-    Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
-    Color camp2 = new Color(0,0.6745098f,0.9215686f);//蓝色
+    Color camp0 = new Color(0.454902f, 0.8980392f, 0.04705882f);//绿色
+    Color camp1 = new Color(0.9803922f, 0.1843137f, 0.6745098f);//粉色
+    Color camp2 = new Color(0.9215686f, 0.6431373f, 0);//黄色
     public Vector3 targetPos;
     public float xOffSet;
     public float yOffSet;
@@ -132,63 +132,78 @@ public class CannonBullet : MonoBehaviour
             {
                 case 0:
                     var bul = Instantiate(ColorPool1[0], gameObject.transform.position, Quaternion.identity);
+                    bul.transform.localScale *= 2;
                     bul.GetComponent<ColorPool>().Camp = Camp;
                     break;
                 case 1:
                     var bul2 = Instantiate(ColorPool1[1], gameObject.transform.position, Quaternion.identity);
                     bul2.GetComponent<ColorPool>().Camp = Camp;
+                    bul2.transform.localScale *= 2;
                     break;
                 case 2:
                     var bul3 = Instantiate(ColorPool1[2], gameObject.transform.position, Quaternion.identity);
                     bul3.GetComponent<ColorPool>().Camp = Camp;
+                    bul3.transform.localScale *= 2;
                     break;
                 case 3:
                     var bul4 = Instantiate(ColorPool1[3], gameObject.transform.position, Quaternion.identity);
                     bul4.GetComponent<ColorPool>().Camp = Camp;
+                    bul4.transform.localScale *= 2;
                     break;
                 case 4:
                     var bul5 = Instantiate(ColorPool1[4], gameObject.transform.position, Quaternion.identity);
                     bul5.GetComponent<ColorPool>().Camp = Camp;
+                    bul5.transform.localScale *= 2;
                     break;
                 case 5:
                     var bul6 = Instantiate(ColorPool1[5], gameObject.transform.position, Quaternion.identity);
                     bul6.GetComponent<ColorPool>().Camp = Camp;
+                    bul6.transform.localScale *= 2;
                     break;
                 case 6:
                     var bul7 = Instantiate(ColorPool1[6], gameObject.transform.position, Quaternion.identity);
                     bul7.GetComponent<ColorPool>().Camp = Camp;
+                    bul7.transform.localScale *= 2;
                     break;
                 case 7:
                     var bul8 = Instantiate(ColorPool1[7], gameObject.transform.position, Quaternion.identity);
                     bul8.GetComponent<ColorPool>().Camp = Camp;
+                    bul8.transform.localScale *= 2;
                     break;
                 case 8:
                     var bul9 = Instantiate(ColorPool1[8], gameObject.transform.position, Quaternion.identity);
                     bul9.GetComponent<ColorPool>().Camp = Camp;
+                    bul9.transform.localScale *= 2;
                     break;
                 case 9:
                     var bul10 = Instantiate(ColorPool1[9], gameObject.transform.position, Quaternion.identity);
                     bul10.GetComponent<ColorPool>().Camp = Camp;
+                    bul10.transform.localScale *= 2;
                     break;
                 case 10:
                     var bul11 = Instantiate(ColorPool1[10], gameObject.transform.position, Quaternion.identity);
                     bul11.GetComponent<ColorPool>().Camp = Camp;
+                    bul11.transform.localScale *= 2;
                     break;
                 case 11:
                     var bul12 = Instantiate(ColorPool1[11], gameObject.transform.position, Quaternion.identity);
                     bul12.GetComponent<ColorPool>().Camp = Camp;
+                    bul12.transform.localScale *= 2;
                     break;
                 case 12:
                     var bul13 = Instantiate(ColorPool1[12], gameObject.transform.position, Quaternion.identity);
                     bul13.GetComponent<ColorPool>().Camp = Camp;
+                    bul13.transform.localScale *= 2;
                     break;
                 case 13:
                     var bul14 = Instantiate(ColorPool1[13], gameObject.transform.position, Quaternion.identity);
                     bul14.GetComponent<ColorPool>().Camp = Camp;
+                    bul14.transform.localScale *= 2;
                     break;
                 default:
                     var bul15 = Instantiate(ColorPool1[0], gameObject.transform.position, Quaternion.identity);
                     bul15.GetComponent<ColorPool>().Camp = Camp;
+                    bul15.transform.localScale *= 2;
                     break;
             }
         }
@@ -199,62 +214,77 @@ public class CannonBullet : MonoBehaviour
                 case 0:
                     var bul = Instantiate(ColorPool2[0], gameObject.transform.position, Quaternion.identity);
                     bul.GetComponent<ColorPool>().Camp = Camp;
+                    bul.transform.localScale *= 2;
                     break;
                 case 1:
                     var bul2 = Instantiate(ColorPool2[1], gameObject.transform.position, Quaternion.identity);
                     bul2.GetComponent<ColorPool>().Camp = Camp;
+                    bul2.transform.localScale *= 2;
                     break;
                 case 2:
                     var bul3 = Instantiate(ColorPool2[2], gameObject.transform.position, Quaternion.identity);
                     bul3.GetComponent<ColorPool>().Camp = Camp;
+                    bul3.transform.localScale *= 2;
                     break;
                 case 3:
                     var bul4 = Instantiate(ColorPool2[3], gameObject.transform.position, Quaternion.identity);
                     bul4.GetComponent<ColorPool>().Camp = Camp;
+                    bul4.transform.localScale *= 2;
                     break;
                 case 4:
                     var bul5 = Instantiate(ColorPool2[4], gameObject.transform.position, Quaternion.identity);
                     bul5.GetComponent<ColorPool>().Camp = Camp;
+                    bul5.transform.localScale *= 2;
                     break;
                 case 5:
                     var bul6 = Instantiate(ColorPool2[5], gameObject.transform.position, Quaternion.identity);
                     bul6.GetComponent<ColorPool>().Camp = Camp;
+                    bul6.transform.localScale *= 2;
                     break;
                 case 6:
                     var bul7 = Instantiate(ColorPool2[6], gameObject.transform.position, Quaternion.identity);
                     bul7.GetComponent<ColorPool>().Camp = Camp;
+                    bul7.transform.localScale *= 2;
                     break;
                 case 7:
                     var bul8 = Instantiate(ColorPool2[7], gameObject.transform.position, Quaternion.identity);
                     bul8.GetComponent<ColorPool>().Camp = Camp;
+                    bul8.transform.localScale *= 2;
                     break;
                 case 8:
                     var bul9 = Instantiate(ColorPool2[8], gameObject.transform.position, Quaternion.identity);
                     bul9.GetComponent<ColorPool>().Camp = Camp;
+                    bul9.transform.localScale *= 2;
                     break;
                 case 9:
                     var bul10 = Instantiate(ColorPool2[9], gameObject.transform.position, Quaternion.identity);
                     bul10.GetComponent<ColorPool>().Camp = Camp;
+                    bul10.transform.localScale *= 2;
                     break;
                 case 10:
                     var bul11 = Instantiate(ColorPool2[10], gameObject.transform.position, Quaternion.identity);
                     bul11.GetComponent<ColorPool>().Camp = Camp;
+                    bul11.transform.localScale *= 2;
                     break;
                 case 11:
                     var bul12 = Instantiate(ColorPool2[11], gameObject.transform.position, Quaternion.identity);
                     bul12.GetComponent<ColorPool>().Camp = Camp;
+                    bul12.transform.localScale *= 2;
                     break;
                 case 12:
                     var bul13 = Instantiate(ColorPool2[12], gameObject.transform.position, Quaternion.identity);
                     bul13.GetComponent<ColorPool>().Camp = Camp;
+                    bul13.transform.localScale *= 2;
                     break;
                 case 13:
                     var bul14 = Instantiate(ColorPool2[13], gameObject.transform.position, Quaternion.identity);
                     bul14.GetComponent<ColorPool>().Camp = Camp;
+                    bul14.transform.localScale *= 2;
                     break;
                 default:
                     var bul15 = Instantiate(ColorPool2[0], gameObject.transform.position, Quaternion.identity);
                     bul15.GetComponent<ColorPool>().Camp = Camp;
+                    bul15.transform.localScale *= 2;
                     break;
             }
         }
@@ -265,62 +295,77 @@ public class CannonBullet : MonoBehaviour
                 case 0:
                     var bul = Instantiate(ColorPool3[0], gameObject.transform.position, Quaternion.identity);
                     bul.GetComponent<ColorPool>().Camp = Camp;
+                    bul.transform.localScale *= 2;
                     break;
                 case 1:
                     var bul2 = Instantiate(ColorPool3[1], gameObject.transform.position, Quaternion.identity);
                     bul2.GetComponent<ColorPool>().Camp = Camp;
+                    bul2.transform.localScale *= 2;
                     break;
                 case 2:
                     var bul3 = Instantiate(ColorPool3[2], gameObject.transform.position, Quaternion.identity);
                     bul3.GetComponent<ColorPool>().Camp = Camp;
+                    bul3.transform.localScale *= 2;
                     break;
                 case 3:
                     var bul4 = Instantiate(ColorPool3[3], gameObject.transform.position, Quaternion.identity);
                     bul4.GetComponent<ColorPool>().Camp = Camp;
+                    bul4.transform.localScale *= 2;
                     break;
                 case 4:
                     var bul5 = Instantiate(ColorPool3[4], gameObject.transform.position, Quaternion.identity);
                     bul5.GetComponent<ColorPool>().Camp = Camp;
+                    bul5.transform.localScale *= 2;
                     break;
                 case 5:
                     var bul6 = Instantiate(ColorPool3[5], gameObject.transform.position, Quaternion.identity);
                     bul6.GetComponent<ColorPool>().Camp = Camp;
+                    bul6.transform.localScale *= 2;
                     break;
                 case 6:
                     var bul7 = Instantiate(ColorPool3[6], gameObject.transform.position, Quaternion.identity);
                     bul7.GetComponent<ColorPool>().Camp = Camp;
+                    bul7.transform.localScale *= 2;
                     break;
                 case 7:
                     var bul8 = Instantiate(ColorPool3[7], gameObject.transform.position, Quaternion.identity);
                     bul8.GetComponent<ColorPool>().Camp = Camp;
+                    bul8.transform.localScale *= 2;
                     break;
                 case 8:
                     var bul9 = Instantiate(ColorPool3[8], gameObject.transform.position, Quaternion.identity);
                     bul9.GetComponent<ColorPool>().Camp = Camp;
+                    bul9.transform.localScale *= 2;
                     break;
                 case 9:
                     var bul10 = Instantiate(ColorPool3[9], gameObject.transform.position, Quaternion.identity);
                     bul10.GetComponent<ColorPool>().Camp = Camp;
+                    bul10.transform.localScale *= 2;
                     break;
                 case 10:
                     var bul11 = Instantiate(ColorPool3[10], gameObject.transform.position, Quaternion.identity);
                     bul11.GetComponent<ColorPool>().Camp = Camp;
+                    bul11.transform.localScale *= 2;
                     break;
                 case 11:
                     var bul12 = Instantiate(ColorPool3[11], gameObject.transform.position, Quaternion.identity);
                     bul12.GetComponent<ColorPool>().Camp = Camp;
+                    bul12.transform.localScale *= 2;
                     break;
                 case 12:
                     var bul13 = Instantiate(ColorPool3[12], gameObject.transform.position, Quaternion.identity);
                     bul13.GetComponent<ColorPool>().Camp = Camp;
+                    bul13.transform.localScale *= 2;
                     break;
                 case 13:
                     var bul14 = Instantiate(ColorPool3[13], gameObject.transform.position, Quaternion.identity);
                     bul14.GetComponent<ColorPool>().Camp = Camp;
+                    bul14.transform.localScale *= 2;
                     break;
                 default:
                     var bul15 = Instantiate(ColorPool3[0], gameObject.transform.position, Quaternion.identity);
                     bul15.GetComponent<ColorPool>().Camp = Camp;
+                    bul15.transform.localScale *= 2;
                     break;
             }
         }

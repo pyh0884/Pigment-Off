@@ -21,7 +21,7 @@ public class StartButton : Trans
     void Update()
     {
         sld.value = Mathf.Lerp(sld.value, adder1 + adder2 + adder3 + adder4, 3 * Time.deltaTime);
-        if (sld.value >= 0.95f) 
+        if (sld.value >= 0.95f||Input.GetKeyDown(KeyCode.P)) 
         {
             ChooseMenu.SetActive(false);
             ChooseMap.SetActive(true);

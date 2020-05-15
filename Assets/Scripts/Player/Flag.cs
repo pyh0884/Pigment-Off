@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using Spine.Unity;
 
 public class Flag : MonoBehaviour
@@ -35,6 +36,7 @@ public class Flag : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         MaxHp = Mathf.Clamp(gm.PlayTime * 5 / 9, 1, 100);
         hp = MaxHp;
+        FindObjectOfType<CinemachineTargetGroup>().AddMember(gameObject.transform, 1, 0);
         //anim = GetComponent<Animator>();
     }
 

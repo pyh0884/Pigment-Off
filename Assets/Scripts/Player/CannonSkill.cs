@@ -6,9 +6,9 @@ public class CannonSkill : MonoBehaviour
 {
     public GameObject efx;
     public int Camp;
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.2f);
+        transform.position = new Vector3(transform.position.x, transform.position.y - 0.23f);
     }
     public void EFX()
     {

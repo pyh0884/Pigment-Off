@@ -24,8 +24,8 @@ public class Instantiater : MonoBehaviour
         }
         if (insTimer >= insTime && canIns) 
         {
-            enemy1 = Instantiate(enemy, trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
-            enemy2 = Instantiate(enemy, trans[Mathf.FloorToInt(Random.Range(0, 4))], Quaternion.identity);
+            enemy1 = Instantiate(enemy, trans[Mathf.FloorToInt(Random.Range(0, 3))], Quaternion.identity);
+            enemy2 = Instantiate(enemy, trans[Mathf.FloorToInt(Random.Range(1, 4))], Quaternion.identity);
             insTimer = 0;
             canIns = false;
         }

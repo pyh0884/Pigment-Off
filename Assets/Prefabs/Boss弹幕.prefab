@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 5391182505066907957}
   - component: {fileID: 4541418318745645228}
   m_Layer: 0
-  m_Name: "\u7070\u5C18EFX"
+  m_Name: "\u62D6\u5C3EEFX"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048375791698939390}
   m_LocalRotation: {x: 0, y: 0, z: 0.612907, w: 0.79015505}
-  m_LocalPosition: {x: -0.969, y: 0, z: 0}
+  m_LocalPosition: {x: -0.537, y: -0.248, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3082881938200241492}
@@ -287,7 +287,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8048375791698939390}
   serializedVersion: 6
-  lengthInSec: 0.2
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -362,7 +362,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
+      scalar: 0.15
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2
@@ -531,7 +531,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.25
+      scalar: 4
       minScalar: 0.6
       maxCurve:
         serializedVersion: 2
@@ -1050,7 +1050,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 200
+      value: 270
       mode: 0
       spread: 0
       speed:

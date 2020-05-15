@@ -50,9 +50,9 @@ public class Attack : MonoBehaviour
     #endregion
     //Basic Attack Parameters
     [Header("基本参数：")]
-    Color camp0 = new Color(0.9215686f, 0.6431373f, 0);//黄色
-    Color camp1 = new Color(0.6235294f, 0.5529412f, 0.9137255f);//紫色
-    Color camp2 = new Color(0, 0.6745098f, 0.9215686f);//蓝色
+    Color camp0 = new Color(0.454902f, 0.8980392f, 0.04705882f);//绿色
+    Color camp1 = new Color(0.9803922f, 0.1843137f, 0.6745098f);//粉色
+    Color camp2 = new Color(0.9215686f, 0.6431373f, 0);//黄色
     public SkeletonAnimation skeletonAnimation;
     public AnimationReferenceAsset idle, shoot, death, target;
     private string currentState;
@@ -70,7 +70,9 @@ public class Attack : MonoBehaviour
     private float skillCd1 = 20;
     [HideInInspector] public float tempCD;
     public Slider slider;
+    public Slider localSlider;
     public Image sliderImage;
+    public Image localSliderImage;
     public Image PlayerNumImg;
     public Sprite[] PlayerNumSpr;
     public float Mp = 100;
@@ -181,14 +183,17 @@ public class Attack : MonoBehaviour
         if (Camp == 0)
         {
             sliderImage.color = camp0;
+            localSliderImage.color = camp0;
         }
         else if (Camp == 1)
         {
             sliderImage.color = camp1;
+            localSliderImage.color = camp1;
         }
         else
         {
             sliderImage.color = camp2;
+            localSliderImage.color = camp2;
         }
         switch (Camp)
         {
@@ -398,12 +403,12 @@ public class Attack : MonoBehaviour
         TargetMp = Mathf.Clamp(TargetMp, 0, MpMax);
         TrajectoryLine.enabled = true;
         TrajectoryLine.SetPosition(0, EmitPoint.transform.position);
-        targetPos = EmitPoint.transform.position + (Camera.main.ScreenToWorldPoint(cursor.position) - EmitPoint.transform.position).normalized * 16;
+        targetPos = EmitPoint.transform.position + (Camera.main.ScreenToWorldPoint(cursor.position) - EmitPoint.transform.position)/*.normalized * 16*/;
         VelocityX = (targetPos.x - EmitPoint.transform.position.x) / 1.2f;
         VelocityY = (targetPos.y - EmitPoint.transform.position.y) / 1.2f;
         VelocityZ = 1 / 1.2f + 10 * 1.2f;
         float i = 0.02f;
-        while (i < 1 && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - targetPos.x) > 0.2f || i < 0.65f))
+        while (i < 1.5f && (Mathf.Abs(EmitPoint.transform.position.x + VelocityX * i * 1.75f - targetPos.x) > 0.2f || i < 0.65f))
         {
             TrajectoryLine.positionCount = Mathf.RoundToInt(i / 0.02f) + 1;
             TrajectoryLine.SetPosition(Mathf.RoundToInt(i / 0.02f), new Vector3(EmitPoint.transform.position.x + VelocityX * i * 1.75f, EmitPoint.transform.position.y + (VelocityY * i + VelocityZ * i) * 1.95f, 0));
@@ -431,12 +436,12 @@ public class Attack : MonoBehaviour
         bul.GetComponent<CannonBullet>().TotalTime /= (isCarryingFlag ? 1.4f : 1);
         bul.GetComponent<CannonBullet>().StartShoot(targetPos);
         bul.GetComponentInChildren<CannonExplosion>().damage = Mathf.RoundToInt(minDamage);
-        bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
+        //bul.GetComponentInChildren<CannonExplosion>().ExpRange = expRange;
         bul.GetComponentInChildren<CannonExplosion>().Camp = Camp;
-        if (BoostCannon)
-        {
-            bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
-        }
+        //if (BoostCannon)
+        //{
+        //    bul.GetComponentInChildren<CircleCollider2D>().radius *= 1.5f;
+        //}
         minDamage = 30;
         cdTime = 0;
         StartCoroutine("waitFor4");
@@ -604,6 +609,7 @@ public class Attack : MonoBehaviour
             Mp = Mathf.Lerp(Mp, TargetMp, Time.deltaTime * lerpSpeed);
         }
         slider.value = (float)(Mp / MpMax);
+        localSlider.value = (float)(Mp / MpMax);
     }
     void Update()
     {
@@ -677,7 +683,7 @@ public class Attack : MonoBehaviour
         }
         MpCalculate();
     }
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         if (CannonAiming)
         {

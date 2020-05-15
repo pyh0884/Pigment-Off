@@ -37,28 +37,28 @@ public class ChooseMap : Trans
             RightCheck.SetActive(true);
         }
         #region Input
-        if (player.GetButtonDown("MoveLeft") && !locked)
+        if (player.GetButtonDown("MoveLeft") && !locked && !paused)
         {
             Click.Play();
             if (MapNum == 0)
                 MapNum = 1;
             else MapNum = 0;
         }
-        if (player.GetButtonDown("MoveRight") && !locked)
+        if (player.GetButtonDown("MoveRight") && !locked && !paused)
         {
             Click.Play();
             if (MapNum == 0)
                 MapNum = 1;
             else MapNum = 0;
         }
-        if (player.GetButtonLongPress("MoveLeft") && !locked)
+        if (player.GetButtonLongPress("MoveLeft") && !locked && !paused)
         {
             Click.Play();
             if (MapNum == 0)
                 MapNum = 1;
             else MapNum = 0;
         }
-        if (player.GetButtonLongPress("MoveRight") && !locked)
+        if (player.GetButtonLongPress("MoveRight") && !locked && !paused)
         {
             Click.Play();
             if (MapNum == 0)
@@ -91,6 +91,20 @@ public class ChooseMap : Trans
         {
             Click.Play();
             pauseMenu.SetActive(true);
+            paused = true;
+        }
+        else if (paused)
+        {
+            if (player.GetButtonDown("Cancel"))
+            {
+                paused = false;
+                pauseMenu.SetActive(false);
+            }
+            else if (player.GetButton("Confirm"))
+            {
+                QuickLoad(0);
+            }
+
         }
         if (player.GetButton("Start") && locked && !paused)
         {
@@ -102,17 +116,6 @@ public class ChooseMap : Trans
             else
             {
                 QuickLoad(5);
-            }
-        }
-        if (paused)
-        {
-            if (player.GetButtonDown("Cancel"))
-            {
-                pauseMenu.SetActive(false);
-            }
-            else if (player.GetButton("Confirm"))
-            {
-                QuickLoad(4);
             }
         }
         #endregion

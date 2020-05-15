@@ -30,7 +30,7 @@ public class CannonExplosion : MonoBehaviour
     }
     private void Update()
     {
-        GetComponent<CircleCollider2D>().radius = ExpRange;
+        //GetComponent<CircleCollider2D>().radius = ExpRange;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -31,7 +31,7 @@ public class ColorPool : MonoBehaviour
         }
         if (collision.gameObject.layer == 12 && (collision.tag == "Cannon1" || collision.tag == "Cannon2") && collision.GetComponentInChildren<Attack>().Camp == Camp)
         {
-            collision.GetComponentInChildren<Attack>().expRange = 2;
+            collision.GetComponentInChildren<Attack>().expRange = 1;
             collision.GetComponentInChildren<Attack>().MpBoost = true;
         }
     }

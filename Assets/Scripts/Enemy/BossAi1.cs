@@ -106,7 +106,7 @@ public class BossAi1 : MonoBehaviour
             angle2 = Mathf.Atan2(dir2.y, dir2.x) * Mathf.Rad2Deg;
             Emit1.transform.rotation = Quaternion.Euler(0, 0, angle);
             Emit2.transform.rotation = Quaternion.Euler(0, 0, angle2);
-            if (Vector2.Distance(notMove.transform.position, transform.position) > 15)
+            if (Vector2.Distance(notMove.transform.position, transform.position) > 10)
             {
                 isMoving = true;
             }
@@ -166,7 +166,6 @@ public class BossAi1 : MonoBehaviour
         else 
         if (!isMoving && !isAttacking) 
         {
-            Debug.Log(1);
             SetCharacterState("idle");
         }
     }
