@@ -98,7 +98,7 @@ public class BossAi2 : MonoBehaviour
             dir = notMove.transform.position - Gun.transform.position;
             angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Gun.transform.rotation = Quaternion.Euler(0, 0, angle+150);
-            if (Vector2.Distance(notMove.transform.position, transform.position) > 15)
+            if (Vector2.Distance(notMove.transform.position, transform.position) > 8)
             {
                 isMoving = true;
             }
@@ -143,9 +143,10 @@ public class BossAi2 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         rg.SetCharacterState("attack");
         penshui.SetActive(true);
+        penshui.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, -30), new Vector3(0, 0, 60), Time.deltaTime * 5));
         GetComponent<AudioSource>().Play();
         SetCharacterState("shoot");
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2.3f);
         penshui.SetActive(false);
         SetCharacterState("idle");
         AttackTimer = 0;

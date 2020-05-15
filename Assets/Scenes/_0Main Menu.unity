@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 0}
-  DestroyManager: 1
+  DestroyManager: 0
 --- !u!1 &604104935
 GameObject:
   m_ObjectHideFlags: 0

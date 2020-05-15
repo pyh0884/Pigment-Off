@@ -13,7 +13,7 @@ public class CursorBoundaries2 : MonoBehaviour
         {
             if (!initialed)
             {
-                Debug.Log("initialed");
+
                 transform.position = Camera.main.WorldToScreenPoint(new Vector3(PlayerTrans.position.x + 10, PlayerTrans.position.y + 5));
                 initialed = true;
             }

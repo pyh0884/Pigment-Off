@@ -7,7 +7,6 @@ public class KeLePing : MonoBehaviour
     public float LastTime = 8;
     void Start()
     {
-        Debug.Log(LastTime);
         Destroy(gameObject, LastTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public bool paused = false;
     public float PlayTime = 300;
     public int WinnerNum = 1;
+    public int WinnerPlayer = 0;
     public float WinnerTime = 0;
     [HideInInspector] public CursorSprites cs;
     //public float ItemTimer = 3;
@@ -358,17 +359,30 @@ public class GameManager : MonoBehaviour
                         if (player1Time >= player2Time)
                         {
                             WinnerNum = player1;
+                            WinnerPlayer = 0;
                         }
                         else
                         {
-
                             WinnerNum = player2;
+                            WinnerPlayer = 1;
                         }
                         WinnerTime = player1Time + player2Time;
                         if (sceneNum == 4)
+                        {
+                            cursor1.SetActive(false);
+                            cursor2.SetActive(false);
+                            cursor3.SetActive(false);
+                            cursor4.SetActive(false);
                             pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                        }
                         else
+                        {
+                            cursor1.SetActive(false);
+                            cursor2.SetActive(false);
+                            cursor3.SetActive(false);
+                            cursor4.SetActive(false);
                             pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                        }
                         Debug.Log("Camp 0 胜利 黄色");
                     }
                     else
@@ -376,16 +390,30 @@ public class GameManager : MonoBehaviour
                         if (player3Time >= player4Time)
                         {
                             WinnerNum = player3;
+                            WinnerPlayer = 2;
                         }
                         else
                         {
                             WinnerNum = player4;
+                            WinnerPlayer = 3;
                         }
                         WinnerTime = player3Time + player4Time;
                         if (sceneNum == 4)
+                        {
+                            cursor1.SetActive(false);
+                            cursor2.SetActive(false);
+                            cursor3.SetActive(false);
+                            cursor4.SetActive(false);
                             pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                        }
                         else
+                        {
+                            cursor1.SetActive(false);
+                            cursor2.SetActive(false);
+                            cursor3.SetActive(false);
+                            cursor4.SetActive(false);
                             pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                        }
                         Debug.Log("Camp 1 胜利 紫色");
                     }
 
@@ -398,30 +426,69 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
+                            WinnerPlayer = 0;
                             if (sceneNum == 4)
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            }
                             else
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                            }
                             Debug.Log("Camp 0 胜利 黄色");
                         }
                         else if (player2Time >= player1Time && player2Time >= player3Time)
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
+                            WinnerPlayer = 1;
                             if (sceneNum == 4)
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            }
                             else
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                            }
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                         else
                         {
                             WinnerTime = player3Time;
                             WinnerNum = player3;
+                            WinnerPlayer = 2;
                             if (sceneNum == 4)
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            }
                             else
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                            }
                             Debug.Log("Camp 2 胜利 蓝色");
                         }
                     }
@@ -431,20 +498,46 @@ public class GameManager : MonoBehaviour
                         {
                             WinnerTime = player1Time;
                             WinnerNum = player1;
+                            WinnerPlayer = 0;
                             if (sceneNum == 4)
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            }
                             else
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                            }
                             Debug.Log("Camp 0 胜利 黄色");
                         }
                         else
                         {
                             WinnerTime = player2Time;
                             WinnerNum = player2;
+                            WinnerPlayer = 1;
                             if (sceneNum == 4)
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(6);
+                            }
                             else
+                            {
+                                cursor1.SetActive(false);
+                                cursor2.SetActive(false);
+                                cursor3.SetActive(false);
+                                cursor4.SetActive(false);
                                 pauseMenu.GetComponent<Trans>().QuickLoad(7);
+                            }
                             Debug.Log("Camp 1 胜利 紫色");
                         }
                     }

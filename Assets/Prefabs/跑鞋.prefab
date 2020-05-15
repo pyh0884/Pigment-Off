@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7564906903138725511}
   - component: {fileID: 6515791330251613351}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Spr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,9 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2339799271147433830}
   - component: {fileID: 2339799271147433831}
-  - component: {fileID: 6165805213105434413}
   - component: {fileID: -8335757984741250382}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: "\u8DD1\u978B"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 2339799271147433834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1471193001200943771}
   - {fileID: 7127058574203231530}
@@ -132,27 +131,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.43330288}
   serializedVersion: 2
   m_Radius: 0.9333029
---- !u!50 &6165805213105434413
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2339799271147433834}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &-8335757984741250382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7127058574203231530}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Spr_Offset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1471193001200943771}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Obj_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2397612910627562875}
   - component: {fileID: 7570343069737975229}
-  m_Layer: 16
+  m_Layer: 0
   m_Name: Spr_Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

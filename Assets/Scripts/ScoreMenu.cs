@@ -15,14 +15,18 @@ public class ScoreMenu : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
         img[0].sprite = spr[gm.WinnerNum - 1];
-        crowns[gm.WinnerNum - 1].SetActive(true);
+        crowns[gm.WinnerPlayer].SetActive(true);
         //tex[0].text = (Mathf.FloorToInt(gm.WinnerTime / 300f * 1000f) / 10f) + " %";
         tex[1].text = gm.player1Time + "S";
         tex[2].text = gm.player2Time + "S";
-        if (gm.player3 != 0) 
-        tex[3].text = gm.player3Time + "S";  
+        if (gm.player3 != 0)
+            tex[3].text = gm.player3Time + "S";
+        else
+            tex[3].text = "";
         if (gm.player4 != 0) 
         tex[4].text = gm.player4Time + "S";
+        else
+            tex[4].text = "";
     }
     public void selfDes()
     {
@@ -40,6 +44,5 @@ public class ScoreMenu : MonoBehaviour
     }
     private void LateUpdate()
     {
-        //img[0].SetNativeSize();
     }
 }

@@ -30,7 +30,7 @@ public class HaloParticle : MonoBehaviour
             float rad = angle / 180 * Mathf.PI;//角度变换成弧度
             float midR = (maxR + radius) / 2;
             //最小半径随机扩大
-            float rate1 = Random.Range(1.0f, midR / radius);
+            float rate1 = Random.Range(1.05f, midR / radius);
             //最大半径随机缩小
             float rate2 = Random.Range(midR / maxR, 1.0f);
             float r = Random.Range(radius * rate1, maxR * rate2);

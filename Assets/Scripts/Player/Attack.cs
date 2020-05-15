@@ -163,10 +163,13 @@ public class Attack : MonoBehaviour
         MpIncreaseSpeed *= 3;
         SkillEFX.SetActive(true);
         var skill1 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
+        skill1.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(0.5f);
         var skill2 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
+        skill2.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(0.5f);
         var skill3 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
+        skill3.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(7);
         SkillEFX.SetActive(false);
         MpIncreaseSpeed /= 3;
