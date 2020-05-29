@@ -138,22 +138,27 @@ public class Attack : MonoBehaviour
     IEnumerator SkillBoost1()
     {
         SkillTimer = 0;
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 2, false);
         MpIncreaseSpeed *= 3;
         CdTime /= 2;
         SkillEFX.SetActive(true);
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(8);        
         SkillEFX.SetActive(false);
         MpIncreaseSpeed /= 3;
         CdTime *= 2;
+        yield return new WaitForSeconds(12);
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 2, true);
     }
     IEnumerator SkillBoost2()
     {
-        Debug.Log("Skill");
         SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         main.GetComponent<PlayerMovement>().dash();
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 1, false);
         yield return new WaitForSeconds(8);
         MpIncreaseSpeed /= 3;
+        yield return new WaitForSeconds(12);
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 1, true);
     }
     private Vector3 temp;
     IEnumerator SkillBoost3()
@@ -162,17 +167,18 @@ public class Attack : MonoBehaviour
            SkillTimer = 0;
         MpIncreaseSpeed *= 3;
         SkillEFX.SetActive(true);
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 0, false);
         var skill1 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
-        skill1.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(0.5f);
         var skill2 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
-        skill2.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(0.5f);
         var skill3 = Instantiate(CannonSkill, new Vector3(temp.x, temp.y + 10), Quaternion.identity);
-        skill3.GetComponent<CannonSkill>().Camp = Camp;
         yield return new WaitForSeconds(7);
         SkillEFX.SetActive(false);
         MpIncreaseSpeed /= 3;
+        yield return new WaitForSeconds(12);
+        FindObjectOfType<TopCanvas>().CD(playerID + 1, 0, true);
+
     }
     void Start()
     {
@@ -519,7 +525,6 @@ public class Attack : MonoBehaviour
         }
         if (isSniper && player.GetButtonDown("Skill") && CanAttack && skillCd2 > SkillCd2)
         {
-            Debug.Log("Sill");
             skillCd2 = 0;
             StartCoroutine("SkillBoost2");
         }

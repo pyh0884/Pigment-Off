@@ -13,6 +13,7 @@ public class TopCanvas : MonoBehaviour
     public Text txt;
     public GameObject[] gos;
     public Image[] refresh;
+    private int[] SkillNum = new int[4];
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
@@ -37,14 +38,17 @@ public class TopCanvas : MonoBehaviour
             if (gm.player3 == 1 || gm.player3 == 2)
             {
                 images[6].sprite = sprs[8];
+                SkillNum[2] = 1;
             }
             else if (gm.player3 == 3 || gm.player3 == 4)
             {
                 images[6].sprite = sprs[9];
+                SkillNum[2] = 2;
             }
             else
             {
                 images[6].sprite = sprs[10];
+                SkillNum[2] = 3;
             }
         }
         else 
@@ -73,7 +77,7 @@ public class TopCanvas : MonoBehaviour
         }
         if (gm.player1 == 1 || gm.player1 == 2)
         {
-            images[4].sprite = sprs[8];
+            images[4].sprite = sprs[8]; 
         }
         else if (gm.player1 == 3 || gm.player1 == 4)
         {
@@ -81,7 +85,7 @@ public class TopCanvas : MonoBehaviour
         }
         else
         {
-            images[5].sprite = sprs[10];
+            images[4].sprite = sprs[10];
         }
         if (gm.player2 == 1 || gm.player2 == 2)
         {
@@ -89,14 +93,81 @@ public class TopCanvas : MonoBehaviour
         }
         else if (gm.player2 == 3 || gm.player2 == 4)
         {
-            images[5].sprite = sprs[9];
+            images[5].sprite = sprs[9]; 
         }
         else
         {
-            images[5].sprite = sprs[10];
+            images[5].sprite = sprs[10]; 
         }
         #endregion
     }
+    public void CD(int playerNum,int playerClass,bool ready) 
+    {
+        switch (playerNum) 
+        {
+            case 1:
+                if (playerClass == 0)
+                {
+                    images[4].sprite = ready ? sprs[8]: sprs[11];
+                }
+                else if (playerClass == 1)
+                {
+                    images[4].sprite = ready ? sprs[9] : sprs[12];
+                }
+                else 
+                {
+                    images[4].sprite = ready ? sprs[10] : sprs[13];
+                }
+                break;
+            case 2:
+                if (playerClass == 0)
+                {
+                    images[5].sprite = ready ? sprs[8] : sprs[11];
+                }
+                else if (playerClass == 1)
+                {
+                    images[5].sprite = ready ? sprs[9] : sprs[12];
+                }
+                else
+                {
+                    images[5].sprite = ready ? sprs[10] : sprs[13];
+                }
+
+                break;
+            case 3:
+                if (playerClass == 0)
+                {
+                    images[6].sprite = ready ? sprs[8] : sprs[11];
+                }
+                else if (playerClass == 1)
+                {
+                    images[6].sprite = ready ? sprs[9] : sprs[12];
+                }
+                else
+                {
+                    images[6].sprite = ready ? sprs[10] : sprs[13];
+                }
+
+                break;
+            case 4:
+                if (playerClass == 0)
+                {
+                    images[7].sprite = ready ? sprs[8] : sprs[11];
+                }
+                else if (playerClass == 1)
+                {
+                    images[7].sprite = ready ? sprs[9] : sprs[12];
+                }
+                else
+                {
+                    images[7].sprite = ready ? sprs[10] : sprs[13];
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     public void Shield(int num)
     {
         switch (num)
