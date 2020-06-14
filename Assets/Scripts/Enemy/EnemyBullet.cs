@@ -19,6 +19,7 @@ public class EnemyBullet : MonoBehaviour
     public GameObject efx2;
     public GameObject shadow;
     public bool isBoss;
+    public GameObject StoneSound;
     void Start()
     {
         ColorType = Mathf.FloorToInt(Random.Range(0, 2.9f));
@@ -40,7 +41,12 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.layer == 13) //"Wall"
         {
             if (isBoss)
+            {
+                var sound = Instantiate(StoneSound, Vector3.zero, Quaternion.Euler(0, 0, 0));
+                sound.GetComponent<AudioSource>().Play();
+                Destroy(sound, 2);
                 Destroy(collision.gameObject);
+            }
             Destroy(gameObject);
         }
     }

@@ -228,6 +228,8 @@ MonoBehaviour:
   efx2: {fileID: 8125064631580348706, guid: f6605eb86aa83fe4eb94617442da46da, type: 3}
   shadow: {fileID: 2491919214985359070}
   isBoss: 1
+  StoneSound: {fileID: 8677319974932925849, guid: 65d8bbbec009b3c44b7796e745931d7d,
+    type: 3}
 --- !u!95 &4560313722842390345
 Animator:
   serializedVersion: 3

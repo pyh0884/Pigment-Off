@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChooseMap : Trans
 {
@@ -18,6 +19,7 @@ public class ChooseMap : Trans
     public GameObject RightCheck;
     public GameObject LeftLock;
     public GameObject RightLock;
+    public Image[] imgs;
     void Start()
     {
         player = ReInput.players.GetPlayer(playerID);
@@ -119,5 +121,15 @@ public class ChooseMap : Trans
             }
         }
         #endregion
+    }
+    private void LateUpdate()
+    {
+        if (imgs.Length != 0)
+        {
+            foreach (Image img in imgs)
+            {
+                img.SetNativeSize();
+            }
+        }
     }
 }
