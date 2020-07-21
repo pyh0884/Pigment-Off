@@ -202,7 +202,6 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0, z: 0}
   xOffSet: 0
   yOffSet: 0
-  velocity: 10
   velocityX: 0
   velocityY: 0
   velocityZ0: 0
@@ -258,7 +257,7 @@ MonoBehaviour:
   ExpAudio: {fileID: 7298013254617352608, guid: 7492744f04666c7419e1d0f1c4eae203,
     type: 3}
   height: 0.6
-  TotalTime: 1
+  TotalTime: 0.5
 --- !u!95 &8486718762437300458
 Animator:
   serializedVersion: 3
@@ -340,7 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShootSpeed: 0
   Range: 30
-  damage: 50
+  damage: 60
   CritPos: 0
   CritDmgMultiplier: 150
   ExpRange: 1

@@ -10,11 +10,10 @@ public class CannonBullet : MonoBehaviour
     public Vector3 targetPos;
     public float xOffSet;
     public float yOffSet;
-    public float velocity = 20;//炮弹速度    
     public float velocityX;
     public float velocityY;
     public float velocityZ0;
-    private float time = 1;
+    private float time = 0.5f;
     private float screenY;
     private float screenZ;
     private float screenX;

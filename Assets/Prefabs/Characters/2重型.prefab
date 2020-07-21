@@ -137,7 +137,7 @@ MonoBehaviour:
     type: 3}
   TrajectoryLine: {fileID: 7742236172118973705}
   minDamage: 30
-  maxDamage: 45
+  maxDamage: 60
   BoostCannon: 0
   SkillCd3: 20
   expRange: 1
@@ -11172,7 +11172,7 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: 49f7eee36bfc5af408b77c1fc4ddbb1f, type: 2}
   attack: {fileID: 11400000, guid: 72f3cd2d02518d446833a07d286684e4, type: 2}
   death: {fileID: 11400000, guid: d7abc36d5c072254e9f5dcab64b6a71b, type: 2}
-  MoveSpeed: 8
+  MoveSpeed: 10
   Slowed: 0
   Boost: 0
   rb: {fileID: 0}
@@ -11641,8 +11641,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0952355
-        value: 0.17322777
+        time: 0.11554113
+        value: 0.28861475
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -11654,9 +11654,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.98039216, g: 0.18431373, b: 0.6745098, a: 1}
+      key1: {r: 0.98039216, g: 0.18431373, b: 0.6745098, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -11671,8 +11671,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 35081
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -11680,7 +11680,7 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0

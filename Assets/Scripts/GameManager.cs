@@ -111,12 +111,19 @@ public class GameManager : MonoBehaviour
         }
         if (sceneNum == 4 || sceneNum == 5)  //战斗场景
         {
+            if (sceneNum == 4)
+            {
+                PlayerTrans[0] = new Vector3(-12f, 9f);
+                PlayerTrans[1] = new Vector3(10.5f, 10f);
+                PlayerTrans[2] = new Vector3(-10f, -14f);
+                PlayerTrans[3] = new Vector3(14f, -14f);
+            }
             if (sceneNum == 5)
             {
-                PlayerTrans[0] = new Vector3(-17.83f, 9.5f);
-                PlayerTrans[1] = new Vector3(17.83f, 9.5f);
-                PlayerTrans[2] = new Vector3(-17.83f, -11);
-                PlayerTrans[3] = new Vector3(17.83f, -11);
+                PlayerTrans[0] = new Vector3(-15f, 9.5f);
+                PlayerTrans[1] = new Vector3(15f, 9.5f);
+                PlayerTrans[2] = new Vector3(-15f, -11f);
+                PlayerTrans[3] = new Vector3(15f, -11f);
             }
             StartCoroutine("InsBoss1");
             cs.ChangeCursor();

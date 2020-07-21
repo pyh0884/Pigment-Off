@@ -10243,7 +10243,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1653469a55e969b4daccc46564fbf8cf, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10274,17 +10274,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.04385376
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.051992252
-        value: 0.1337482
+        time: 0.11554113
+        value: 0.28861475
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -10296,9 +10287,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
-      key1: {r: 1, g: 0, b: 0, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.98039216, g: 0.18431373, b: 0.6745098, a: 1}
+      key1: {r: 0.98039216, g: 0.18431373, b: 0.6745098, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -10313,8 +10304,8 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 35081
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -10322,7 +10313,7 @@ LineRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -10592,7 +10583,7 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: 7a26c39396aeb5243bf0c8acf0ed63bf, type: 2}
   attack: {fileID: 11400000, guid: cbcb6ed2e99d4744a8472e86ee176fbd, type: 2}
   death: {fileID: 11400000, guid: 9f490bfac0d29a842bfd1710ee548725, type: 2}
-  MoveSpeed: 8
+  MoveSpeed: 10
   Slowed: 0
   Boost: 0
   rb: {fileID: 0}
@@ -10950,7 +10941,7 @@ MonoBehaviour:
     type: 3}
   TrajectoryLine: {fileID: 3811028482898237771}
   minDamage: 30
-  maxDamage: 45
+  maxDamage: 60
   BoostCannon: 0
   SkillCd3: 20
   expRange: 1

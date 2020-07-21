@@ -519,7 +519,7 @@ MonoBehaviour:
   MpMax: 100
   TargetMp: 100
   lerpSpeed: 5
-  MpIncreaseSpeed: 7
+  MpIncreaseSpeed: 6
   MpBoost: 0
   MpBoostNum: 3
   MpSlow: 0
@@ -755,7 +755,7 @@ MonoBehaviour:
   walk: {fileID: 11400000, guid: 07dcc10e8f1d47247a084b0e51a0b0e9, type: 2}
   attack: {fileID: 11400000, guid: f3dcdbfeaaa790341b35e5a890c103dc, type: 2}
   death: {fileID: 11400000, guid: 66dc4122883908c44afaa33e7a7d1280, type: 2}
-  MoveSpeed: 10
+  MoveSpeed: 11.5
   Slowed: 0
   Boost: 0
   rb: {fileID: 0}
